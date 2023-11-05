@@ -1,0 +1,46 @@
+
+.button{
+
+    -fx-background-color: #40CBC0;
+    -fx-color-label-visible: white;
+    -fx-border-color: white;
+    -fx-border-radius: 3;
+    -fx-border-radius: 10;
+
+}
+.button:hover{
+    -fx-background-color: BEBEBE;
+}
+#paneCampos{
+    -fx-background-color: #C9D5D4;
+    -fx-border-color: #024056;
+    -fx-border-radius: 10;
+}
+#panePrincipal  {
+    -fx-background-color: white;
+}
+#paneBotones{
+    -fx-background-color: #C9D5D4;
+    -fx-border-color: #024056;
+    -fx-border-radius: 10;
+
+}
+.label{
+    -fx-border-radius: 3;
+
+}
+#paneTable{
+    -fx-background-color: #C9D5D4;
+    -fx-border-color: #174a5d;
+    -fx-border-radius: 10;
+}
+#tableDatos{
+    -fx-border-radius: 20;
+
+}
+#txtArea{
+    -fx-background-color: #174a5d;
+    -fx-border-color: #174a5d;
+
+
+}

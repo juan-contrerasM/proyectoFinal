@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="20.0.2" class="java.beans.XMLDecoder">
+ <object class="co.edu.uniquindo.proyectosubastaquindio.model.SubastaQuindio" id="SubastaQuindio0">
+  <void property="listaAnunciantes">
+   <void method="add">
+    <object class="co.edu.uniquindo.proyectosubastaquindio.model.Anunciante">
+     <void property="apellido">
+      <string>contreras</string>
+     </void>
+     <void property="cantAnunciosActivos">
+      <int>10</int>
+     </void>
+     <void property="cantTimpoLimitado">
+      <float>11.0</float>
+     </void>
+     <void property="cedula">
+      <string>123</string>
+     </void>
+     <void property="contrasenia">
+      <string>123</string>
+     </void>
+     <void property="edad">
+      <int>18</int>
+     </void>
+     <void property="nombre">
+      <string>juan</string>
+     </void>
+     <void property="usuario">
+      <string>juan</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindo.proyectosubastaquindio.model.Anunciante">
+     <void property="apellido">
+      <string>jnk</string>
+     </void>
+     <void property="cantAnunciosActivos">
+      <int>10</int>
+     </void>
+     <void property="cantTimpoLimitado">
+      <float>11.0</float>
+     </void>
+     <void property="cedula">
+      <string>nkml</string>
+     </void>
+     <void property="contrasenia">
+      <string>2</string>
+     </void>
+     <void property="edad">
+      <int>2</int>
+     </void>
+     <void property="nombre">
+      <string>juan</string>
+     </void>
+     <void property="usuario">
+      <string>2</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="listaProductos">
+   <void method="add">
+    <object class="co.edu.uniquindo.proyectosubastaquindio.model.Producto">
+     <void property="descripcion">
+      <string>77</string>
+     </void>
+     <void property="nombreProducto">
+      <string>HUJX</string>
+     </void>
+     <void property="tipo_Articulo">
+      <object class="java.lang.Enum" id="tipoArticulo0" method="valueOf">
+       <class>co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo</class>
+       <string>DEPORTE</string>
+      </object>
+     </void>
+     <void property="urlFoto">
+      <string>C:\Users\juanj\OneDrive\Escritorio\td\proyectoSubastaQuindio - copia - copia\src\main\resources\co\edu\uniquindo\proyectosubastaquindio\imagenes\Captura de pantalla 2023-10-19 112402.png</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindo.proyectosubastaquindio.model.Producto">
+     <void property="descripcion">
+      <string>un arroz muy rico</string>
+     </void>
+     <void property="nombreProducto">
+      <string>arrox</string>
+     </void>
+     <void property="tipo_Articulo">
+      <object idref="tipoArticulo0"/>
+     </void>
+     <void property="urlFoto">
+      <string>C:\Users\juanj\OneDrive\Escritorio\td\proyectoSubastaQuindio - copia - copia\src\main\resources\co\edu\uniquindo\proyectosubastaquindio\imagenes\Captura de pantalla 2023-10-24 102608.png</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindo.proyectosubastaquindio.model.Producto">
+     <void property="descripcion">
+      <string>mt09</string>
+     </void>
+     <void property="nombreProducto">
+      <string>moto</string>
+     </void>
+     <void property="tipo_Articulo">
+      <object class="java.lang.Enum" method="valueOf">
+       <class>co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo</class>
+       <string>VEHICULO</string>
+      </object>
+     </void>
+     <void property="urlFoto">
+      <string>C:\Users\juanj\OneDrive\Escritorio\td\proyectoSubastaQuindio - copia - copia\src\main\resources\co\edu\uniquindo\proyectosubastaquindio\imagenes\Captura de pantalla 2023-10-05 203531.png</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>
