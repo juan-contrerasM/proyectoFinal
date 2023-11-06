@@ -13,8 +13,8 @@ import java.util.List;
 /*
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-11-05T12:24:26-0500",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 20.0.2 (Oracle Corporation)"
+    date = "2023-11-05T21:24:35-0500",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21 (Oracle Corporation)"
 )
 */
 public class SubastaQuindioMapperImpl implements SubastaQuindioMapper {

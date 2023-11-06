@@ -22,6 +22,7 @@ import co.edu.uniquindo.proyectosubastaquindio.controller.crudProductoController
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -148,7 +149,11 @@ public class CrudProductoControllerView implements Initializable {
             for (ProductoDto productoDto:productos) {
                 nombresProductos.add(productoDto.nombreProducto());
             }
-            comboSeleccion.setItems(nombresProductos);
+            
+            //error
+
+
+           // comboSeleccion.setItems(nombresProductos);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -181,6 +186,8 @@ public class CrudProductoControllerView implements Initializable {
                     productos.addAll(crudProductoController.actualizarProducto(productoDto));
                 } else {
                     mostrarMensaje("Producto no encontrado", "no se puede actualizar", "el producto no se pudo actualizar \n verifique que si esta selecionando un prodcuto\n existente", Alert.AlertType.WARNING);
+                    registrarAcciones("Error al actualizar",1, "no se encontro el producto");
+
                 }
             }
             limpiarCamposProducto();
@@ -188,6 +195,8 @@ public class CrudProductoControllerView implements Initializable {
             registrarAcciones("Producto actualizado", 1, "Producto actualizado");
         }else {
             mostrarMensaje("Autenticarse","Usuario no autnticado","Debe registrarse para ser atutenticado\npara poder actualizar el producto", Alert.AlertType.ERROR);
+            registrarAcciones("Error al actualizar debe autenticarse",1, "no hubo un registro");
+
         }
 
 
@@ -208,11 +217,16 @@ public class CrudProductoControllerView implements Initializable {
                     registrarAcciones("Producto agregado", 1, "Producto fue agregado");
 
                 } else {
+
                     mostrarMensaje("producto existente ", "Producto", "El producto ya fue creado, cambie el nombre o elimine el producto", Alert.AlertType.INFORMATION);
+                    registrarAcciones("Error al agregar",1, "producto ya creado");
+
                 }
             }
     }else {
             mostrarMensaje("Autenticarse","Usuario no autnticado","Debe registrarse para ser atutenticado\npara poder guardar el producto", Alert.AlertType.ERROR);
+            registrarAcciones("Error al agregar debe autenticarse",1, "no hubo un registro");
+
         }
 
 
@@ -220,7 +234,7 @@ public class CrudProductoControllerView implements Initializable {
 
     //------------------------------verifcar SI el producto fue creado
     public boolean verificarProducto(ProductoDto productoDto) throws IOException {
-        registrarAcciones("SE VERIFICO PRODCUTO",1, "Producto verificado");
+        registrarAcciones("Se verifico producto",1, "Producto verificado");
         return crudProductoController.verificarProductoCreado(productoDto);
 
     }
@@ -238,6 +252,8 @@ public class CrudProductoControllerView implements Initializable {
             registrarAcciones("Producto eliminado", 1, "Producto fue elimiando");
         }else {
             mostrarMensaje("Autenticarse","Usuario no autnticado","Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
+            registrarAcciones("Error al eliminar debe autenticarse",1, "no hubo un registro");
+
         }
 
     }
@@ -263,13 +279,16 @@ public class CrudProductoControllerView implements Initializable {
                     Image image = new Image(destino.toURI().toString());
                     imgFoto.setImage(image);
                     txtUrlFoto.setText(String.valueOf(destino));
+                    registrarAcciones("Imagen importada",1, "importacion exitosa");
+
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error al importar imagen: "+e);
+                    registrarAcciones("Error al importar imagen ",1, "Error al importar imagen");
+
                     // Aquí puedes manejar errores si la copia falla
                 }
             }
         }
-        registrarAcciones("se importo imagen",1, "se impor la imagen");
 
 
 
@@ -297,7 +316,7 @@ public class CrudProductoControllerView implements Initializable {
             comboTipoProducto.setValue(empleadoSeleccionado.tipo_Articulo());
             Image image = new Image(empleadoSeleccionado.urlFoto());
             imgFoto.setImage(image);
-            registrarAcciones("Mostrar Informacion Producto",1, "Se mostro producto seleccionado");
+            registrarAcciones("se muestra Informacion del  Producto seleccionado",1, "Se muestra la informacion del producto seleccionado");
 
 
         }
@@ -332,9 +351,10 @@ public class CrudProductoControllerView implements Initializable {
             mensaje += "Debe escojer un tipo de producto \n";
         if (mensaje.equals("")) {
             return true;
+
         } else {
             mostrarMensaje("Notificación cliente", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
-            registrarAcciones("Noficiacion cliente",1, "datos invalidos");
+            registrarAcciones("datos no validos",1, "datos invalidos");
             return false;
         }
     }
@@ -366,7 +386,45 @@ public class CrudProductoControllerView implements Initializable {
             System.out.println("Ningún elemento seleccionado.");
         }
 
-    }
+    }//SEgunda parte
+
+    @FXML
+    private ComboBox<?> comboSeleccionProducto;
+
+    @FXML
+    private Button btnCargarProducto;
+    @FXML
+    private TableColumn<?, ?> columna1Anuncio;
+
+    @FXML
+    private TableColumn<?, ?> columna2Anuncio;
+
+    @FXML
+    private TableColumn<?, ?> columna3Anuncio;
+
+    @FXML
+    private TableColumn<?, ?> columna4Anuncio;
+
+    @FXML
+    private TableColumn<?, ?> columna5Anuncio;
+
+    @FXML
+    private TableColumn<?, ?> columna6Anuncio;
+
+    @FXML
+    private TableColumn<?, ?> columna7Anuncio;
+
+
+    @FXML
+    private TableView<?> tableAnuncio;
+
+
+
+
+
+
+
+
 
 
 
@@ -393,6 +451,8 @@ public class CrudProductoControllerView implements Initializable {
                     autenticacion = true;
                     limpiarCamposHome();
                     mostrarMensaje("inicio sesion", "se inicio sesion", "Se inicio sesion Correctamente \n ya puede hacer uso \n  de las acciones de la applicacion", Alert.AlertType.CONFIRMATION);
+                    registrarAcciones("se inicio sesion", 1, "tipo anunciante");
+
                 } else {
                     mostrarMensaje("inicio sesion", "credenciales incorrectas", "no se inicio sesion \n clave o usuario incorrecto", Alert.AlertType.WARNING);
                 }
@@ -401,7 +461,11 @@ public class CrudProductoControllerView implements Initializable {
                     autenticacion=true;
                     limpiarCamposHome();
                     mostrarMensaje("inicio sesion", "se inicio sesion", "Se inicio sesion Correctamente \n ya puede hacer uso \n  de las acciones de la applicacion", Alert.AlertType.CONFIRMATION);
+                    registrarAcciones("se inicio sesion", 1, "tipo comprador");
+
                 }else {
+
+                    registrarAcciones("Error al iniciar sesion ",1, "datos invalidos");
                     mostrarMensaje("inicio sesion", "credenciales incorrectas", "no se inicio sesion \n clave o usuario incorrecto", Alert.AlertType.WARNING);
                 }
 
@@ -412,6 +476,7 @@ public class CrudProductoControllerView implements Initializable {
             txtClaveHome.setText("");
             txtUsuarioHome.setText("");
             comboTipo. setPromptText("Tipo de usuario");
+
         }
 
         //+++++++++++++++++++++++++++++++++++++++++++++++++REGISTRO++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -463,6 +528,8 @@ public class CrudProductoControllerView implements Initializable {
                     if(crudProductoController.verificarAnuncianteCreado(anuncianteDto)) {
                         crudProductoController.guardarAnunciante(anuncianteDto);
                         limpiarCamposRegistro();
+                        registrarAcciones("guardar usuario", 1, "guardar usuario anunciante");
+
                     }
                 } else if (comboTipo.getValue().equals(TipoUsuario.COMPRADOR)) {
                     CompradorDto compradorDto = construirCompradorDto();
@@ -470,6 +537,8 @@ public class CrudProductoControllerView implements Initializable {
                         crudProductoController.guardarComprador(compradorDto);
                         limpiarCamposRegistro();
                     }
+                    registrarAcciones("guardar usuario", 1, "guardar usuario comprador");
+
                 }
             }
 
@@ -532,7 +601,7 @@ public class CrudProductoControllerView implements Initializable {
         //++++++++++++++++++++++++++++++++++DTOS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         //EMPLEADO
         private ProductoDto construirEmpleadoDto() {
-            registrarAcciones("Contruir prodcutoDto",1, "Se construyo producto Dto");
+            registrarAcciones("se creo ProductoDTO",1, "se creo ProductoDTO");
             return new ProductoDto(
                     txtNombreProducto.getText(),
                     txtDescripcion.getText(),
@@ -544,6 +613,9 @@ public class CrudProductoControllerView implements Initializable {
         }
         //ANUNCIANTE
     private AnuncianteDto construirAnuncianteDto(){
+        registrarAcciones("se creo un anuncianteDTO", 1, "se creo un anuncianteDTO");
+
+
         return  new AnuncianteDto(
                 txtNombre.getText(),
                 txtApellido.getText(),
@@ -556,9 +628,12 @@ public class CrudProductoControllerView implements Initializable {
 
 
         );
+
     }
     //COMPRADOR
     private CompradorDto construirCompradorDto(){
+        registrarAcciones("se creo un compradorDTO", 1, "se creo un compradorDTO");
+
         return new CompradorDto(     txtNombre.getText(),
                 txtApellido.getText(),
                 txtCedula.getText(),

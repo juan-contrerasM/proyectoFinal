@@ -4,8 +4,7 @@
     -fx-background-color: #40CBC0;
     -fx-color-label-visible: white;
     -fx-border-color: white;
-    -fx-border-radius: 3;
-    -fx-border-radius: 10;
+    -fx-border-radius: 30;
 
 }
 .button:hover{
@@ -29,7 +28,7 @@
     -fx-border-radius: 3;
 
 }
-#paneTable{
+#paneTable,#paneHome,#paneRegistro, #paneBodyAnuncio,#paneHeadAnuncio{
     -fx-background-color: #C9D5D4;
     -fx-border-color: #174a5d;
     -fx-border-radius: 10;
@@ -38,9 +37,37 @@
     -fx-border-radius: 20;
 
 }
+#vboxIzquierda{
+    -fx-background-color:#C9D5D4;
+}
 #txtArea{
     -fx-background-color: #174a5d;
     -fx-border-color: #174a5d;
 
 
+}
+
+.text-field{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
+}
+#txtDescripcion{
+    -fx-background-radius: 10;
+
+
+}
+#hboxHead{
+    -fx-background-color: #C9D5D4;
+    -fx-border-color: #024056;
+    -fx-border-radius: 10;
+
+}
+
+#tableDatos{
+    -fx-background-radius: 20;
+
+}
+.combo-box{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
 }
