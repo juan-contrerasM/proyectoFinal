@@ -11,6 +11,8 @@ import org.w3c.dom.ls.LSOutput;
 import java.io.*;
 
 public class SubastaQuindioAplication extends Application {
+
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SubastaQuindioAplication.class.getResource("productoView.fxml"));

@@ -1,22 +1,22 @@
 
 
 package co.edu.uniquindo.proyectosubastaquindio.controllersView;
+
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
-import co.edu.uniquindo.proyectosubastaquindio.model.Producto;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoUsuario;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import co.edu.uniquindo.proyectosubastaquindio.controller.crudProductoController;
 import javafx.stage.FileChooser;
@@ -33,6 +33,26 @@ import java.util.ResourceBundle;
 
 public class CrudProductoControllerView implements Initializable {
 
+
+    /**
+     * tabs
+     */
+    @FXML
+    private Tab tabAnuncio;
+
+    @FXML
+    private Tab tabHome;
+
+    @FXML
+    private Tab tabInicio;
+
+    @FXML
+    private Tab tabProducto;
+
+    @FXML
+    private Tab tabRegistro;
+
+
 //++++++++++++++++++++++++++++++Seccion producto+++++++++++++++++++++++++++++++++++++++++++++++++
     //-----------------------------atributo globales
 
@@ -40,8 +60,8 @@ public class CrudProductoControllerView implements Initializable {
     private final ObservableList<ProductoDto> productos = FXCollections.observableArrayList();
 
 
-    crudProductoController crudProductoController ;
-    private boolean autenticacion= false;
+    crudProductoController crudProductoController;
+    private boolean autenticacion = false;
 
 
     //---------------------------------atributos fxml
@@ -74,7 +94,6 @@ public class CrudProductoControllerView implements Initializable {
     private Label lblDescripcion;
 
 
-
     @FXML
     private Label lblNombreProducto;
 
@@ -83,7 +102,6 @@ public class CrudProductoControllerView implements Initializable {
 
     @FXML
     private Label lblUrlFoto;
-
 
 
     @FXML
@@ -114,7 +132,6 @@ public class CrudProductoControllerView implements Initializable {
     private TableColumn<ProductoDto, String> columnaCuatro;
 
 
-
     @FXML
     private TextField txtDescripcion;
 
@@ -138,22 +155,20 @@ public class CrudProductoControllerView implements Initializable {
         comboTipoUsuario.getItems().addAll(TipoUsuario.values());
         comboTipo.getItems().addAll(TipoUsuario.values());
         //intancia del controler
-        crudProductoController=new crudProductoController();
+        crudProductoController = new crudProductoController();
         //llamar metodo para poder traer la informaciond e producto seleccionado
         listenerSelection();
         //para que no puedan moodificar la url de forma manual
         txtUrlFoto.setDisable(true);
 
         try {
-            productos.addAll( crudProductoController.obtenerListaProductosTxt());
-            for (ProductoDto productoDto:productos) {
+            productos.addAll(crudProductoController.obtenerListaProductosTxt());
+            for (ProductoDto productoDto : productos) {
                 nombresProductos.add(productoDto.nombreProducto());
             }
-            
-            //error
 
+            comboSeleccionProducto.setItems(nombresProductos);
 
-           // comboSeleccion.setItems(nombresProductos);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -161,14 +176,12 @@ public class CrudProductoControllerView implements Initializable {
 
         columnaUno.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
         columnaDos.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
-        columnaTres.setCellValueFactory(cellData -> new SimpleStringProperty (String.valueOf(cellData.getValue().tipo_Articulo())));
+        columnaTres.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().tipo_Articulo())));
         columnaCuatro.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().urlFoto()));
 
         tableDatos.getItems().clear();
         tableDatos.setItems(productos);
-        registrarAcciones("inicio aplicion",1, "Se inicializo aplicacion");
-
-
+        registrarAcciones("inicio aplicion", 1, "Se inicializo aplicacion");
 
 
     }
@@ -178,7 +191,7 @@ public class CrudProductoControllerView implements Initializable {
     //-----------------------------------actualizar
     @FXML
     void Actualizar(ActionEvent event) throws IOException {
-        if(autenticacion) {
+        if (autenticacion) {
             ProductoDto productoDto = construirEmpleadoDto();
             if (datosValidos()) {
                 if (!(crudProductoController.verificarProductoCreado(productoDto))) {
@@ -186,16 +199,26 @@ public class CrudProductoControllerView implements Initializable {
                     productos.addAll(crudProductoController.actualizarProducto(productoDto));
                 } else {
                     mostrarMensaje("Producto no encontrado", "no se puede actualizar", "el producto no se pudo actualizar \n verifique que si esta selecionando un prodcuto\n existente", Alert.AlertType.WARNING);
-                    registrarAcciones("Error al actualizar",1, "no se encontro el producto");
+                    registrarAcciones("Error al actualizar", 1, "no se encontro el producto");
 
                 }
             }
             limpiarCamposProducto();
             txtNombreProducto.setDisable(false);
             registrarAcciones("Producto actualizado", 1, "Producto actualizado");
-        }else {
-            mostrarMensaje("Autenticarse","Usuario no autnticado","Debe registrarse para ser atutenticado\npara poder actualizar el producto", Alert.AlertType.ERROR);
-            registrarAcciones("Error al actualizar debe autenticarse",1, "no hubo un registro");
+        } else {
+
+            mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder actualizar el producto", Alert.AlertType.ERROR);
+           //estoy tratando de abrir otras ventanas para poder navegar 
+            TabPane pane =new TabPane();
+            pane.getTabs().addAll(tabHome);
+            btnRegistrarseHome.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    pane.getSelectionModel().select(tabHome);
+                }
+            } );
+            registrarAcciones("Error al actualizar debe autenticarse", 1, "no hubo un registro");
 
         }
 
@@ -205,7 +228,7 @@ public class CrudProductoControllerView implements Initializable {
     //------------------------------------------------------agregar
     @FXML
     void agregar(ActionEvent event) throws IOException {
-        if (autenticacion){
+        if (autenticacion) {
             if (datosValidos()) {
                 ProductoDto productoDto = construirEmpleadoDto();
                 if (verificarProducto(productoDto)) {
@@ -219,13 +242,13 @@ public class CrudProductoControllerView implements Initializable {
                 } else {
 
                     mostrarMensaje("producto existente ", "Producto", "El producto ya fue creado, cambie el nombre o elimine el producto", Alert.AlertType.INFORMATION);
-                    registrarAcciones("Error al agregar",1, "producto ya creado");
+                    registrarAcciones("Error al agregar", 1, "producto ya creado");
 
                 }
             }
-    }else {
-            mostrarMensaje("Autenticarse","Usuario no autnticado","Debe registrarse para ser atutenticado\npara poder guardar el producto", Alert.AlertType.ERROR);
-            registrarAcciones("Error al agregar debe autenticarse",1, "no hubo un registro");
+        } else {
+            mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder guardar el producto", Alert.AlertType.ERROR);
+            registrarAcciones("Error al agregar debe autenticarse", 1, "no hubo un registro");
 
         }
 
@@ -234,7 +257,7 @@ public class CrudProductoControllerView implements Initializable {
 
     //------------------------------verifcar SI el producto fue creado
     public boolean verificarProducto(ProductoDto productoDto) throws IOException {
-        registrarAcciones("Se verifico producto",1, "Producto verificado");
+        registrarAcciones("Se verifico producto", 1, "Producto verificado");
         return crudProductoController.verificarProductoCreado(productoDto);
 
     }
@@ -242,7 +265,7 @@ public class CrudProductoControllerView implements Initializable {
     //-----------------------------------------------------------------ELIMINAR
     @FXML
     void eliminar(ActionEvent event) throws IOException {
-        if(autenticacion) {
+        if (autenticacion) {
             ProductoDto productoDto = construirEmpleadoDto();
             productos.clear();
             productos.addAll(crudProductoController.eliminarProdcuto(productoDto));
@@ -250,9 +273,9 @@ public class CrudProductoControllerView implements Initializable {
             txtNombreProducto.setDisable(false);
             nombresProductos.remove(productoDto.nombreProducto());
             registrarAcciones("Producto eliminado", 1, "Producto fue elimiando");
-        }else {
-            mostrarMensaje("Autenticarse","Usuario no autnticado","Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
-            registrarAcciones("Error al eliminar debe autenticarse",1, "no hubo un registro");
+        } else {
+            mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
+            registrarAcciones("Error al eliminar debe autenticarse", 1, "no hubo un registro");
 
         }
 
@@ -279,11 +302,11 @@ public class CrudProductoControllerView implements Initializable {
                     Image image = new Image(destino.toURI().toString());
                     imgFoto.setImage(image);
                     txtUrlFoto.setText(String.valueOf(destino));
-                    registrarAcciones("Imagen importada",1, "importacion exitosa");
+                    registrarAcciones("Imagen importada", 1, "importacion exitosa");
 
                 } catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "Error al importar imagen: "+e);
-                    registrarAcciones("Error al importar imagen ",1, "Error al importar imagen");
+                    JOptionPane.showMessageDialog(null, "Error al importar imagen: " + e);
+                    registrarAcciones("Error al importar imagen ", 1, "Error al importar imagen");
 
                     // Aquí puedes manejar errores si la copia falla
                 }
@@ -291,10 +314,7 @@ public class CrudProductoControllerView implements Initializable {
         }
 
 
-
-
     }
-
 
 
     //___------------------------------para sleccionar un productoe n la tabla----------------------
@@ -303,37 +323,36 @@ public class CrudProductoControllerView implements Initializable {
             ProductoDto productoSeleccionado = newSelection;
             mostrarInformacionProdcuto(productoSeleccionado);
             txtNombreProducto.setDisable(true);
-            registrarAcciones("Producto seleccionado",1, "Producto seleccionado");
+            registrarAcciones("Producto seleccionado", 1, "Producto seleccionado");
 
         });
     }
-//----------------mostrar informacion campos de texto_-------------------------------------------
+
+    //----------------mostrar informacion campos de texto_-------------------------------------------
     private void mostrarInformacionProdcuto(ProductoDto empleadoSeleccionado) {
-        if(empleadoSeleccionado != null){
+        if (empleadoSeleccionado != null) {
             txtNombreProducto.setText(empleadoSeleccionado.nombreProducto());
             txtDescripcion.setText(empleadoSeleccionado.descripcion());
             txtUrlFoto.setText(empleadoSeleccionado.urlFoto());
             comboTipoProducto.setValue(empleadoSeleccionado.tipo_Articulo());
             Image image = new Image(empleadoSeleccionado.urlFoto());
             imgFoto.setImage(image);
-            registrarAcciones("se muestra Informacion del  Producto seleccionado",1, "Se muestra la informacion del producto seleccionado");
+            registrarAcciones("se muestra Informacion del  Producto seleccionado", 1, "Se muestra la informacion del producto seleccionado");
 
 
         }
     }
 
 
-
-
     //------------------------------codigo reutilizable---------------------------------------
-   //limpiar campos de texto
+    //limpiar campos de texto
     private void limpiarCamposProducto() {
         txtNombreProducto.setText("");
         txtUrlFoto.setText("");
         txtDescripcion.setText("");
         imgFoto.setImage(null);
         comboTipoProducto.setPromptText("combo tipo prodcuto");
-        registrarAcciones("limpiar campos",1,"campos limpiados");
+        registrarAcciones("limpiar campos", 1, "campos limpiados");
 
 
     }
@@ -341,7 +360,7 @@ public class CrudProductoControllerView implements Initializable {
     //validar que no esten en campos nulls o vacios
     private boolean datosValidos() {
         String mensaje = "";
-        if (txtNombreProducto.getText() == null || txtNombreProducto.getText() .equals(""))
+        if (txtNombreProducto.getText() == null || txtNombreProducto.getText().equals(""))
             mensaje += "El campo del nombre debe rellnarlo  \n";
         if (txtDescripcion.getText() == null || txtDescripcion.getText().equals(""))
             mensaje += "El campo de la descripcion debe rellenarlo \n";
@@ -354,7 +373,7 @@ public class CrudProductoControllerView implements Initializable {
 
         } else {
             mostrarMensaje("Notificación cliente", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
-            registrarAcciones("datos no validos",1, "datos invalidos");
+            registrarAcciones("datos no validos", 1, "datos invalidos");
             return false;
         }
     }
@@ -364,124 +383,150 @@ public class CrudProductoControllerView implements Initializable {
     @FXML
     private Button btnPublicar;
     @FXML
-    private ComboBox<String> comboSeleccion;
+    private ComboBox<String> comboSeleccionProducto;
     @FXML
     private ImageView imgFotoAnuncio;
-//FLATAN ATRIBUTOS FXL POR DEFINIR
-    ObservableList<String>  nombresProductos = FXCollections.observableArrayList();
+    //FLATAN ATRIBUTOS FXL POR DEFINIR
+    ObservableList<String> nombresProductos = FXCollections.observableArrayList();
 
     @FXML
     void publicarAnuncio(ActionEvent event) {
 
     }
+
     @FXML
     void mostrarEnTabla(ActionEvent event) throws IOException {
         //sirve para daber si seleccionaron algo en el combo
-        String selectedItem = comboSeleccion.getSelectionModel().getSelectedItem();
+        String selectedItem = comboSeleccionProducto.getSelectionModel().getSelectedItem();
         if (selectedItem != null) {
-            ProductoDto productoDto=crudProductoController.buscarProducto(selectedItem);
+            ProductoDto productoDto = crudProductoController.buscarProducto(selectedItem);
+            ObservableList<ProductoDto> productoSeleccionado = FXCollections.observableArrayList();
+            productoSeleccionado.add(productoDto);
             // solo falta que el prooducto dto que esta arriba comenzar a mostar los atribustos en la tabla
-            System.out.println(productoDto.nombreProducto());
+
+            //String productoSeleccionado = selectedItem;
+
+            columna1AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+            columna2AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
+            columna3AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().tipo_Articulo())));
+            //columna4AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().urlFoto()));
+
+            tablaAnuncio1.getItems().clear();
+            tablaAnuncio1.setItems(productoSeleccionado);
+
+
         } else {
             System.out.println("Ningún elemento seleccionado.");
         }
 
     }//SEgunda parte
 
-    @FXML
-    private ComboBox<?> comboSeleccionProducto;
 
     @FXML
     private Button btnCargarProducto;
-    @FXML
-    private TableColumn<?, ?> columna1Anuncio;
 
     @FXML
-    private TableColumn<?, ?> columna2Anuncio;
+    private TableColumn<ProductoDto, String> columna1AnuncioTabla1;
 
     @FXML
-    private TableColumn<?, ?> columna3Anuncio;
+    private TableColumn<ProductoDto, String> columna1AnuncioTabla2;
 
     @FXML
-    private TableColumn<?, ?> columna4Anuncio;
+    private TableColumn<ProductoDto, String> columna2AnuncioTabla1;
 
     @FXML
-    private TableColumn<?, ?> columna5Anuncio;
+    private TableColumn<ProductoDto, String> columna2AnuncioTabla2;
 
     @FXML
-    private TableColumn<?, ?> columna6Anuncio;
+    private TableColumn<ProductoDto, String> columna3AnuncioTabla1;
 
     @FXML
-    private TableColumn<?, ?> columna7Anuncio;
-
+    private TableColumn<ProductoDto, String> columna3AnuncioTabla2;
 
     @FXML
-    private TableView<?> tableAnuncio;
+    private TableColumn<ProductoDto, String> columna4AnuncioTabla2;
 
+    @FXML
+    private TableView<ProductoDto> tablaAnuncio1;
 
-
-
-
-
-
-
-
-
+    @FXML
+    private TableView<ProductoDto> tableAnuncio2;
 
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++HOME+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     @FXML
+    private Hyperlink vinculoLink;
+    @FXML
+    void clickLink(ActionEvent event) {
+
+
+    }@FXML
     private Button btnIniciarSesion;
     @FXML
     private ComboBox<TipoUsuario> comboTipoUsuario;
-
     @FXML
+    private Button btnRegistrarseHome;
+    @FXML
+    void IrARegistrarseHome(ActionEvent event) {
+        TabPane pane =new TabPane();
+        pane.getTabs().addAll(tabRegistro);
+        btnRegistrarseHome.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                pane.getSelectionModel().select(tabRegistro);
+            }
+        } );
+
+    }    @FXML
     private PasswordField txtClaveHome;
 
     @FXML
     private TextField txtUsuarioHome;
+
     //FLATA ATRIBUTOS XML POR DEFINIR
     @FXML
-        void IniciarSesion(ActionEvent event) throws IOException {
-                String usuario=txtUsuarioHome.getText();
-                String clave=txtClaveHome.getText();
+    void IniciarSesion(ActionEvent event) throws IOException {
+        String usuario = txtUsuarioHome.getText();
+        String clave = txtClaveHome.getText();
 
-            if(comboTipoUsuario.getValue().equals(TipoUsuario.ANUNCIANTE)) {
-                if (crudProductoController.verificarInicioSesionAnunciante(usuario,clave)) {
-                    autenticacion = true;
-                    limpiarCamposHome();
-                    mostrarMensaje("inicio sesion", "se inicio sesion", "Se inicio sesion Correctamente \n ya puede hacer uso \n  de las acciones de la applicacion", Alert.AlertType.CONFIRMATION);
-                    registrarAcciones("se inicio sesion", 1, "tipo anunciante");
+        if (comboTipoUsuario.getValue().equals(TipoUsuario.ANUNCIANTE)) {
+            if (crudProductoController.verificarInicioSesionAnunciante(usuario, clave)) {
+                autenticacion = true;
+                limpiarCamposHome();
+                mostrarMensaje("inicio sesion", "se inicio sesion", "Se inicio sesion Correctamente \n ya puede hacer uso \n  de las acciones de la applicacion", Alert.AlertType.CONFIRMATION);
+                registrarAcciones("se inicio sesion", 1, "tipo anunciante");
 
-                } else {
-                    mostrarMensaje("inicio sesion", "credenciales incorrectas", "no se inicio sesion \n clave o usuario incorrecto", Alert.AlertType.WARNING);
-                }
-            } else if (comboTipoUsuario.getValue().equals(TipoUsuario.COMPRADOR)) {
-                if(crudProductoController.verificarInicioSesionComprador(usuario,clave)){
-                    autenticacion=true;
-                    limpiarCamposHome();
-                    mostrarMensaje("inicio sesion", "se inicio sesion", "Se inicio sesion Correctamente \n ya puede hacer uso \n  de las acciones de la applicacion", Alert.AlertType.CONFIRMATION);
-                    registrarAcciones("se inicio sesion", 1, "tipo comprador");
+            } else {
+                mostrarMensaje("inicio sesion", "credenciales incorrectas", "no se inicio sesion \n clave o usuario incorrecto", Alert.AlertType.WARNING);
+            }
+        } else if (comboTipoUsuario.getValue().equals(TipoUsuario.COMPRADOR)) {
+            if (crudProductoController.verificarInicioSesionComprador(usuario, clave)) {
+                autenticacion = true;
+                limpiarCamposHome();
+                mostrarMensaje("inicio sesion", "se inicio sesion", "Se inicio sesion Correctamente \n ya puede hacer uso \n  de las acciones de la applicacion", Alert.AlertType.CONFIRMATION);
+                registrarAcciones("se inicio sesion", 1, "tipo comprador");
 
-                }else {
+            } else {
 
-                    registrarAcciones("Error al iniciar sesion ",1, "datos invalidos");
-                    mostrarMensaje("inicio sesion", "credenciales incorrectas", "no se inicio sesion \n clave o usuario incorrecto", Alert.AlertType.WARNING);
-                }
-
+                registrarAcciones("Error al iniciar sesion ", 1, "datos invalidos");
+                mostrarMensaje("inicio sesion", "credenciales incorrectas", "no se inicio sesion \n clave o usuario incorrecto", Alert.AlertType.WARNING);
             }
 
         }
-        public void limpiarCamposHome(){
-            txtClaveHome.setText("");
-            txtUsuarioHome.setText("");
-            comboTipo. setPromptText("Tipo de usuario");
 
-        }
+    }
 
-        //+++++++++++++++++++++++++++++++++++++++++++++++++REGISTRO++++++++++++++++++++++++++++++++++++++++++++++++++
-        @FXML
-        private Button btnGuardarUsuario;
+    public void limpiarCamposHome() {
+        txtClaveHome.setText("");
+        txtUsuarioHome.setText("");
+        comboTipo.setPromptText("Tipo de usuario");
+
+    }
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++REGISTRO++++++++++++++++++++++++++++++++++++++++++++++++++
+    @FXML
+    private Button btnGuardarUsuario;
 
 
     // ESTE NO ES NECESARIO REGISTARR
@@ -519,104 +564,104 @@ public class CrudProductoControllerView implements Initializable {
     private TextField txtUsuario;
 
 
+    @FXML
+    void guardarUsuario(ActionEvent event) throws IOException {
+        if (datosValidosRegistro()) {
+            if (comboTipo.getValue().equals(TipoUsuario.ANUNCIANTE)) {
+                AnuncianteDto anuncianteDto = construirAnuncianteDto();
+                if (crudProductoController.verificarAnuncianteCreado(anuncianteDto)) {
+                    crudProductoController.guardarAnunciante(anuncianteDto);
+                    limpiarCamposRegistro();
+                    registrarAcciones("guardar usuario", 1, "guardar usuario anunciante");
+
+                }
+            } else if (comboTipo.getValue().equals(TipoUsuario.COMPRADOR)) {
+                CompradorDto compradorDto = construirCompradorDto();
+                if (crudProductoController.verificarCompradorCreado(compradorDto)) {
+                    crudProductoController.guardarComprador(compradorDto);
+                    limpiarCamposRegistro();
+                }
+                registrarAcciones("guardar usuario", 1, "guardar usuario comprador");
+
+            }
+        }
+
+
+    }
+
+    public boolean datosValidosRegistro() {
+        String mensaje = "";
+        if (txtNombre.getText() == null || txtNombre.getText().equals(""))
+            mensaje += "El campo nombre debe rellenarlo  \n";
+        if (txtApellido.getText() == null || txtApellido.getText().equals(""))
+            mensaje += "El campo de la apellido debe rellenarlo \n";
+        if (txtClave.getText() == null || txtClave.getText().equals(""))
+            mensaje += "El campo de clave debe rellenarlo \n";
+        if (txtUsuario.getText() == null || txtUsuario.getText().equals(""))
+            mensaje += "El campo de usuario debe rellenarlo \n";
+        if (txtCedula.getText() == null || txtCedula.getText().equals(""))
+            mensaje += "El campo de cedula debe rellenarlo \n";
+        if (txtEdad.getText() == null || txtEdad.getText().equals("")) {
+            mensaje += "El campo de edad debe rellenarlo \n";
+        } else {
+            try {
+                Integer.parseInt(txtEdad.getText());
+            } catch (NumberFormatException e) {
+                mensaje += "El campo de edad debe ser un número entero \n";
+            }
+        }
+        if (comboTipo.getValue() == null)
+            mensaje += "Debe escojer un tipo de usuario \n";
+        if (mensaje.equals("")) {
+            return true;
+        } else {
+            mostrarMensaje("Notificación cliente", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
+            registrarAcciones("Noficiacion cliente", 1, "datos invalidos");
+            return false;
+        }
+
+
+    }
+
+    public void limpiarCamposRegistro() {
+        txtEdad.setText("");
+        txtCedula.setText("");
+        txtUsuario.setText("");
+        txtClave.setText("");
+        txtApellido.setText("");
+        txtNombre.setText("");
+        comboTipo.setPromptText("Tipo usuario");
+    }
+
 
     @FXML
-        void guardarUsuario(ActionEvent event) throws IOException {
-            if(datosValidosRegistro()) {
-                if (comboTipo.getValue().equals(TipoUsuario.ANUNCIANTE)) {
-                    AnuncianteDto anuncianteDto = construirAnuncianteDto();
-                    if(crudProductoController.verificarAnuncianteCreado(anuncianteDto)) {
-                        crudProductoController.guardarAnunciante(anuncianteDto);
-                        limpiarCamposRegistro();
-                        registrarAcciones("guardar usuario", 1, "guardar usuario anunciante");
+    void registrarse(ActionEvent event) {
+        //NO CREO QUE SEA NECESARIO PORQUE PARA ESO SON LOS TABS; CRERIA NECESARIO UN BOTON PARA CERRAR SESION
+        //Y CUANDO SE CIEERE SESION LA VARIABLE GLOBAL AUTENTICACION SE VUELVA FALSE  O ALGO ASI
 
-                    }
-                } else if (comboTipo.getValue().equals(TipoUsuario.COMPRADOR)) {
-                    CompradorDto compradorDto = construirCompradorDto();
-                    if (crudProductoController.verificarCompradorCreado(compradorDto)) {
-                        crudProductoController.guardarComprador(compradorDto);
-                        limpiarCamposRegistro();
-                    }
-                    registrarAcciones("guardar usuario", 1, "guardar usuario comprador");
-
-                }
-            }
+    }
 
 
-        }
-        public boolean datosValidosRegistro(){
-            String mensaje = "";
-            if (txtNombre.getText() == null || txtNombre.getText() .equals(""))
-                mensaje += "El campo nombre debe rellenarlo  \n";
-            if (txtApellido.getText() == null || txtApellido.getText().equals(""))
-                mensaje += "El campo de la apellido debe rellenarlo \n";
-            if (txtClave.getText() == null || txtClave.getText().equals(""))
-                mensaje += "El campo de clave debe rellenarlo \n";
-            if (txtUsuario.getText() == null || txtUsuario.getText().equals(""))
-                mensaje += "El campo de usuario debe rellenarlo \n";
-            if (txtCedula.getText() == null || txtCedula.getText().equals(""))
-                mensaje += "El campo de cedula debe rellenarlo \n";
-            if (txtEdad.getText() == null || txtEdad.getText().equals("")) {
-                mensaje += "El campo de edad debe rellenarlo \n";
-            } else {
-                try {
-                    Integer.parseInt(txtEdad.getText());
-                } catch (NumberFormatException e) {
-                    mensaje += "El campo de edad debe ser un número entero \n";
-                }
-            }
-            if (comboTipo.getValue() == null)
-                mensaje += "Debe escojer un tipo de usuario \n";
-            if (mensaje.equals("")) {
-                return true;
-            } else {
-                mostrarMensaje("Notificación cliente", "Datos invalidos", mensaje, Alert.AlertType.WARNING);
-                registrarAcciones("Noficiacion cliente",1, "datos invalidos");
-                return false;
-            }
+    //++++++++++++++++++++++++++++++++++DTOS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //EMPLEADO
+    private ProductoDto construirEmpleadoDto() {
+        registrarAcciones("se creo ProductoDTO", 1, "se creo ProductoDTO");
+        return new ProductoDto(
+                txtNombreProducto.getText(),
+                txtDescripcion.getText(),
+                comboTipoProducto.getValue(),
+                txtUrlFoto.getText()
 
+        );
 
-        }
-        public  void limpiarCamposRegistro(){
-            txtEdad.setText("");
-            txtCedula.setText("");
-            txtUsuario.setText("");
-            txtClave.setText("");
-            txtApellido.setText("");
-            txtNombre.setText("");
-            comboTipo. setPromptText("Tipo usuario");
-        }
+    }
 
-
-
-
-        @FXML
-        void registrarse(ActionEvent event) {
-            //NO CREO QUE SEA NECESARIO PORQUE PARA ESO SON LOS TABS; CRERIA NECESARIO UN BOTON PARA CERRAR SESION
-            //Y CUANDO SE CIEERE SESION LA VARIABLE GLOBAL AUTENTICACION SE VUELVA FALSE  O ALGO ASI
-
-        }
-
-
-        //++++++++++++++++++++++++++++++++++DTOS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        //EMPLEADO
-        private ProductoDto construirEmpleadoDto() {
-            registrarAcciones("se creo ProductoDTO",1, "se creo ProductoDTO");
-            return new ProductoDto(
-                    txtNombreProducto.getText(),
-                    txtDescripcion.getText(),
-                    comboTipoProducto.getValue(),
-                    txtUrlFoto.getText()
-
-            );
-
-        }
-        //ANUNCIANTE
-    private AnuncianteDto construirAnuncianteDto(){
+    //ANUNCIANTE
+    private AnuncianteDto construirAnuncianteDto() {
         registrarAcciones("se creo un anuncianteDTO", 1, "se creo un anuncianteDTO");
 
 
-        return  new AnuncianteDto(
+        return new AnuncianteDto(
                 txtNombre.getText(),
                 txtApellido.getText(),
                 txtCedula.getText(),
@@ -630,11 +675,12 @@ public class CrudProductoControllerView implements Initializable {
         );
 
     }
+
     //COMPRADOR
-    private CompradorDto construirCompradorDto(){
+    private CompradorDto construirCompradorDto() {
         registrarAcciones("se creo un compradorDTO", 1, "se creo un compradorDTO");
 
-        return new CompradorDto(     txtNombre.getText(),
+        return new CompradorDto(txtNombre.getText(),
                 txtApellido.getText(),
                 txtCedula.getText(),
                 Integer.parseInt(txtEdad.getText()),
@@ -654,7 +700,7 @@ public class CrudProductoControllerView implements Initializable {
         aler.setHeaderText(header);
         aler.setContentText(contenido);
         aler.showAndWait();
-        registrarAcciones("se mostro mensaje",1, "mostrar mensaje");
+        registrarAcciones("se mostro mensaje", 1, "mostrar mensaje");
     }
 
     //+++++++++++++++++++++++++++++++log++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -663,7 +709,6 @@ public class CrudProductoControllerView implements Initializable {
         crudProductoController.registrarAcciones(mensaje, nivel, accion);
 
     }
-
 
 
 }

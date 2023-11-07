@@ -52,3 +52,95 @@ nov 06, 2023 12:14:56 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.Arch
 INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
 nov 06, 2023 12:31:26 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
 INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 5:07:41 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 5:07:44 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 5:07:47 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 5:07:50 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 5:07:52 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 5:08:00 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 5:24:38 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 5:38:53 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:13:33 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:19:29 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:22:58 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:29:37 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:30:36 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:32:50 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:49:18 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:50:41 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Error al importar imagen,Error al importar imagen ,2023-11-06
+nov 06, 2023 6:51:35 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Error al importar imagen,Error al importar imagen ,2023-11-06
+nov 06, 2023 6:54:01 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 6:54:15 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-06
+nov 06, 2023 6:54:15 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al agregar debe autenticarse,2023-11-06
+nov 06, 2023 6:59:44 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-06
+nov 06, 2023 7:00:09 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-06
+nov 06, 2023 7:00:09 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,se inicio sesion,2023-11-06
+nov 07, 2023 1:07:17 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:08:17 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:18:17 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:27:16 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:29:37 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:34:47 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:35:36 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-07
+nov 07, 2023 1:35:36 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: datos invalidos,Noficiacion cliente,2023-11-07
+nov 07, 2023 1:37:58 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:38:09 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:39:29 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:40:48 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 1:41:48 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 2:08:21 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 2:09:34 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-07
+nov 07, 2023 2:09:34 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al agregar debe autenticarse,2023-11-07
+nov 07, 2023 2:12:46 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-07
+nov 07, 2023 2:12:53 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-07
+nov 07, 2023 2:12:53 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al actualizar debe autenticarse,2023-11-07
+nov 07, 2023 2:13:08 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: datos invalidos,Error al iniciar sesion ,2023-11-07
+nov 07, 2023 2:13:19 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-07
+nov 07, 2023 2:13:34 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-07
+nov 07, 2023 2:13:34 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,se inicio sesion,2023-11-07

@@ -30,58 +30,7 @@
    <children>
       <TabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="586.0" prefWidth="891.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Producto">
-               <content>
-                  <AnchorPane prefHeight="569.0" prefWidth="866.0">
-                     <children>
-                        <Pane fx:id="panePrincipal" layoutX="5.0" layoutY="7.0" prefHeight="563.0" prefWidth="858.0" styleClass="label" stylesheets="@../css/prodcutoCss.css">
-                           <children>
-                              <Pane fx:id="paneTable" layoutX="19.0" layoutY="50.0" prefHeight="212.0" prefWidth="819.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
-                                 <children>
-                                    <TableView fx:id="tableDatos" layoutX="24.0" layoutY="15.0" prefHeight="183.0" prefWidth="782.0" stylesheets="@../css/prodcutoCss.css">
-                                       <columns>
-                                          <TableColumn fx:id="columnaUno" prefWidth="160.0" text="nombre Producto" />
-                                          <TableColumn fx:id="columnaDos" prefWidth="180.0" text="descripcion" />
-                                          <TableColumn fx:id="columnaTres" prefWidth="236.0" text="tipo articulo" />
-                                          <TableColumn fx:id="columnaCuatro" prefWidth="285.0" text="Url" />
-
-                                       </columns>
-                                    </TableView>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="paneCampos" layoutX="20.0" layoutY="280.0" prefHeight="183.0" prefWidth="821.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
-                                 <children>
-                                    <Label fx:id="lblNombreProducto" alignment="BOTTOM_RIGHT" layoutX="30.0" layoutY="81.0" prefHeight="21.0" prefWidth="103.0" stylesheets="@../css/prodcutoCss.css" text="Nombre produto" />
-                                    <Label fx:id="lblDescripcion" alignment="BASELINE_LEFT" layoutX="413.0" layoutY="9.0" prefHeight="21.0" prefWidth="74.0" stylesheets="@../css/prodcutoCss.css" text="Descripción:" />
-                                    <TextField fx:id="txtDescripcion" layoutX="413.0" layoutY="35.0" prefHeight="134.0" prefWidth="181.0" promptText="La descripcion aparecera aqui" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
-                                    <TextField fx:id="txtUrlFoto" layoutX="153.0" layoutY="139.0" prefHeight="25.0" prefWidth="182.0" promptText="Url de foto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
-                                    <TextField fx:id="txtNombreProducto" layoutX="153.0" layoutY="79.0" prefHeight="25.0" prefWidth="182.0" promptText="Nombre del Producto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
-                                    <ComboBox fx:id="comboTipoProducto" layoutX="153.0" layoutY="17.0" prefHeight="25.0" prefWidth="182.0" promptText="Tipo de producto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
-                                    <Label fx:id="lblTipoProducto" alignment="BOTTOM_RIGHT" layoutX="30.0" layoutY="19.0" prefHeight="21.0" prefWidth="102.0" text="Tipo de Producto" />
-                                    <Button fx:id="btnImportar" layoutX="651.0" layoutY="138.0" mnemonicParsing="false" onAction="#importar" prefHeight="25.0" prefWidth="137.0" text="Agregar foto" />
-                                    <Label fx:id="lblUrlFoto" alignment="CENTER_RIGHT" layoutX="67.0" layoutY="141.0" prefHeight="21.0" prefWidth="65.0" text="URL foto" />
-                                    <ImageView fx:id="imgFoto" fitHeight="120.0" fitWidth="143.0" layoutX="645.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 500;" />
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="paneBotones" layoutX="16.0" layoutY="480.0" prefHeight="65.0" prefWidth="828.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
-                                 <children>
-                                    <Button fx:id="btnAgregar" layoutX="604.0" layoutY="12.0" mnemonicParsing="false" onAction="#agregar" prefHeight="42.0" prefWidth="105.0" stylesheets="@../css/prodcutoCss.css" text="Agregar" />
-                                    <Button fx:id="btnActualizar" layoutX="141.0" layoutY="12.0" mnemonicParsing="false" onAction="#Actualizar" prefHeight="42.0" prefWidth="105.0" text="Actualizar" />
-                                    <Button fx:id="btnEliminar" layoutX="378.0" layoutY="12.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="42.0" prefWidth="105.0" stylesheets="@../css/prodcutoCss.css" text="Eliminar" />
-                                 </children>
-                              </Pane>
-                              <Label alignment="CENTER" layoutX="269.0" prefHeight="35.0" prefWidth="320.0" stylesheets="@../css/prodcutoCss.css" text="Producto">
-                                 <font>
-                                    <Font name="System Bold" size="30.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-               </content>
-          </Tab>
-           <Tab text="Home">
+           <Tab fx:id="tabHome" text="Home">
               <content>
                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -91,40 +40,15 @@
                                 <children>
                                    <AnchorPane fx:id="paneHome" layoutX="18.0" layoutY="44.0" prefHeight="459.0" prefWidth="828.0" stylesheets="@../css/prodcutoCss.css">
                                       <children>
-                                          <ImageView fx:id="imgLogo" fitHeight="459.0" fitWidth="455.0" focusTraversable="true" opacity="0.91" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="imgLogo" fitHeight="466.0" fitWidth="464.0" focusTraversable="true" layoutX="-3.0" layoutY="-1.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../imagenes/logo_subasta_quindio.jpg" />
+                                                <Image url="@../imagenes/logoFinal.jpg" />
                                              </image>
                                           </ImageView>
                                           <AnchorPane layoutX="450.0" prefHeight="454.0" prefWidth="374.0">
                                              <children>
                                                 <VBox layoutX="134.0" layoutY="14.0" prefHeight="440.0" prefWidth="388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="14.0">
                                                    <children>
-                                                      <HBox fx:id="hboxHead" prefHeight="53.0" prefWidth="390.0" stylesheets="@../css/prodcutoCss.css">
-                                                         <children>
-                                                            <VBox alignment="TOP_CENTER" prefHeight="51.0" prefWidth="144.0">
-                                                               <HBox.margin>
-                                                                  <Insets />
-                                                               </HBox.margin>
-                                                            </VBox>
-                                                            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="89.0" text="Registrarse">
-                                                               <HBox.margin>
-                                                                  <Insets left="70.0" top="10.0" />
-                                                               </HBox.margin>
-                                                            </Button>
-                                                            <ImageView fitHeight="33.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
-                                                               <HBox.margin>
-                                                                  <Insets left="10.0" right="10.0" top="8.0" />
-                                                               </HBox.margin>
-                                                               <image>
-                                                                  <Image url="@../imagenes/logoIniciarSecion.png" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </children>
-                                                         <VBox.margin>
-                                                            <Insets left="10.0" right="10.0" />
-                                                         </VBox.margin>
-                                                      </HBox>
                                                       <VBox prefHeight="387.0" prefWidth="353.0">
                                                          <children>
                                                             <GridPane alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="296.0" prefWidth="302.0">
@@ -143,17 +67,17 @@
                                                                <children>
                                                                   <ComboBox fx:id="comboTipoUsuario" prefHeight="27.0" prefWidth="164.0" promptText="Tipo usuario" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                                   <Label prefHeight="17.0" prefWidth="101.0" text="Tipo de usuario" GridPane.rowIndex="1" />
-                                                                  <TextField fx:id="txtUsuarioHome1" promptText="Usuario" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                  <PasswordField fx:id="txtClaveHome1" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                  <TextField fx:id="txtUsuarioHome" promptText="Usuario" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                  <PasswordField fx:id="txtClaveHome" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                                   <Label text="Contraseña" GridPane.rowIndex="3" />
                                                                   <Label text="Usuario" GridPane.rowIndex="2" />
-                                                                  <Hyperlink prefHeight="25.0" prefWidth="153.0" text="¿olvidaste tu contraseña?" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                  <Button fx:id="btnRegistrar1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#registrarse" prefHeight="25.0" prefWidth="87.0" text="Registrar" GridPane.rowIndex="5">
+                                                                  <Hyperlink fx:id="vinculoLink" onAction="#clickLink" prefHeight="25.0" prefWidth="153.0" text="¿olvidaste tu contraseña?" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                                  <Button fx:id="btnRegistrarseHome" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#IrARegistrarseHome" prefHeight="25.0" prefWidth="87.0" text="Registrar" GridPane.rowIndex="5">
                                                                      <GridPane.margin>
                                                                         <Insets left="25.0" />
                                                                      </GridPane.margin>
                                                                   </Button>
-                                                                  <Button fx:id="btnIniciarSesion1" mnemonicParsing="false" onAction="#IniciarSesion" text="Iniciar sesion" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                                  <Button fx:id="btnIniciarSesion" mnemonicParsing="false" onAction="#IniciarSesion" text="Iniciar sesion" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                                      <GridPane.margin>
                                                                         <Insets left="28.0" />
                                                                      </GridPane.margin>
@@ -190,7 +114,7 @@
                  </AnchorPane>
               </content>
            </Tab>
-           <Tab fx:id="tipoRegistro" text="Registro">
+           <Tab fx:id="tabRegistro" text="Registro">
               <content>
                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
@@ -198,38 +122,55 @@
                           <children>
                              <AnchorPane layoutX="209.0" layoutY="66.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <children>
-                                   <AnchorPane fx:id="paneRegistro" layoutX="102.0" layoutY="44.0" prefHeight="465.0" prefWidth="662.0" stylesheets="@../css/prodcutoCss.css">
+                                   <AnchorPane fx:id="paneRegistro" layoutX="38.0" layoutY="256.0" prefHeight="267.0" prefWidth="716.0" stylesheets="@../css/prodcutoCss.css">
                                       <children>
-                                         <Label fx:id="lblRegistro" layoutX="156.0" layoutY="40.0" prefHeight="17.0" prefWidth="109.0" text="Registro">
-                                            <font>
-                                               <Font size="22.0" />
-                                            </font>
-                                         </Label>
-                                         <TextField fx:id="txtNombre" layoutX="47.0" layoutY="190.0" promptText="Nombre" />
-                                         <TextField fx:id="txtApellido" layoutX="250.0" layoutY="190.0" promptText="Apellido" />
-                                         <TextField fx:id="txtCedula" layoutX="460.0" layoutY="184.0" promptText="Cedula" />
-                                         <TextField fx:id="txtEdad" layoutX="47.0" layoutY="267.0" promptText="Edad" />
-                                         <TextField fx:id="txtUsuario" layoutX="250.0" layoutY="267.0" promptText="Usuario" />
-                                         <TextField fx:id="txtClave" layoutX="467.0" layoutY="267.0" promptText="Contraseña" />
-                                         <ComboBox fx:id="comboTipo" layoutX="459.0" layoutY="43.0" prefWidth="150.0" promptText="Tipo de Registro" />
-                                         <Label fx:id="lblInformacion" layoutX="47.0" layoutY="121.0" prefHeight="37.0" prefWidth="472.0" text="Para continuar es importante  que especifiques el tipo de registro que quieres." textAlignment="CENTER" />
-                                         <Button fx:id="btnGuardarUsuario" layoutX="285.0" layoutY="365.0" mnemonicParsing="false" onAction="#guardarUsuario" prefHeight="40.0" prefWidth="117.0" text="Guardar" />
-                                          <ImageView fitHeight="74.0" fitWidth="72.0" layoutX="56.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../imagenes/logo_subasta_quindio%20-%20copia.jpg" />
-                                             </image>
-                                          </ImageView>
+                                         <TextField fx:id="txtNombre" layoutX="47.0" layoutY="50.0" promptText="Nombre" />
+                                         <TextField fx:id="txtApellido" layoutX="263.0" layoutY="50.0" promptText="Apellido" />
+                                         <TextField fx:id="txtCedula" layoutX="492.0" layoutY="121.0" promptText="Cedula" />
+                                         <TextField fx:id="txtEdad" layoutX="492.0" layoutY="50.0" promptText="Edad" />
+                                         <TextField fx:id="txtUsuario" layoutX="47.0" layoutY="121.0" promptText="Usuario" />
+                                         <TextField fx:id="txtClave" layoutX="263.0" layoutY="121.0" promptText="Contraseña" />
+                                         <Button fx:id="btnGuardarUsuario" layoutX="279.0" layoutY="196.0" mnemonicParsing="false" onAction="#guardarUsuario" prefHeight="35.0" prefWidth="117.0" text="Guardar" />
                                       </children>
                                    </AnchorPane>
+                                    <AnchorPane fx:id="paneHeadRegistro" layoutX="378.0" layoutY="14.0" prefHeight="223.0" prefWidth="376.0" stylesheets="@../css/prodcutoCss.css">
+                                       <children>
+                                         <ComboBox fx:id="comboTipo" layoutX="113.0" layoutY="41.0" prefWidth="150.0" promptText="Tipo de Registro" />
+                                          <HBox layoutX="-1.0" layoutY="92.0" prefHeight="100.0" prefWidth="376.0">
+                                             <children>
+                                                <VBox prefHeight="100.0" prefWidth="429.0">
+                                                   <children>
+                                                     <Label fx:id="lblInformacion" alignment="CENTER" prefHeight="45.0" prefWidth="472.0" text="Para continuar es importante  que especifiques el tipo " textAlignment="CENTER" />
+                                                      <Label fx:id="lblInformacion1" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="472.0" text="de registro que quieres." textAlignment="CENTER" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
                                 </children>
                              </AnchorPane>
+                              <AnchorPane layoutX="35.0" layoutY="33.0" prefHeight="200.0" prefWidth="240.0">
+                                 <children>
+                                    <ImageView fitHeight="112.0" fitWidth="166.0" layoutX="101.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../imagenes/logoFinal%20-%20copia.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" layoutX="8.0" layoutY="144.0" prefHeight="31.0" prefWidth="280.0" text="Registro de usuario">
+                                       <font>
+                                          <Font name="System Bold Italic" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
                           </children>
                        </AnchorPane>
                     </children>
                  </AnchorPane>
               </content>
            </Tab>
-            <Tab fx:id="tipoRegistro1" text="Inicio">
+            <Tab fx:id="tabInicio" text="Inicio">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -304,51 +245,135 @@
                   </AnchorPane>
                </content>
             </Tab>
-           <Tab text="Anuncio">
+           <Tab fx:id="tabAnuncio" text="Anuncio">
               <content>
                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                     <children>
                        <AnchorPane fx:id="d" layoutX="85.0" layoutY="68.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <children>
-                             <AnchorPane fx:id="paneHeadAnuncio" layoutX="27.0" layoutY="14.0" prefHeight="125.0" prefWidth="810.0" stylesheets="@../css/prodcutoCss.css">
+                             <AnchorPane fx:id="paneHeadAnuncio" layoutX="380.0" layoutY="14.0" prefHeight="178.0" prefWidth="458.0" stylesheets="@../css/prodcutoCss.css">
                                 <children>
-                                   <Label layoutX="33.0" layoutY="20.0" prefHeight="30.0" prefWidth="250.0" text="Seleccionar producto">
-                                      <font>
-                                         <Font name="System Bold" size="20.0" />
-                                      </font>
-                                   </Label>
-                                   <ComboBox fx:id="comboSeleccionProducto" layoutX="34.0" layoutY="63.0" prefHeight="25.0" prefWidth="248.0" promptText="Selecciona el producto" stylesheets="@../css/prodcutoCss.css" />
-                                    <Button fx:id="btnCargarProducto" layoutX="362.0" layoutY="63.0" mnemonicParsing="false" onAction="#mostrarEnTabla" prefHeight="36.0" prefWidth="92.0" text="Cargar" />
+                                   <ComboBox fx:id="comboSeleccionProducto" layoutX="105.0" layoutY="45.0" prefHeight="25.0" prefWidth="248.0" promptText="Selecciona el producto" stylesheets="@../css/prodcutoCss.css" />
+                                    <Button fx:id="btnCargarProducto" layoutX="171.0" layoutY="111.0" mnemonicParsing="false" onAction="#mostrarEnTabla" prefHeight="30.0" prefWidth="92.0" text="Cargar" />
                                 </children>
                              </AnchorPane>
-                             <AnchorPane fx:id="paneBodyAnuncio" layoutX="27.0" layoutY="154.0" prefHeight="381.0" prefWidth="811.0" stylesheets="@../css/prodcutoCss.css">
+                             <AnchorPane fx:id="paneBodyAnuncio" layoutX="27.0" layoutY="206.0" prefHeight="338.0" prefWidth="811.0" stylesheets="@../css/prodcutoCss.css">
                                 <children>
-                                   <Label layoutX="27.0" layoutY="29.0" prefHeight="30.0" prefWidth="250.0" text="Informacion del producto">
-                                      <font>
-                                         <Font name="System Bold" size="20.0" />
-                                      </font>
-                                   </Label>
-                                   <ImageView fx:id="imgFotoAnuncio" fitHeight="150.0" fitWidth="148.0" layoutX="639.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" />
-                                   <Label layoutX="674.0" layoutY="44.0" text="Foto producto:" />
-                                   <Button fx:id="btnPublicar" layoutX="364.0" layoutY="315.0" mnemonicParsing="false" onAction="#publicarAnuncio" prefHeight="42.0" prefWidth="145.0" text="Publicar anuncio" />
-                                    <TableView fx:id="tableAnuncio" layoutX="20.0" layoutY="93.0" prefHeight="165.0" prefWidth="615.0">
+                                   <ImageView fx:id="imgFotoAnuncio" fitHeight="150.0" fitWidth="148.0" layoutX="641.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+                                   <Label layoutX="676.0" layoutY="27.0" text="Foto producto:">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font></Label>
+                                   <Button fx:id="btnPublicar" layoutX="365.0" layoutY="281.0" mnemonicParsing="false" onAction="#publicarAnuncio" prefHeight="42.0" prefWidth="145.0" text="Publicar anuncio" />
+                                    <TableView fx:id="tablaAnuncio1" layoutX="30.0" layoutY="36.0" prefHeight="83.0" prefWidth="586.0">
                                       <columns>
-                                        <TableColumn fx:id="columna1Anuncio" minWidth="20.0" prefWidth="90.0" text="Tipo anuncio" />
-                                        <TableColumn fx:id="columna2Anuncio" prefWidth="137.0" text="Nombre del producto" />
-                                          <TableColumn fx:id="columna3Anuncio" prefWidth="72.0" text="Descripcion" />
-                                          <TableColumn fx:id="columna4Anuncio" prefWidth="143.0" text="Nombre del anunciante" />
-                                          <TableColumn fx:id="columna5Anuncio" minWidth="1.0" prefWidth="125.0" text="Fecha de publicacion" />
-                                          <TableColumn fx:id="columna6Anuncio" minWidth="0.0" prefWidth="133.0" text="Fecha de Finalizacion" />
-                                          <TableColumn fx:id="columna7Anuncio" minWidth="2.0" prefWidth="95.0" text="Valor inicial" />
+                                        <TableColumn fx:id="columna1AnuncioTabla1" minWidth="20.0" prefWidth="178.0" text="Tipo Producto" />
+                                        <TableColumn fx:id="columna2AnuncioTabla1" prefWidth="235.0" text="Nombre del producto" />
+                                          <TableColumn fx:id="columna3AnuncioTabla1" prefWidth="201.0" text="Descripcion" />
                                       </columns>
+                                    </TableView>
+                                    <TableView fx:id="tableAnuncio2" layoutX="30.0" layoutY="150.0" prefHeight="83.0" prefWidth="590.0">
+                                       <columns>
+                                          <TableColumn fx:id="columna1AnuncioTabla2" prefWidth="143.0" text="Nombre del anunciante" />
+                                          <TableColumn fx:id="columna2AnuncioTabla2" minWidth="1.0" prefWidth="143.0" text="Fecha de publicacion" />
+                                          <TableColumn fx:id="columna3AnuncioTabla2" minWidth="0.0" prefWidth="167.0" text="Fecha de Finalizacion" />
+                                          <TableColumn fx:id="columna4AnuncioTabla2" minWidth="2.0" prefWidth="161.0" text="Valor inicial" />
+                                       </columns>
                                     </TableView>
                                 </children>
                              </AnchorPane>
+                              <AnchorPane layoutX="27.0" layoutY="14.0" prefHeight="200.0" prefWidth="240.0">
+                                 <children>
+                                    <ImageView fitHeight="112.0" fitWidth="166.0" layoutX="101.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../imagenes/logoFinal%20-%20copia.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" layoutX="8.0" layoutY="144.0" prefHeight="31.0" prefWidth="280.0" text="Informacion del producto">
+                                       <font>
+                                          <Font name="System Bold Italic" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
                           </children>
                        </AnchorPane>
                     </children></AnchorPane>
               </content>
            </Tab>
+          <Tab fx:id="tabProducto" text="Producto">
+               <content>
+                  <AnchorPane prefHeight="569.0" prefWidth="866.0">
+                     <children>
+                        <Pane fx:id="panePrincipal" layoutX="5.0" layoutY="7.0" prefHeight="563.0" prefWidth="858.0" styleClass="label" stylesheets="@../css/prodcutoCss.css">
+                           <children>
+                              <Pane fx:id="paneTable" layoutX="25.0" layoutY="251.0" prefHeight="216.0" prefWidth="819.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
+                                 <children>
+                                    <TableView fx:id="tableDatos" layoutX="24.0" layoutY="15.0" prefHeight="183.0" prefWidth="782.0" stylesheets="@../css/prodcutoCss.css">
+                                       <columns>
+                                          <TableColumn fx:id="columnaUno" prefWidth="160.0" text="nombre Producto" />
+                                          <TableColumn fx:id="columnaDos" prefWidth="180.0" text="descripcion" />
+                                          <TableColumn fx:id="columnaTres" prefWidth="236.0" text="tipo articulo" />
+                                          <TableColumn fx:id="columnaCuatro" prefWidth="285.0" text="Url" />
+      
+                                                         </columns>
+                                    </TableView>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="paneCampos" layoutX="337.0" layoutY="11.0" prefHeight="223.0" prefWidth="503.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
+                                 <children>
+                                    <TextField fx:id="txtDescripcion" layoutX="192.0" layoutY="24.0" prefHeight="163.0" prefWidth="143.0" promptText="La descripcion aparecera aqui" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
+                                    <TextField fx:id="txtUrlFoto" layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="145.0" promptText="Url de foto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
+                                    <TextField fx:id="txtNombreProducto" layoutX="17.0" layoutY="94.0" prefHeight="25.0" prefWidth="140.0" promptText="Nombre del Producto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
+                                    <ComboBox fx:id="comboTipoProducto" layoutX="14.0" layoutY="24.0" prefHeight="25.0" prefWidth="147.0" promptText="Tipo de producto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
+                                    <Button fx:id="btnImportar" layoutX="368.0" layoutY="160.0" mnemonicParsing="false" onAction="#importar" prefHeight="27.0" prefWidth="105.0" text="Agregar foto" />
+                                    <ImageView fx:id="imgFoto" fitHeight="104.0" fitWidth="143.0" layoutX="648.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 500;" />
+                                    <Label layoutX="376.0" layoutY="36.0" prefHeight="17.0" prefWidth="0.0" />
+                                    <ImageView fx:id="imgFoto" fitHeight="124.0" fitWidth="136.0" layoutX="357.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="paneBotones" layoutX="24.0" layoutY="484.0" prefHeight="65.0" prefWidth="819.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
+                                 <children>
+                                    <HBox layoutX="8.0" prefHeight="57.0" prefWidth="805.0">
+                                       <children>
+                                          <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="42.0" prefWidth="105.0" stylesheets="@../css/prodcutoCss.css" text="Agregar">
+                                             <HBox.margin>
+                                                <Insets left="55.0" right="170.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#Actualizar" prefHeight="42.0" prefWidth="105.0" text="Actualizar">
+                                             <HBox.margin>
+                                                <Insets right="170.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="btnEliminar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#eliminar" prefHeight="42.0" prefWidth="105.0" stylesheets="@../css/prodcutoCss.css" text="Eliminar" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </Pane>
+                              <AnchorPane layoutX="25.0" layoutY="23.0" prefHeight="200.0" prefWidth="240.0">
+                                 <children>
+                                    <ImageView fitHeight="112.0" fitWidth="166.0" layoutX="101.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../imagenes/logoFinal%20-%20copia.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label alignment="CENTER" layoutX="8.0" layoutY="144.0" prefHeight="31.0" prefWidth="280.0" text="Registro de productos">
+                                       <font>
+                                          <Font name="System Bold Italic" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
 
         </tabs>
       </TabPane>
