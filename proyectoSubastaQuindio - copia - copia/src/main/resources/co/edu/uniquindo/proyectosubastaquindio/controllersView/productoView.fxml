@@ -72,11 +72,6 @@
                                                                   <Label text="Contraseña" GridPane.rowIndex="3" />
                                                                   <Label text="Usuario" GridPane.rowIndex="2" />
                                                                   <Hyperlink fx:id="vinculoLink" onAction="#clickLink" prefHeight="25.0" prefWidth="153.0" text="¿olvidaste tu contraseña?" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                  <Button fx:id="btnRegistrarseHome" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#IrARegistrarseHome" prefHeight="25.0" prefWidth="87.0" text="Registrar" GridPane.rowIndex="5">
-                                                                     <GridPane.margin>
-                                                                        <Insets left="25.0" />
-                                                                     </GridPane.margin>
-                                                                  </Button>
                                                                   <Button fx:id="btnIniciarSesion" mnemonicParsing="false" onAction="#IniciarSesion" text="Iniciar sesion" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                                      <GridPane.margin>
                                                                         <Insets left="28.0" />
@@ -103,6 +98,7 @@
                                           </AnchorPane>
                                       </children>
                                    </AnchorPane>
+                                    <Button fx:id="btnCerrarSesion" layoutX="747.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
                                 </children>
                                  <padding>
                                     <Insets right="10.0" />
@@ -201,22 +197,6 @@
                                                 <HBox prefHeight="59.0" prefWidth="669.0">
                                                    <children>
                                                       <AnchorPane prefHeight="59.0" prefWidth="529.0" />
-                                                      <Label contentDisplay="CENTER" text="Iniciar sesion" textFill="#000000aa" HBox.hgrow="ALWAYS">
-                                                         <font>
-                                                            <Font name="System Bold" size="13.0" />
-                                                         </font>
-                                                         <HBox.margin>
-                                                            <Insets top="20.0" />
-                                                         </HBox.margin>
-                                                      </Label>
-                                                      <ImageView fitHeight="44.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
-                                                         <image>
-                                                            <Image url="@../imagenes/logoIniciarSecion.png" />
-                                                         </image>
-                                                         <HBox.margin>
-                                                            <Insets top="8.0" />
-                                                         </HBox.margin>
-                                                      </ImageView>
                                                    </children>
                                                 </HBox>
                                                 <HBox prefHeight="100.0" prefWidth="200.0">

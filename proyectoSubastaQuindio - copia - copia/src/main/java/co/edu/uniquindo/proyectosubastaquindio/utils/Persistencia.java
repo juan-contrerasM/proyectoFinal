@@ -20,6 +20,8 @@ public class Persistencia {
 
 
 //--------------------------------------RUTAS----------------------------------------
+public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
+
     public static final String RUTA_ARCHIVO_PRODUCTOS = "proyectoSubastaQuindio - copia - copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/productos.txt";
     public static final String RUTA_ARCHIVO_MODELO_PRODCUTOS_XML="proyectoSubastaQuindio - copia - copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/model.xml";
     public static final  String RUTA_ARCHIVO_MODELO_BANCO_BINARIO="proyectoSubastaQuindio - copia - copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/model.dat";

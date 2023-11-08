@@ -5,6 +5,8 @@ package co.edu.uniquindo.proyectosubastaquindio.controllersView;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
+import co.edu.uniquindo.proyectosubastaquindio.model.Producto;
+import co.edu.uniquindo.proyectosubastaquindio.model.SubastaQuindio;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoUsuario;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo;
 import javafx.beans.property.SimpleStringProperty;
@@ -32,6 +34,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class CrudProductoControllerView implements Initializable {
+    SubastaQuindio subastaQuindio =new SubastaQuindio();
 
 
     /**
@@ -210,14 +213,7 @@ public class CrudProductoControllerView implements Initializable {
 
             mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder actualizar el producto", Alert.AlertType.ERROR);
            //estoy tratando de abrir otras ventanas para poder navegar 
-            TabPane pane =new TabPane();
-            pane.getTabs().addAll(tabHome);
-            btnRegistrarseHome.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent actionEvent) {
-                    pane.getSelectionModel().select(tabHome);
-                }
-            } );
+
             registrarAcciones("Error al actualizar debe autenticarse", 1, "no hubo un registro");
 
         }
@@ -456,6 +452,26 @@ public class CrudProductoControllerView implements Initializable {
     //++++++++++++++++++++++++++++++++++++++++++++++++++++HOME+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     @FXML
+    private Button btnCerrarSesion;
+
+    @FXML
+    void cerrarSesion(ActionEvent event) {
+
+        if (autenticacion == true){
+            autenticacion=false;
+            mostrarMensaje("Alerta accion correcta", "Cerro sesion correctamente", " ", Alert.AlertType.CONFIRMATION);
+            registrarAcciones("cerro sesion", 1, "cerro sesion");
+
+
+        }else {
+            mostrarMensaje("Alerta accion incorrecta", "Debe ingresar para hacer uso de esta accion ", "Vuelva a intentarlo", Alert.AlertType.WARNING);
+
+        }
+
+    }
+
+
+    @FXML
     private Hyperlink vinculoLink;
     @FXML
     void clickLink(ActionEvent event) {
@@ -465,55 +481,58 @@ public class CrudProductoControllerView implements Initializable {
     private Button btnIniciarSesion;
     @FXML
     private ComboBox<TipoUsuario> comboTipoUsuario;
-    @FXML
-    private Button btnRegistrarseHome;
-    @FXML
-    void IrARegistrarseHome(ActionEvent event) {
-        TabPane pane =new TabPane();
-        pane.getTabs().addAll(tabRegistro);
-        btnRegistrarseHome.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                pane.getSelectionModel().select(tabRegistro);
-            }
-        } );
-
-    }    @FXML
+      @FXML
     private PasswordField txtClaveHome;
 
     @FXML
     private TextField txtUsuarioHome;
+
+    /**public Producto buscarProducto(String nombre){
+        for (Producto producto:listaProductos) {
+            if(producto.getNombreProducto().equals(nombre)){
+                return producto;
+            }
+
+        }
+        return null;
+    }
+     */
+    String usuario;
 
     //FLATA ATRIBUTOS XML POR DEFINIR
     @FXML
     void IniciarSesion(ActionEvent event) throws IOException {
         String usuario = txtUsuarioHome.getText();
         String clave = txtClaveHome.getText();
+try {
+    if (comboTipoUsuario.getValue().equals(TipoUsuario.ANUNCIANTE)) {
+        if (crudProductoController.verificarInicioSesionAnunciante(usuario, clave)) {
+            autenticacion = true;
+            limpiarCamposHome();
+            mostrarMensaje("Alerta accion ", "Ingreso con exito", "", Alert.AlertType.CONFIRMATION);
+            registrarAcciones("inicio sesion", 1, "tipo anunciante");
 
-        if (comboTipoUsuario.getValue().equals(TipoUsuario.ANUNCIANTE)) {
-            if (crudProductoController.verificarInicioSesionAnunciante(usuario, clave)) {
-                autenticacion = true;
-                limpiarCamposHome();
-                mostrarMensaje("inicio sesion", "se inicio sesion", "Se inicio sesion Correctamente \n ya puede hacer uso \n  de las acciones de la applicacion", Alert.AlertType.CONFIRMATION);
-                registrarAcciones("se inicio sesion", 1, "tipo anunciante");
-
-            } else {
-                mostrarMensaje("inicio sesion", "credenciales incorrectas", "no se inicio sesion \n clave o usuario incorrecto", Alert.AlertType.WARNING);
-            }
-        } else if (comboTipoUsuario.getValue().equals(TipoUsuario.COMPRADOR)) {
-            if (crudProductoController.verificarInicioSesionComprador(usuario, clave)) {
-                autenticacion = true;
-                limpiarCamposHome();
-                mostrarMensaje("inicio sesion", "se inicio sesion", "Se inicio sesion Correctamente \n ya puede hacer uso \n  de las acciones de la applicacion", Alert.AlertType.CONFIRMATION);
-                registrarAcciones("se inicio sesion", 1, "tipo comprador");
-
-            } else {
-
-                registrarAcciones("Error al iniciar sesion ", 1, "datos invalidos");
-                mostrarMensaje("inicio sesion", "credenciales incorrectas", "no se inicio sesion \n clave o usuario incorrecto", Alert.AlertType.WARNING);
-            }
-
+        } else {
+            mostrarMensaje("Alerta accion incorrecta", "credenciales incorrectas\nclave o usuario incorrecto", "Vuelva a intentarlo", Alert.AlertType.WARNING);
         }
+    } else if (comboTipoUsuario.getValue().equals(TipoUsuario.COMPRADOR)) {
+        if (crudProductoController.verificarInicioSesionComprador(usuario, clave)) {
+            autenticacion = true;
+            limpiarCamposHome();
+            mostrarMensaje("Alerta accion ", "Ingreso con exito", "", Alert.AlertType.CONFIRMATION);
+            registrarAcciones("inicio sesion", 1, "tipo comprador");
+
+        } else {
+
+            registrarAcciones("Error al iniciar sesion ", 1, "datos invalidos");
+            mostrarMensaje("Alerta accion incorrecta", "credenciales incorrectas\nclave o usuario incorrecto", "Vuelva a intentarlo", Alert.AlertType.WARNING);
+        }
+
+    }
+}catch (NullPointerException e){
+    mostrarMensaje("Alerta accion incorrecta", "Debe de expecificar el tipo de usuario", "Vuelva a intentarlo", Alert.AlertType.WARNING);
+
+}
 
     }
 
@@ -529,9 +548,6 @@ public class CrudProductoControllerView implements Initializable {
     private Button btnGuardarUsuario;
 
 
-    // ESTE NO ES NECESARIO REGISTARR
-    @FXML
-    private Button btnRegistrar;
 
     @FXML
     private ComboBox<TipoUsuario> comboTipo;
@@ -634,12 +650,7 @@ public class CrudProductoControllerView implements Initializable {
     }
 
 
-    @FXML
-    void registrarse(ActionEvent event) {
-        //NO CREO QUE SEA NECESARIO PORQUE PARA ESO SON LOS TABS; CRERIA NECESARIO UN BOTON PARA CERRAR SESION
-        //Y CUANDO SE CIEERE SESION LA VARIABLE GLOBAL AUTENTICACION SE VUELVA FALSE  O ALGO ASI
 
-    }
 
 
     //++++++++++++++++++++++++++++++++++DTOS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

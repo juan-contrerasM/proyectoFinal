@@ -13,7 +13,7 @@ import java.util.List;
 /*
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-11-05T21:24:35-0500",
+    date = "2023-11-08T00:23:31-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21 (Oracle Corporation)"
 )
 */

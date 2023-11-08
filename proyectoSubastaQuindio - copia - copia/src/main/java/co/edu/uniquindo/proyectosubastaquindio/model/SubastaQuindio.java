@@ -111,7 +111,7 @@ public class SubastaQuindio implements Serializable {
 
 
     //lista anunciante
-   ArrayList<Anunciante>listaAnunciantes=new ArrayList<>();
+    public ArrayList<Anunciante>listaAnunciantes=new ArrayList<>();
 
     //verifica inicio de seesion tipo Anunciante
     public boolean verificarinicioSesionAnunciante(String usuario, String clave){

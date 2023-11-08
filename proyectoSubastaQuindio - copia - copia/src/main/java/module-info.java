@@ -7,7 +7,7 @@ module co.edu.uniquindio.proyectosubastaquindio {
     requires java.logging;
     requires org.mapstruct.processor;
     requires org.mapstruct;
-
+    requires com.rabbitmq.client;
 
 
     opens co.edu.uniquindo.proyectosubastaquindio.controllersView;
