@@ -1,4 +1,5 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
+import co.edu.uniquindo.proyectosubastaquindio.config.RabbitFactory;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.IModelFactoryService;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.ISubastaQuindioControllerService;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
@@ -10,18 +11,29 @@ import co.edu.uniquindo.proyectosubastaquindio.model.Comprador;
 import co.edu.uniquindo.proyectosubastaquindio.model.Producto;
 import co.edu.uniquindo.proyectosubastaquindio.model.SubastaQuindio;
 import co.edu.uniquindo.proyectosubastaquindio.utils.Persistencia;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.DeliverCallback;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModelfactoryController implements IModelFactoryService {
+public class ModelfactoryController implements IModelFactoryService, Runnable {
 
 
 
 //instancias
     SubastaQuindio subastaQuindio= new SubastaQuindio();
     SubastaQuindioMapper mapper = SubastaQuindioMapper.INSTANCE;
+//rabiitMq
+    RabbitFactory rabbitFactory;
+    ConnectionFactory connectionFactory;
+
+    //consumidor
+    Thread hiloServicioConsumer1;
 
 
 
@@ -36,7 +48,7 @@ public class ModelfactoryController implements IModelFactoryService {
     }
 
     // contrutor
-    public ModelfactoryController() {
+    public ModelfactoryController() {initRabbitConnection();
 
     }
 
@@ -196,4 +208,67 @@ public class ModelfactoryController implements IModelFactoryService {
     public void setSubastaQuindio(SubastaQuindio subastaQuindio) {
         this.subastaQuindio = subastaQuindio;
     }
+
+
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //+++++++++++++++++++++++++++++++++++++RABBITMQ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
+    private void initRabbitConnection() {
+        rabbitFactory = new RabbitFactory();
+        connectionFactory = rabbitFactory.getConnectionFactory();
+        System.out.println("conexion establecidad");
+
+    }
+
+
+    public void producirMensaje(String queue, String message, String accion) {
+        try (Connection connection = connectionFactory.newConnection();
+             Channel channel = connection.createChannel()) {
+            channel.queueDeclare(queue, false, false, false, null);
+            channel.basicPublish(accion, queue, null, message.getBytes(StandardCharsets.UTF_8));
+            System.out.println(" [x] Sent '" + message + "'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //consumidor
+    public void consumirMensajesServicio1(){
+        hiloServicioConsumer1 = new Thread(this);
+        hiloServicioConsumer1.start();
+    }
+
+
+    @Override
+    public void run() {
+        Thread currentThread = Thread.currentThread();
+        if(currentThread == hiloServicioConsumer1){
+            consumirMensajes();
+        }
+    }
+
+    private void consumirMensajes() {
+        try {
+            Connection connection = connectionFactory.newConnection();
+            Channel channel = connection.createChannel();
+            channel.queueDeclare(QUEUE_NUEVA_PUBLICACION, false, false, false, null);
+
+            DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+                String message = new String(delivery.getBody());
+                System.out.println("Mensaje recibido: " + message);
+                //actualizarEstado(message);
+            };
+            while (true) {
+                channel.basicConsume(QUEUE_NUEVA_PUBLICACION, true, deliverCallback, consumerTag -> { });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
 }

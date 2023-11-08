@@ -93,4 +93,12 @@ public class crudProductoController  {
     public ProductoDto buscarProducto(String nombreProducto) throws IOException {
        return  modelfactoryController.buscarProducto(nombreProducto);
     }
+
+    public void rabbitMqNewAgregar(String queue ,String mensaje,String agregar) {
+         modelfactoryController.producirMensaje(queue, mensaje, agregar);
+    }
+
+    public void rabbitMqConsumerNewAgregar() {
+         modelfactoryController.consumirMensajesServicio1();
+    }
 }

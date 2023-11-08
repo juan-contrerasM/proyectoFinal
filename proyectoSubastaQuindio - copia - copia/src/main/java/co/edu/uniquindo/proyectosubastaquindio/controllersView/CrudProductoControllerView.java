@@ -5,6 +5,7 @@ package co.edu.uniquindo.proyectosubastaquindio.controllersView;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
+import co.edu.uniquindo.proyectosubastaquindio.model.Anunciante;
 import co.edu.uniquindo.proyectosubastaquindio.model.Producto;
 import co.edu.uniquindo.proyectosubastaquindio.model.SubastaQuindio;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoUsuario;
@@ -31,11 +32,24 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Queue;
 import java.util.ResourceBundle;
+
+import static co.edu.uniquindo.proyectosubastaquindio.controller.ModelfactoryController.QUEUE_NUEVA_PUBLICACION;
 
 public class CrudProductoControllerView implements Initializable {
     SubastaQuindio subastaQuindio =new SubastaQuindio();
 
+
+    //rabbit
+
+    //----------------------autenticacion-------------------------------------
+    private boolean autenticacionA= false;
+    private boolean autenticacionC= false;
+
+
+
+    //-------------------------------------------------------
 
     /**
      * tabs
@@ -64,7 +78,7 @@ public class CrudProductoControllerView implements Initializable {
 
 
     crudProductoController crudProductoController;
-    private boolean autenticacion = false;
+
 
 
     //---------------------------------atributos fxml
@@ -194,7 +208,7 @@ public class CrudProductoControllerView implements Initializable {
     //-----------------------------------actualizar
     @FXML
     void Actualizar(ActionEvent event) throws IOException {
-        if (autenticacion) {
+        if (autenticacionA||autenticacionC) {
             ProductoDto productoDto = construirEmpleadoDto();
             if (datosValidos()) {
                 if (!(crudProductoController.verificarProductoCreado(productoDto))) {
@@ -224,7 +238,7 @@ public class CrudProductoControllerView implements Initializable {
     //------------------------------------------------------agregar
     @FXML
     void agregar(ActionEvent event) throws IOException {
-        if (autenticacion) {
+        if (autenticacionA ||autenticacionC) {
             if (datosValidos()) {
                 ProductoDto productoDto = construirEmpleadoDto();
                 if (verificarProducto(productoDto)) {
@@ -233,6 +247,8 @@ public class CrudProductoControllerView implements Initializable {
                     nombresProductos.add(productoDto.nombreProducto());
                     limpiarCamposProducto();
                     txtNombreProducto.setDisable(false);
+                    determinarTipoUser(QUEUE_NUEVA_PUBLICACION,"se creo","agregar");
+                    crudProductoController.rabbitMqNewAgregar(QUEUE_NUEVA_PUBLICACION,"se creo","agregar");
                     registrarAcciones("Producto agregado", 1, "Producto fue agregado");
 
                 } else {
@@ -251,6 +267,15 @@ public class CrudProductoControllerView implements Initializable {
 
     }
 
+    private void determinarTipoUser(String queueNuevaPublicacion, String seCreo, String agregar) {
+        if (autenticacionA){
+            crudProductoController.rabbitMqNewAgregar(QUEUE_NUEVA_PUBLICACION,"se creo","agregar");
+        }
+        else if(autenticacionC){
+            crudProductoController.rabbitMqConsumerNewAgregar();
+        }
+    }
+
     //------------------------------verifcar SI el producto fue creado
     public boolean verificarProducto(ProductoDto productoDto) throws IOException {
         registrarAcciones("Se verifico producto", 1, "Producto verificado");
@@ -261,7 +286,7 @@ public class CrudProductoControllerView implements Initializable {
     //-----------------------------------------------------------------ELIMINAR
     @FXML
     void eliminar(ActionEvent event) throws IOException {
-        if (autenticacion) {
+        if (autenticacionA||autenticacionC) {
             ProductoDto productoDto = construirEmpleadoDto();
             productos.clear();
             productos.addAll(crudProductoController.eliminarProdcuto(productoDto));
@@ -291,7 +316,7 @@ public class CrudProductoControllerView implements Initializable {
             for (File file : selectedFiles) {
                 // Copia o mueve el archivo a la ubicación deseada en tu proyecto
                 try {
-                    File destino = new File("C:\\Users\\juanj\\OneDrive\\Escritorio\\td\\proyectoSubastaQuindio - copia - copia\\src\\main\\resources\\co\\edu\\uniquindo\\proyectosubastaquindio\\imagenes\\" + file.getName());
+                    File destino = new File("C:\\Users\\juanj\\OneDrive\\Imágenes\\Escritorio\\proyectoFinal\\proyectoSubastaQuindio - copia - copia\\src\\main\\resources\\co\\edu\\uniquindo\\proyectosubastaquindio\\imagenes" + file.getName());
                     Files.copy(file.toPath(), destino.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
                     // Carga la imagen en el ImageView
@@ -457,8 +482,9 @@ public class CrudProductoControllerView implements Initializable {
     @FXML
     void cerrarSesion(ActionEvent event) {
 
-        if (autenticacion == true){
-            autenticacion=false;
+        if (autenticacionA == true||autenticacionC==true){
+            autenticacionA=false;
+            autenticacionC=false;
             mostrarMensaje("Alerta accion correcta", "Cerro sesion correctamente", " ", Alert.AlertType.CONFIRMATION);
             registrarAcciones("cerro sesion", 1, "cerro sesion");
 
@@ -507,7 +533,7 @@ public class CrudProductoControllerView implements Initializable {
 try {
     if (comboTipoUsuario.getValue().equals(TipoUsuario.ANUNCIANTE)) {
         if (crudProductoController.verificarInicioSesionAnunciante(usuario, clave)) {
-            autenticacion = true;
+            autenticacionA = true;
             limpiarCamposHome();
             mostrarMensaje("Alerta accion ", "Ingreso con exito", "", Alert.AlertType.CONFIRMATION);
             registrarAcciones("inicio sesion", 1, "tipo anunciante");
@@ -517,7 +543,7 @@ try {
         }
     } else if (comboTipoUsuario.getValue().equals(TipoUsuario.COMPRADOR)) {
         if (crudProductoController.verificarInicioSesionComprador(usuario, clave)) {
-            autenticacion = true;
+            autenticacionC = true;
             limpiarCamposHome();
             mostrarMensaje("Alerta accion ", "Ingreso con exito", "", Alert.AlertType.CONFIRMATION);
             registrarAcciones("inicio sesion", 1, "tipo comprador");
