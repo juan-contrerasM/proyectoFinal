@@ -212,7 +212,7 @@ public class CrudProductoControllerView implements Initializable {
         } else {
 
             mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder actualizar el producto", Alert.AlertType.ERROR);
-           //estoy tratando de abrir otras ventanas para poder navegar 
+           //estoy tratando de abrir otras ventanas para poder navegar
 
             registrarAcciones("Error al actualizar debe autenticarse", 1, "no hubo un registro");
 
@@ -649,7 +649,33 @@ try {
         comboTipo.setPromptText("Tipo usuario");
     }
 
+//++++++++++++++++++++++++++++++++++Inicio+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@FXML
+private Button btnAnterior;
 
+    @FXML
+    private Button btnSeguiente;
+    @FXML
+    private TableColumn<?, ?> columnaNombreProductoPublicaciones;
+
+    @FXML
+    private TableColumn<?, ?> columnaTipoProductoPublicaciones;
+    @FXML
+    private TableColumn<?, ?> columnaDescripcionPublicaciones;
+    @FXML
+    private ImageView imgPublicaciones;
+
+    @FXML
+    private TableView<?> tablaPublicaciones;
+    @FXML
+    void publicacionAnterior(ActionEvent event) {
+
+    }
+
+    @FXML
+    void publicacionSiguiente(ActionEvent event) {
+
+    }
 
 
 

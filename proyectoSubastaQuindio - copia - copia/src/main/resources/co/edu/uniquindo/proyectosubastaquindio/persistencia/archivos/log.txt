@@ -222,3 +222,5 @@ nov 08, 2023 1:06:52 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.Archi
 INFO: mostrar mensaje,se mostro mensaje,2023-11-08
 nov 08, 2023 1:06:52 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
 INFO: cerro sesion,cerro sesion,2023-11-08
+nov 09, 2023 12:19:05 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-09
