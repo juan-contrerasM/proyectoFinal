@@ -62,6 +62,8 @@ public class CrudProductoControllerView implements Initializable {
     //listas
     private final ObservableList<ProductoDto> productos = FXCollections.observableArrayList();
 
+    private final ObservableList<AnuncianteDto> anunciante=FXCollections.observableArrayList();
+
 
     crudProductoController crudProductoController;
     private boolean autenticacion = false;
@@ -423,30 +425,31 @@ public class CrudProductoControllerView implements Initializable {
 
     @FXML
     private TableColumn<ProductoDto, String> columna1AnuncioTabla1;
-
-    @FXML
-    private TableColumn<ProductoDto, String> columna1AnuncioTabla2;
-
     @FXML
     private TableColumn<ProductoDto, String> columna2AnuncioTabla1;
-
-    @FXML
-    private TableColumn<ProductoDto, String> columna2AnuncioTabla2;
-
     @FXML
     private TableColumn<ProductoDto, String> columna3AnuncioTabla1;
-
-    @FXML
-    private TableColumn<ProductoDto, String> columna3AnuncioTabla2;
-
-    @FXML
-    private TableColumn<ProductoDto, String> columna4AnuncioTabla2;
-
     @FXML
     private TableView<ProductoDto> tablaAnuncio1;
 
+
     @FXML
-    private TableView<ProductoDto> tableAnuncio2;
+    private TableColumn<AnuncianteDto, String> columna1AnuncioTabla2;
+    @FXML
+    private TableColumn<AnuncianteDto, String> columna2AnuncioTabla2;
+    @FXML
+    private TableColumn<AnuncianteDto, String> columna3AnuncioTabla2;
+    @FXML
+    private TableView<AnuncianteDto> tableAnuncio2;
+
+
+
+    @FXML
+    private TableColumn<?, ?> columna1AnuncioTabla3;
+    @FXML
+    private TableColumn<?, ?> columna2AnuncioTabla3;
+    @FXML
+    private TableView<?> tablaInfoFecha;
 
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++HOME+++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -511,7 +514,8 @@ try {
             limpiarCamposHome();
             mostrarMensaje("Alerta accion ", "Ingreso con exito", "", Alert.AlertType.CONFIRMATION);
             registrarAcciones("inicio sesion", 1, "tipo anunciante");
-
+            //AnuncianteDto anunciante  =crudProductoController.guardarAnunciante();
+            //iniciarTablaAnuncio();
         } else {
             mostrarMensaje("Alerta accion incorrecta", "credenciales incorrectas\nclave o usuario incorrecto", "Vuelva a intentarlo", Alert.AlertType.WARNING);
         }
@@ -648,6 +652,35 @@ try {
         txtNombre.setText("");
         comboTipo.setPromptText("Tipo usuario");
     }
+
+    /**
+     *  String nombre,
+     *         String apellido,
+     *         String cedula,
+     *         int edad,
+     *         String usuario,
+     *         String contrasenia,
+     *         int cantAnunciosActivos,
+     *         float cantTimpoLimitado
+     */
+
+static int posicion =0;
+    /*public void iniciarTablaAnuncio(){
+
+        ObservableList<AnuncianteDto> anuncianteActivo = FXCollections.observableArrayList();
+        anuncianteActivo.add(anunciante);
+        // solo falta que el prooducto dto que esta arriba comenzar a mostar los atribustos en la tabla
+
+        //String productoSeleccionado = selectedItem;
+
+        columna1AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
+        columna2AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().apellido()));
+        columna3AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().edad())));
+        columna4AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().cedula()));
+
+        tableAnuncio2.getItems().clear();
+        tableAnuncio2.setItems(anuncianteActivo);
+    };*/
 
 //++++++++++++++++++++++++++++++++++Inicio+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 @FXML

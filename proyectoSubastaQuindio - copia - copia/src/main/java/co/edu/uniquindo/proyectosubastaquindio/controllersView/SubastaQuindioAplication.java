@@ -16,7 +16,7 @@ public class SubastaQuindioAplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SubastaQuindioAplication.class.getResource("productoView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 866, 591);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
