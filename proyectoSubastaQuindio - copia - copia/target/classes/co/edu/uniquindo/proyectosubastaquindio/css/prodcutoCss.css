@@ -28,7 +28,7 @@
     -fx-border-radius: 3;
 
 }
-#paneTable,#paneHome,#paneRegistro,#paneHeadRegistro, #paneBodyAnuncio,#paneHeadAnuncio{
+#paneTable,#paneHome,#paneRegistro,#paneHeadRegistro, #paneBodyAnuncio,#paneHeadAnuncio,#paneBodyPublicaciones,#paneHeadpublicaciones{
     -fx-background-color: #C9D5D4;
     -fx-border-color: #174a5d;
     -fx-border-radius: 10;
