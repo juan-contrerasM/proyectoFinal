@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerRegistroView"
+            prefHeight="400.0" prefWidth="600.0">
+
+
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                <AnchorPane layoutX="85.0" layoutY="68.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <AnchorPane layoutX="209.0" layoutY="66.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <AnchorPane fx:id="paneRegistro" layoutX="38.0" layoutY="256.0" prefHeight="267.0" prefWidth="716.0" stylesheets="@../css/prodcutoCss.css">
+                                    <children>
+                                        <TextField fx:id="txtNombre" layoutX="47.0" layoutY="50.0" promptText="Nombre" />
+                                        <TextField fx:id="txtApellido" layoutX="263.0" layoutY="50.0" promptText="Apellido" />
+                                        <TextField fx:id="txtCedula" layoutX="492.0" layoutY="121.0" promptText="Cedula" />
+                                        <TextField fx:id="txtEdad" layoutX="492.0" layoutY="50.0" promptText="Edad" />
+                                        <TextField fx:id="txtUsuario" layoutX="47.0" layoutY="121.0" promptText="Usuario" />
+                                        <TextField fx:id="txtClave" layoutX="263.0" layoutY="121.0" promptText="Contraseña" />
+                                        <Button fx:id="btnGuardarUsuario" layoutX="279.0" layoutY="196.0" mnemonicParsing="false" onAction="#guardarUsuario" prefHeight="35.0" prefWidth="117.0" text="Guardar" />
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="paneHeadRegistro" layoutX="378.0" layoutY="14.0" prefHeight="223.0" prefWidth="376.0" stylesheets="@../css/prodcutoCss.css">
+                                    <children>
+                                        <ComboBox fx:id="comboTipo" layoutX="113.0" layoutY="41.0" prefWidth="150.0" promptText="Tipo de Registro" />
+                                        <HBox layoutX="-1.0" layoutY="92.0" prefHeight="100.0" prefWidth="376.0">
+                                            <children>
+                                                <VBox prefHeight="100.0" prefWidth="429.0">
+                                                    <children>
+                                                        <Label fx:id="lblInformacion" alignment="CENTER" prefHeight="45.0" prefWidth="472.0" text="Para continuar es importante  que especifiques el tipo " textAlignment="CENTER" />
+                                                        <Label fx:id="lblInformacion1" alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="472.0" text="de registro que quieres." textAlignment="CENTER" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="35.0" layoutY="33.0" prefHeight="200.0" prefWidth="240.0">
+                            <children>
+                                <ImageView fitHeight="112.0" fitWidth="166.0" layoutX="101.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../imagenes/logoFinal%20-%20copia.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Label alignment="CENTER" layoutX="8.0" layoutY="144.0" prefHeight="31.0" prefWidth="280.0" text="Registro de usuario">
+                                    <font>
+                                        <Font name="System Bold Italic" size="21.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+
+
+</AnchorPane>

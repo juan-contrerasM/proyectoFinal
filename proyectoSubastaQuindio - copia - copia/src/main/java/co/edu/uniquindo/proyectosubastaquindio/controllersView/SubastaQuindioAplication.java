@@ -28,8 +28,8 @@ public class SubastaQuindioAplication extends Application {
         //RESPALDO
         launch();
 
-        String archivoOrigen = "proyectoSubastaQuindio - copia - copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/productos.txt"; // Nombre del archivo original
-        String archivoRespaldo = "proyectoSubastaQuindio - copia - copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/respaldo/productoRpealdo.txt"; // Nombre del archivo de respaldo
+        String archivoOrigen = "src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/productos.txt"; // Nombre del archivo original
+        String archivoRespaldo = "src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/respaldo/productoRpealdo.txt"; // Nombre del archivo de respaldo
 
         try {
             // Abrir el archivo de origen para lectura

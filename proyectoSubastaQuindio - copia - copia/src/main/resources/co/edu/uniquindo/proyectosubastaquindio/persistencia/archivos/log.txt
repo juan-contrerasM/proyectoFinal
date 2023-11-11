@@ -244,3 +244,267 @@ nov 09, 2023 10:08:26 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.Arch
 INFO: Se inicializo aplicacion,inicio aplicion,2023-11-09
 nov 09, 2023 10:34:29 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
 INFO: Se inicializo aplicacion,inicio aplicion,2023-11-09
+nov 10, 2023 1:20:31 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:04:49 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:06:55 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:11:18 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:13:26 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:14:24 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:14:37 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-10
+nov 10, 2023 11:14:37 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-10
+nov 10, 2023 11:15:05 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Error al importar imagen,Error al importar imagen ,2023-11-10
+nov 10, 2023 11:15:44 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:16:05 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-10
+nov 10, 2023 11:16:05 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-10
+nov 10, 2023 11:16:20 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: importacion exitosa,Imagen importada,2023-11-10
+nov 10, 2023 11:16:22 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-10
+nov 10, 2023 11:16:22 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto verificado,Se verifico producto,2023-11-10
+nov 10, 2023 11:16:22 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-10
+nov 10, 2023 11:16:22 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue agregado,Producto agregado,2023-11-10
+nov 10, 2023 11:20:07 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:20:22 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-10
+nov 10, 2023 11:20:22 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-10
+nov 10, 2023 11:20:39 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: importacion exitosa,Imagen importada,2023-11-10
+nov 10, 2023 11:20:40 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-10
+nov 10, 2023 11:20:40 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto verificado,Se verifico producto,2023-11-10
+nov 10, 2023 11:20:41 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-10
+nov 10, 2023 11:20:41 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue agregado,Producto agregado,2023-11-10
+nov 10, 2023 11:27:27 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:27:46 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-10
+nov 10, 2023 11:27:46 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al eliminar debe autenticarse,2023-11-10
+nov 10, 2023 11:28:00 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-10
+nov 10, 2023 11:28:00 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-10
+nov 10, 2023 11:28:12 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-10
+nov 10, 2023 11:28:12 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-10
+nov 10, 2023 11:28:12 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-10
+nov 10, 2023 11:28:12 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue elimiando,Producto eliminado,2023-11-10
+nov 10, 2023 11:31:11 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:31:22 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-10
+nov 10, 2023 11:31:22 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-10
+nov 10, 2023 11:31:27 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-10
+nov 10, 2023 11:31:27 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-10
+nov 10, 2023 11:31:27 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-10
+nov 10, 2023 11:31:27 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue elimiando,Producto eliminado,2023-11-10
+nov 10, 2023 11:33:27 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:36:29 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:52:04 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-10
+nov 10, 2023 11:52:43 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-10
+nov 10, 2023 11:52:43 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-10
+nov 10, 2023 11:52:48 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-10
+nov 10, 2023 11:52:48 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-10
+nov 10, 2023 11:52:48 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-10
+nov 10, 2023 11:52:48 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue elimiando,Producto eliminado,2023-11-10
+nov 11, 2023 9:48:55 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 9:49:11 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 9:49:11 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-11
+nov 11, 2023 9:49:59 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 9:50:58 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 9:51:59 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 9:54:29 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 9:58:04 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 10:00:32 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 10:00:57 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 10:00:57 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-11
+nov 11, 2023 10:01:12 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: importacion exitosa,Imagen importada,2023-11-11
+nov 11, 2023 10:01:13 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-11
+nov 11, 2023 10:01:13 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto verificado,Se verifico producto,2023-11-11
+nov 11, 2023 10:01:13 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-11
+nov 11, 2023 10:01:13 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue agregado,Producto agregado,2023-11-11
+nov 11, 2023 10:01:43 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-11
+nov 11, 2023 10:01:43 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-11
+nov 11, 2023 10:01:43 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-11
+nov 11, 2023 10:01:43 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue elimiando,Producto eliminado,2023-11-11
+nov 11, 2023 10:13:12 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 10:14:44 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 10:15:03 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo un anuncianteDTO,se creo un anuncianteDTO,2023-11-11
+nov 11, 2023 10:15:03 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: guardar usuario anunciante,guardar usuario,2023-11-11
+nov 11, 2023 10:15:17 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo un compradorDTO,se creo un compradorDTO,2023-11-11
+nov 11, 2023 10:15:17 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: guardar usuario comprador,guardar usuario,2023-11-11
+nov 11, 2023 10:15:34 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 10:15:34 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al eliminar debe autenticarse,2023-11-11
+nov 11, 2023 10:19:04 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 10:19:29 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 10:19:29 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-11
+nov 11, 2023 10:19:42 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: importacion exitosa,Imagen importada,2023-11-11
+nov 11, 2023 10:19:44 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-11
+nov 11, 2023 10:19:44 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto verificado,Se verifico producto,2023-11-11
+nov 11, 2023 10:19:44 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-11
+nov 11, 2023 10:19:44 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue agregado,Producto agregado,2023-11-11
+nov 11, 2023 10:21:50 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 10:22:09 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: importacion exitosa,Imagen importada,2023-11-11
+nov 11, 2023 10:22:48 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 10:22:48 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al agregar debe autenticarse,2023-11-11
+nov 11, 2023 10:25:40 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 10:26:03 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 10:26:03 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo anunciante,inicio sesion,2023-11-11
+nov 11, 2023 10:26:13 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Importación exitosa,Imagen importada,2023-11-11
+nov 11, 2023 10:26:18 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-11
+nov 11, 2023 10:26:18 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto verificado,Se verifico producto,2023-11-11
+nov 11, 2023 10:26:18 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-11
+nov 11, 2023 10:26:18 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue agregado,Producto agregado,2023-11-11
+nov 11, 2023 10:26:23 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se muestra la informacion del producto seleccionado,se muestra Informacion del  Producto seleccionado,2023-11-11
+nov 11, 2023 10:26:23 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-11
+nov 11, 2023 10:26:49 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-11
+nov 11, 2023 10:26:49 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-11
+nov 11, 2023 10:26:49 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-11
+nov 11, 2023 10:26:49 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto fue elimiando,Producto eliminado,2023-11-11
+nov 11, 2023 10:27:26 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se muestra la informacion del producto seleccionado,se muestra Informacion del  Producto seleccionado,2023-11-11
+nov 11, 2023 10:27:26 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-11
+nov 11, 2023 11:45:18 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 11:46:02 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: datos invalidos,Error al iniciar sesion ,2023-11-11
+nov 11, 2023 11:46:04 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 11:46:08 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: datos invalidos,Error al iniciar sesion ,2023-11-11
+nov 11, 2023 11:46:09 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 11:46:47 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo un compradorDTO,se creo un compradorDTO,2023-11-11
+nov 11, 2023 11:46:47 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: guardar usuario comprador,guardar usuario,2023-11-11
+nov 11, 2023 11:47:00 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 11:47:00 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo comprador,inicio sesion,2023-11-11
+nov 11, 2023 11:47:05 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 11:47:05 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al agregar debe autenticarse,2023-11-11
+nov 11, 2023 11:47:08 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se muestra la informacion del producto seleccionado,se muestra Informacion del  Producto seleccionado,2023-11-11
+nov 11, 2023 11:47:08 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-11
+nov 11, 2023 11:47:12 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 11:47:12 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al actualizar debe autenticarse,2023-11-11
+nov 11, 2023 11:48:41 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 11:52:09 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11
+nov 11, 2023 11:52:09 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo comprador,inicio sesion,2023-11-11
+nov 11, 2023 11:52:15 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se muestra la informacion del producto seleccionado,se muestra Informacion del  Producto seleccionado,2023-11-11
+nov 11, 2023 11:52:15 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-11
+nov 11, 2023 11:52:20 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: se creo ProductoDTO,se creo ProductoDTO,2023-11-11
+nov 11, 2023 11:52:20 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto seleccionado,Producto seleccionado,2023-11-11
+nov 11, 2023 11:52:20 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: campos limpiados,limpiar campos,2023-11-11
+nov 11, 2023 11:52:20 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Producto actualizado,Producto actualizado,2023-11-11
+nov 11, 2023 12:01:01 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-11
+nov 11, 2023 12:01:44 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-11

@@ -23,7 +23,43 @@ public class ModelfactoryController implements IModelFactoryService {
     SubastaQuindio subastaQuindio= new SubastaQuindio();
     SubastaQuindioMapper mapper = SubastaQuindioMapper.INSTANCE;
 
+    //autenticaion
 
+    public void guardarAutenticacion(boolean autenticacion) {
+        subastaQuindio.setAutenticacion(autenticacion);
+    }
+    public  boolean obtenerAutenticacion(){
+        return subastaQuindio.getAutenticacion();
+    }
+
+    public ArrayList<String> obtenerNombreProdutos() throws IOException {
+        subastaQuindio.limpiarListaProductos();
+        subastaQuindio.setListaProductos(Persistencia.cargarProductos());
+        Persistencia.guardarProdcutos(subastaQuindio.getListaProductos());
+        return subastaQuindio.obtenerNombresProductos();
+    }
+
+    public void guardarNombreP(String nombre) {
+        subastaQuindio.guardarNombre(nombre);
+    }
+
+    public AnuncianteDto obetnerAnunciante(String usuario) throws IOException {
+        return mapper.anuncianteToAnuncianteDto(subastaQuindio.getAnuncianteGlobal());
+    }
+    public CompradorDto obetnerComprador(String usuario) throws IOException {
+        return mapper.compradorToCompradorDto(subastaQuindio.getCompradorGlobal());
+    }
+
+    public void guardarAnuncianteGlobal(String usuario) throws IOException {
+        subastaQuindio.setListaAnunciantes(Persistencia.cargarAnunciantes());
+        Persistencia.guardarAnunciastes(subastaQuindio.getListaAnunciantes());
+        subastaQuindio.setAnuncianteGlobal(subastaQuindio.obetnerAnunciante(usuario));
+    }
+    public  void guardarCompradorGlobal(String usuario) throws IOException {
+        subastaQuindio.setListaCompradores(Persistencia.cargarCompradores());
+        Persistencia.guardarCompradores(subastaQuindio.getListaCompradores());
+        subastaQuindio.setCompradorGlobal(subastaQuindio.obtenerComprador(usuario));
+    }
 
 
 //------------------------------singlentton clase secreta------------------------------------

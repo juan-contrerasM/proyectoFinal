@@ -1,5 +1,7 @@
 package co.edu.uniquindo.proyectosubastaquindio.model;
 
+import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoUsuario;
+
 import java.io.Serializable;
 
 public class Comprador extends Usuario implements Serializable {
@@ -12,7 +14,7 @@ public class Comprador extends Usuario implements Serializable {
     }
 
     public Comprador(String nombre, String apellido, String cedula, int edad, String usuario, String contrasenia, int cantMaxPujasAnuncio) {
-        super(nombre, apellido, cedula, edad, usuario, contrasenia);
+        super(nombre, apellido, cedula, edad, usuario, contrasenia, TipoUsuario.COMPRADOR);
         this.cantMaxPujasAnuncio = cantMaxPujasAnuncio;
     }
 

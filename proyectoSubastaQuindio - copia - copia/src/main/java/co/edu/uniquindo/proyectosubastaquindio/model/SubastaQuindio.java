@@ -12,6 +12,9 @@ public class SubastaQuindio implements Serializable {
 
  }
     private static final long serialVersionUID = 1L;
+    private boolean autenticacion=false;
+    private  Anunciante anuncianteGlobal;
+    private Comprador compradorGlobal;
 
 
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -200,7 +203,28 @@ public class SubastaQuindio implements Serializable {
         return confirmacion;
     }
 
-    //-----------------------------limpiar ------------------
+    ArrayList<String>nombresProducto=new ArrayList<>();
+
+    //nombres productos
+    public ArrayList<String> obtenerNombresProductos(){
+        nombresProducto.clear();
+        for (Producto producto:listaProductos) {
+            nombresProducto.add(producto.getNombreProducto());
+        }
+        return nombresProducto;
+    }
+    public void guardarNombre(String nombre){
+        nombresProducto.add(nombre);
+    }
+
+    public ArrayList<String> getNombresProducto() {
+        return nombresProducto;
+    }
+
+    public void setNombresProducto(ArrayList<String> nombresProducto) {
+        this.nombresProducto = nombresProducto;
+    }
+//-----------------------------limpiar ------------------
 
     public  void limpiarCompradores(){
         this.listaCompradores.clear();
@@ -214,5 +238,44 @@ public class SubastaQuindio implements Serializable {
         this.listaCompradores =listaCompradores;
     }
 
+    public boolean getAutenticacion() {
+        return autenticacion;
+    }
 
+    public void setAutenticacion(boolean autenticacion) {
+        this.autenticacion = autenticacion;
+    }
+
+    public Anunciante obetnerAnunciante(String usuario) {
+        for (Anunciante anunciante:listaAnunciantes) {
+            if(anunciante.getUsuario().equals(usuario)){
+                return anunciante;
+            }
+        }
+        return null;
+    }
+    public Comprador obtenerComprador(String usuario){
+        for (Comprador comprador:listaCompradores) {
+            if(comprador.getUsuario().equals(usuario)){
+                return  comprador;
+            }
+        }
+        return  null;
+    }
+
+    public Anunciante getAnuncianteGlobal() {
+        return anuncianteGlobal;
+    }
+
+    public void setAnuncianteGlobal(Anunciante anuncianteGlobal) {
+        this.anuncianteGlobal = anuncianteGlobal;
+    }
+
+    public Comprador getCompradorGlobal() {
+        return compradorGlobal;
+    }
+
+    public void setCompradorGlobal(Comprador compradorGlobal) {
+        this.compradorGlobal = compradorGlobal;
+    }
 }

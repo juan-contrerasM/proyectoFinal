@@ -1,3 +1,1 @@
-HUJX--77--C:\Users\juanj\OneDrive\Escritorio\td\proyectoSubastaQuindio - copia - copia\src\main\resources\co\edu\uniquindo\proyectosubastaquindio\imagenes\Captura de pantalla 2023-10-19 112402.png--DEPORTE
-arrox--un arroz muy rico--C:\Users\juanj\OneDrive\Escritorio\td\proyectoSubastaQuindio - copia - copia\src\main\resources\co\edu\uniquindo\proyectosubastaquindio\imagenes\Captura de pantalla 2023-10-24 102608.png--DEPORTE
-moto--mt09--C:\Users\juanj\OneDrive\Escritorio\td\proyectoSubastaQuindio - copia - copia\src\main\resources\co\edu\uniquindo\proyectosubastaquindio\imagenes\Captura de pantalla 2023-10-05 203531.png--VEHICULO
+jnk--bjnk--file:/C:/Users/juanj/OneDrive/Documentos/proyectoFinal/proyectoSubastaQuindio%20-%20copia%20-%20copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/imagenes/Captura%20de%20pantalla%202023-10-31%20072245.png--HOGAR
