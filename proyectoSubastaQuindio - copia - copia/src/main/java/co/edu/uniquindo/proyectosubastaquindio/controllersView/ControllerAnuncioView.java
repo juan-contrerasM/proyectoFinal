@@ -75,10 +75,26 @@ public class ControllerAnuncioView implements Initializable {
             columna1AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
             columna2AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
             columna3AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().tipo_Articulo())));
+
+            //mostrar en  tabla anunciante
+
+            AnuncianteDto anuncianteDto=controllerAnuncio.obtenerAnuncianteGlobal();
+            ObservableList<AnuncianteDto> anuncianteDtos = FXCollections.observableArrayList();
+            anuncianteDtos.add(anuncianteDto);
+            columna1AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
+            columna2AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().apellido()));
+            //CANTIDAD DE ANUNCION ACTIVOS O NUMERO PUBLICACIONES?
+            columna3AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().cantAnunciosActivos())));
+
+                tableAnuncio2.getItems().clear();
+                tableAnuncio2.setItems(anuncianteDtos);
+
             // Supongamos que productoDto.urlFoto() devuelve la URL de la imagen como una cadena
             String urlImagen = productoDto.urlFoto();
 
-// Carga la imagen en el ImageView
+
+
+        // Carga la imagen en el ImageView
             Image image = new Image(urlImagen);
             imgFotoAnuncio.setImage(image);
             //columna4AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().urlFoto()));

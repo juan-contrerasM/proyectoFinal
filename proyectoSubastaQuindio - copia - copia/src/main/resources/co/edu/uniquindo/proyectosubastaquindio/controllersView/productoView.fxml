@@ -1,213 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerProductoView">
-   <children>
-      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="708.0" prefWidth="866.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerProductoView">
 
-         <Tab text="Registro">
-            <fx:include source="registroView.fxml"/>
-         </Tab>
-         <Tab text="Anuncio">
-            <fx:include source="anuncioView.fxml"/>
-         </Tab>
-           <Tab text="Home">
-              <fx:include source="homeView.fxml"/>
-           </Tab>
+                        <AnchorPane prefHeight="569.0" prefWidth="866.0">
+                            <children>
+                                <Pane fx:id="panePrincipal" layoutX="5.0" layoutY="7.0" prefHeight="563.0" prefWidth="858.0" styleClass="label" stylesheets="@../css/prodcutoCss.css">
+                                    <children>
+                                        <Pane fx:id="paneTable" layoutX="25.0" layoutY="251.0" prefHeight="216.0" prefWidth="819.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
+                                            <children>
+                                                <TableView fx:id="tableDatos" layoutX="24.0" layoutY="15.0" prefHeight="183.0" prefWidth="782.0" stylesheets="@../css/prodcutoCss.css">
+                                                    <columns>
+                                                        <TableColumn fx:id="columnaUno" prefWidth="160.0" text="nombre Producto" />
+                                                        <TableColumn fx:id="columnaDos" prefWidth="180.0" text="descripcion" />
+                                                        <TableColumn fx:id="columnaTres" prefWidth="236.0" text="tipo articulo" />
+                                                        <TableColumn fx:id="columnaCuatro" prefWidth="285.0" text="Url" />
 
-
-
-
-           <Tab fx:id="tabInicio" text="Inicio">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Accordion layoutX="109.0" layoutY="170.0" />
-                        <BorderPane layoutX="53.0" layoutY="58.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <left>
-                              <VBox fx:id="vboxIzquierda" prefHeight="557.0" prefWidth="242.0" stylesheets="@../css/prodcutoCss.css" BorderPane.alignment="CENTER">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="128.0">
-                                       <children>
-                                          <Label alignment="CENTER" prefHeight="35.0" prefWidth="205.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Subasta Quindio" textFill="#1b1b1b">
-                                             <font>
-                                                <Font name="System Bold" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <VBox prefHeight="456.0" prefWidth="242.0">
-                                       <children>
-                                          <ImageView fitHeight="150.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
-                                             <VBox.margin>
-                                                <Insets left="75.0" />
-                                             </VBox.margin>
-                                             <image>
-                                                <Image url="@../imagenes/logoFinal%20-%20copia.jpg" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </VBox>
-                           </left>
-                           <center>
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                 <children>
-                                    <AnchorPane layoutX="44.0" layoutY="90.0" prefHeight="557.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <VBox layoutX="38.0" layoutY="11.0" prefHeight="546.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="11.0">
-                                             <children>
-                                                <HBox prefHeight="59.0" prefWidth="669.0">
-                                                   <children>
-                                                      <AnchorPane fx:id="paneHeadpublicaciones" prefHeight="45.0" prefWidth="557.0" stylesheets="@../css/prodcutoCss.css">
-                                                         <children>
-                                                            <Label layoutX="31.0" layoutY="21.0" text="Publicaciones">
-                                                               <font>
-                                                                  <Font name="System Bold" size="17.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children></AnchorPane>
-                                                   </children>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </Pane>
+                                        <Pane fx:id="paneCampos" layoutX="337.0" layoutY="11.0" prefHeight="223.0" prefWidth="503.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
+                                            <children>
+                                                <TextField fx:id="txtDescripcion" layoutX="192.0" layoutY="24.0" prefHeight="163.0" prefWidth="143.0" promptText="La descripcion aparecera aqui" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
+                                                <TextField fx:id="txtUrlFoto" layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="145.0" promptText="Url de foto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
+                                                <TextField fx:id="txtNombreProducto" layoutX="17.0" layoutY="94.0" prefHeight="25.0" prefWidth="140.0" promptText="Nombre del Producto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
+                                                <ComboBox fx:id="comboTipoProducto" layoutX="14.0" layoutY="24.0" prefHeight="25.0" prefWidth="147.0" promptText="Tipo de producto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
+                                                <Button fx:id="btnImportar" layoutX="368.0" layoutY="160.0" mnemonicParsing="false" onAction="#importar" prefHeight="27.0" prefWidth="105.0" text="Agregar foto" />
+                                                <ImageView fx:id="imgFoto" fitHeight="104.0" fitWidth="143.0" layoutX="648.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 500;" />
+                                                <Label layoutX="376.0" layoutY="36.0" prefHeight="17.0" prefWidth="0.0" />
+                                                <ImageView fx:id="imgFoto" fitHeight="124.0" fitWidth="136.0" layoutX="357.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../imagenes/logo_subasta_quindio%20-%20copia.jpg" />
+                        </image></ImageView>
+                                            </children>
+                                        </Pane>
+                                        <Pane fx:id="paneBotones" layoutX="24.0" layoutY="484.0" prefHeight="65.0" prefWidth="819.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
+                                            <children>
+                                                <HBox layoutX="8.0" prefHeight="57.0" prefWidth="805.0">
+                                                    <children>
+                                                        <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="42.0" prefWidth="105.0" stylesheets="@../css/prodcutoCss.css" text="Agregar">
+                                                            <HBox.margin>
+                                                                <Insets left="55.0" right="170.0" />
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#Actualizar" prefHeight="42.0" prefWidth="105.0" text="Actualizar">
+                                                            <HBox.margin>
+                                                                <Insets right="170.0" />
+                                                            </HBox.margin>
+                                                        </Button>
+                                                        <Button fx:id="btnEliminar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#eliminar" prefHeight="42.0" prefWidth="105.0" stylesheets="@../css/prodcutoCss.css" text="Eliminar" />
+                                                    </children>
+                                                    <padding>
+                                                        <Insets left="10.0" right="10.0" top="10.0" />
+                                                    </padding>
                                                 </HBox>
-                                                <Button fx:id="btnAnterior" mnemonicParsing="false" onAction="#publicacionAnterior" stylesheets="@../css/prodcutoCss.css" text="Anterior">
-                                                   <VBox.margin>
-                                                      <Insets bottom="20.0" left="30.0" top="35.0" />
-                                                   </VBox.margin>
-                                                </Button>
-                                                <AnchorPane fx:id="paneBodyPublicaciones" prefHeight="338.0" prefWidth="590.0" stylesheets="@../css/prodcutoCss.css">
-                                                   <children>
-                                                      <ImageView fx:id="imgPublicaciones" fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <TableView fx:id="tablaPublicaciones" layoutX="32.0" layoutY="227.0" prefHeight="83.0" prefWidth="509.0">
-                                                        <columns>
-                                                          <TableColumn fx:id="columnaTipoProductoPublicaciones" prefWidth="156.0" text="Tipo Producto" />
-                                                          <TableColumn fx:id="columnaNombreProductoPublicaciones" prefWidth="193.0" text="Nombre del producto" />
-                                                            <TableColumn fx:id="columnaDescripcionPublicaciones" prefWidth="198.0" text="Descripcion" />
-                                                        </columns>
-                                                      </TableView>
-                                                   </children>
-                                                </AnchorPane>
-                                                <Button fx:id="btnSeguiente" mnemonicParsing="false" onAction="#publicacionSiguiente" stylesheets="@../css/prodcutoCss.css" text="Siguiente">
-                                                   <VBox.margin>
-                                                      <Insets left="30.0" top="20.0" />
-                                                   </VBox.margin>
-                                                </Button>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </AnchorPane>
-                           </center>
-                        </BorderPane>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-
-
-
-
-          <Tab fx:id="tabProducto" text="Producto">
-               <content>
-                  <AnchorPane prefHeight="569.0" prefWidth="866.0">
-                     <children>
-                        <Pane fx:id="panePrincipal" layoutX="5.0" layoutY="7.0" prefHeight="563.0" prefWidth="858.0" styleClass="label" stylesheets="@../css/prodcutoCss.css">
-                           <children>
-                              <Pane fx:id="paneTable" layoutX="25.0" layoutY="251.0" prefHeight="216.0" prefWidth="819.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
-                                 <children>
-                                    <TableView fx:id="tableDatos" layoutX="24.0" layoutY="15.0" prefHeight="183.0" prefWidth="782.0" stylesheets="@../css/prodcutoCss.css">
-                                       <columns>
-                                          <TableColumn fx:id="columnaUno" prefWidth="160.0" text="nombre Producto" />
-                                          <TableColumn fx:id="columnaDos" prefWidth="180.0" text="descripcion" />
-                                          <TableColumn fx:id="columnaTres" prefWidth="236.0" text="tipo articulo" />
-                                          <TableColumn fx:id="columnaCuatro" prefWidth="285.0" text="Url" />
-      
-                                                         </columns>
-                                    </TableView>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="paneCampos" layoutX="337.0" layoutY="11.0" prefHeight="223.0" prefWidth="503.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
-                                 <children>
-                                    <TextField fx:id="txtDescripcion" layoutX="192.0" layoutY="24.0" prefHeight="163.0" prefWidth="143.0" promptText="La descripcion aparecera aqui" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
-                                    <TextField fx:id="txtUrlFoto" layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="145.0" promptText="Url de foto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
-                                    <TextField fx:id="txtNombreProducto" layoutX="17.0" layoutY="94.0" prefHeight="25.0" prefWidth="140.0" promptText="Nombre del Producto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
-                                    <ComboBox fx:id="comboTipoProducto" layoutX="14.0" layoutY="24.0" prefHeight="25.0" prefWidth="147.0" promptText="Tipo de producto" styleClass="TextField" stylesheets="@../css/prodcutoCss.css" />
-                                    <Button fx:id="btnImportar" layoutX="368.0" layoutY="160.0" mnemonicParsing="false" onAction="#importar" prefHeight="27.0" prefWidth="105.0" text="Agregar foto" />
-                                    <ImageView fx:id="imgFoto" fitHeight="104.0" fitWidth="143.0" layoutX="648.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 500;" />
-                                    <Label layoutX="376.0" layoutY="36.0" prefHeight="17.0" prefWidth="0.0" />
-                                    <ImageView fx:id="imgFoto" fitHeight="124.0" fitWidth="136.0" layoutX="357.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="paneBotones" layoutX="24.0" layoutY="484.0" prefHeight="65.0" prefWidth="819.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
-                                 <children>
-                                    <HBox layoutX="8.0" prefHeight="57.0" prefWidth="805.0">
-                                       <children>
-                                          <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="42.0" prefWidth="105.0" stylesheets="@../css/prodcutoCss.css" text="Agregar">
-                                             <HBox.margin>
-                                                <Insets left="55.0" right="170.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button fx:id="btnActualizar" mnemonicParsing="false" onAction="#Actualizar" prefHeight="42.0" prefWidth="105.0" text="Actualizar">
-                                             <HBox.margin>
-                                                <Insets right="170.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <Button fx:id="btnEliminar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#eliminar" prefHeight="42.0" prefWidth="105.0" stylesheets="@../css/prodcutoCss.css" text="Eliminar" />
-                                       </children>
-                                       <padding>
-                                          <Insets left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                    </HBox>
-                                 </children>
-                              </Pane>
-                              <AnchorPane layoutX="25.0" layoutY="23.0" prefHeight="200.0" prefWidth="240.0">
-                                 <children>
-                                    <ImageView fitHeight="112.0" fitWidth="166.0" layoutX="101.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../imagenes/logoFinal%20-%20copia.jpg" />
-                                       </image>
-                                    </ImageView>
-                                    <Label alignment="CENTER" layoutX="8.0" layoutY="144.0" prefHeight="31.0" prefWidth="280.0" text="Registro de productos">
-                                       <font>
-                                          <Font name="System Bold Italic" size="21.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-               </content>
-          </Tab>
-
-        </tabs>
-      </TabPane>
-   </children>
-</StackPane>
+                                            </children>
+                                        </Pane>
+                                        <AnchorPane layoutX="25.0" layoutY="23.0" prefHeight="200.0" prefWidth="240.0">
+                                            <children>
+                                                <ImageView fitHeight="112.0" fitWidth="166.0" layoutX="101.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../imagenes/logoFinal%20-%20copia.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" layoutX="8.0" layoutY="144.0" prefHeight="31.0" prefWidth="280.0" text="Registro de productos">
+                                                    <font>
+                                                        <Font name="System Bold Italic" size="21.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </AnchorPane>
+</AnchorPane>

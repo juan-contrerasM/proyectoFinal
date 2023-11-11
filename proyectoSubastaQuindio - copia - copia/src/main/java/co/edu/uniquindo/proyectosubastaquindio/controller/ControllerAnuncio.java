@@ -1,5 +1,6 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
 
 import java.io.IOException;
@@ -24,5 +25,9 @@ public class ControllerAnuncio {
 
     public ArrayList<String> obtenerNombresProducto() throws IOException {
         return  modelfactoryController.obtenerNombreProdutos();
+    }
+
+    public AnuncianteDto obtenerAnuncianteGlobal() throws IOException {
+        return  modelfactoryController.obetnerAnunciante();
     }
 }

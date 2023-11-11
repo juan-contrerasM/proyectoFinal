@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,70 +15,83 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="518.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerHomeView">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerHomeView">
+    <children>
+        <TabPane fx:id="tabs" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="708.0" prefWidth="866.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabHome" text="home">
 
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-        <children>
-            <AnchorPane layoutX="85.0" layoutY="68.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                <children>
-                    <AnchorPane layoutX="209.0" layoutY="66.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                         <children>
-                            <AnchorPane fx:id="paneHome" layoutX="18.0" layoutY="44.0" prefHeight="459.0" prefWidth="828.0" stylesheets="@../css/prodcutoCss.css">
+                            <AnchorPane layoutX="85.0" layoutY="68.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <children>
-                                    <ImageView fx:id="imgLogo" fitHeight="466.0" fitWidth="464.0" focusTraversable="true" layoutX="-3.0" layoutY="-1.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
-                                        <image>
-                                            <Image url="@../imagenes/logoFinal.jpg" />
-                                        </image>
-                                    </ImageView>
-                                    <AnchorPane layoutX="450.0" prefHeight="454.0" prefWidth="374.0">
+                                    <AnchorPane layoutX="209.0" layoutY="66.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                         <children>
-                                            <VBox layoutX="134.0" layoutY="14.0" prefHeight="440.0" prefWidth="388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="14.0">
+                                            <AnchorPane fx:id="paneHome" layoutX="18.0" layoutY="44.0" prefHeight="459.0" prefWidth="828.0" stylesheets="@../css/prodcutoCss.css">
                                                 <children>
-                                                    <VBox prefHeight="387.0" prefWidth="353.0">
+                                                    <ImageView fx:id="imgLogo" fitHeight="466.0" fitWidth="464.0" focusTraversable="true" layoutX="-3.0" layoutY="-1.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../imagenes/logoFinal.jpg" />
+                                                        </image>
+                                                    </ImageView>
+                                                    <AnchorPane layoutX="450.0" prefHeight="454.0" prefWidth="374.0">
                                                         <children>
-                                                            <GridPane alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="296.0" prefWidth="302.0">
-                                                                <columnConstraints>
-                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                </columnConstraints>
-                                                                <rowConstraints>
-                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                </rowConstraints>
+                                                            <VBox layoutX="134.0" layoutY="14.0" prefHeight="440.0" prefWidth="388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="14.0">
                                                                 <children>
-                                                                    <ComboBox fx:id="comboTipoUsuario" prefHeight="27.0" prefWidth="164.0" promptText="Tipo usuario" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                    <Label prefHeight="17.0" prefWidth="101.0" text="Tipo de usuario" GridPane.rowIndex="1" />
-                                                                    <TextField fx:id="txtUsuarioHome" promptText="Usuario" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                    <PasswordField fx:id="txtClaveHome" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                                    <Label text="Contraseña" GridPane.rowIndex="3" />
-                                                                    <Label text="Usuario" GridPane.rowIndex="2" />
-                                                                    <Hyperlink fx:id="vinculoLink" onAction="#clickLink" prefHeight="25.0" prefWidth="153.0" text="¿olvidaste tu contraseña?" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                                    <Button fx:id="btnIniciarSesion" mnemonicParsing="false" onAction="#IniciarSesion" text="Iniciar sesion" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                                                        <GridPane.margin>
-                                                                            <Insets left="28.0" />
-                                                                        </GridPane.margin>
-                                                                    </Button>
-                                                                    <Label text="Iniciar sesion">
-                                                                        <font>
-                                                                            <Font name="System Bold" size="18.0" />
-                                                                        </font>
-                                                                    </Label>
+                                                                    <VBox prefHeight="387.0" prefWidth="353.0">
+                                                                        <children>
+                                                                            <GridPane alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="296.0" prefWidth="302.0">
+                                                                                <columnConstraints>
+                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                                </columnConstraints>
+                                                                                <rowConstraints>
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                                </rowConstraints>
+                                                                                <children>
+                                                                                    <ComboBox fx:id="comboTipoUsuario" prefHeight="27.0" prefWidth="164.0" promptText="Tipo usuario" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                                    <Label prefHeight="17.0" prefWidth="101.0" text="Tipo de usuario" GridPane.rowIndex="1" />
+                                                                                    <TextField fx:id="txtUsuarioHome" promptText="Usuario" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                                    <PasswordField fx:id="txtClaveHome" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                                    <Label text="Contraseña" GridPane.rowIndex="3" />
+                                                                                    <Label text="Usuario" GridPane.rowIndex="2" />
+                                                                                    <Hyperlink fx:id="vinculoLink" onAction="#clickLink" prefHeight="25.0" prefWidth="153.0" text="¿olvidaste tu contraseña?" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                                                    <Button fx:id="btnIniciarSesion" mnemonicParsing="false" onAction="#IniciarSesion" text="Iniciar sesion" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                                                        <GridPane.margin>
+                                                                                            <Insets left="28.0" />
+                                                                                        </GridPane.margin>
+                                                                                    </Button>
+                                                                                    <Label text="Iniciar sesion">
+                                                                                        <font>
+                                                                                            <Font name="System Bold" size="18.0" />
+                                                                                        </font>
+                                                                                    </Label>
+                                                                                </children>
+                                                                                <VBox.margin>
+                                                                                    <Insets left="50.0" right="40.0" top="50.0" />
+                                                                                </VBox.margin>
+                                                                            </GridPane>
+                                                                        </children>
+                                                                    </VBox>
                                                                 </children>
-                                                                <VBox.margin>
-                                                                    <Insets left="50.0" right="40.0" top="50.0" />
-                                                                </VBox.margin>
-                                                            </GridPane>
+                                                            </VBox>
                                                         </children>
-                                                    </VBox>
+                                                        <padding>
+                                                            <Insets right="10.0" />
+                                                        </padding>
+                                                    </AnchorPane>
                                                 </children>
-                                            </VBox>
+                                            </AnchorPane>
+                                            <Button fx:id="btnCerrarSesion" layoutX="747.0" layoutY="11.0" mnemonicParsing="false" onAction="#cerrarSesion" stylesheets="@../css/prodcutoCss.css" text="Cerrar sesion" />
                                         </children>
                                         <padding>
                                             <Insets right="10.0" />
@@ -85,14 +100,22 @@
                                 </children>
                             </AnchorPane>
                         </children>
-                        <padding>
-                            <Insets right="10.0" />
-                        </padding>
                     </AnchorPane>
-                </children>
-            </AnchorPane>
-        </children>
-    </AnchorPane>
-          <Button fx:id="btnCerrarSesion" layoutX="760.0" layoutY="9.0" mnemonicParsing="false" onAction="#cerrarSesion" stylesheets="@../css/prodcutoCss.css" text="Cerrar sesion" />
 
-</AnchorPane>
+                </Tab>
+                <Tab fx:id="tabAñadirProducto" text="Añadir Producto">
+                    <fx:include source="productoView.fxml" />
+                </Tab>
+                <Tab fx:id="tabRegistrarse" text="Registrarse">
+                    <fx:include source="registroView.fxml" />
+                </Tab>
+                <Tab fx:id="tabGestionarAnuncio" text="Gestionar Anuncio">
+                    <fx:include source="anuncioView.fxml" />
+                </Tab>
+                <Tab fx:id="tabPujar" text="Pujar">
+                    <fx:include source="inicioView.fxml" />
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</StackPane>

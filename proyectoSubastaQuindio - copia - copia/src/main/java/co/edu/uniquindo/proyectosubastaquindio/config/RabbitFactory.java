@@ -10,8 +10,8 @@ public class RabbitFactory {
         this.connectionFactory = new ConnectionFactory();
         this.connectionFactory.setHost("localhost");
         this.connectionFactory.setPort(5672);
-        this.connectionFactory.setUsername("guest");
-        this.connectionFactory.setPassword("guest");
+        this.connectionFactory.setUsername("juan");
+        this.connectionFactory.setPassword("123");
     }
 
     public ConnectionFactory getConnectionFactory() {

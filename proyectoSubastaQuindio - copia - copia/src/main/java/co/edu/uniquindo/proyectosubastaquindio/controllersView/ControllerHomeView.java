@@ -14,6 +14,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerHomeView implements Initializable {
+    public Tab tabRegistrarse;
+    public Tab tabGestionarAnuncio;
+    public Tab tabAñadirProducto;
+
+    public Tab tabHome;
+    public Tab tabPujar;
+    public TabPane tabs;
     private boolean autenticacion;
     private ControllerHome controllerHome;
 
@@ -31,9 +38,11 @@ public class ControllerHomeView implements Initializable {
     @FXML
     void cerrarSesion(ActionEvent event) {
 
-        if (autenticacion ){
-            autenticacion=false;
+        if (autenticacion ) {
+            autenticacion = false;
             controllerHome.guardarAutenticacion(autenticacion);
+            restablecerTabs();
+        //restablecerVentanas();
             mostrarMensaje("Alerta accion correcta", "Cerro sesion correctamente", " ", Alert.AlertType.CONFIRMATION);
             registrarAcciones("cerro sesion", 1, "cerro sesion");
 
@@ -87,6 +96,7 @@ public class ControllerHomeView implements Initializable {
                     controllerHome.guardarAnuncianteGlobal(usuario);
                     autenticacion=true;
                     controllerHome.guardarAutenticacion(autenticacion);
+                    ocultarTabAnuncianter();
                     limpiarCamposHome();
                     mostrarMensaje("Alerta accion ", "Ingreso con exito", "", Alert.AlertType.CONFIRMATION);
                     registrarAcciones("inicio sesion", 1, "tipo anunciante");
@@ -100,6 +110,8 @@ public class ControllerHomeView implements Initializable {
                     autenticacion=true;
                     controllerHome.guardarCompradorGlobal(usuario);
                     controllerHome.guardarAutenticacion(autenticacion);
+                    ocultarTabComprador();
+                  //  bloquearVentanarComprador();
                     limpiarCamposHome();
                     mostrarMensaje("Alerta accion ", "Ingreso con exito", "", Alert.AlertType.CONFIRMATION);
                     registrarAcciones("inicio sesion", 1, "tipo comprador");
@@ -141,6 +153,26 @@ public class ControllerHomeView implements Initializable {
     }
     //+++++++++++++++++++++++++++ventanas a mostrar segun el usuario+++++++++++++++++++
 
+    public void ocultarTabComprador(){
+        tabs.getTabs().remove(tabAñadirProducto);
+        tabs.getTabs().remove(tabRegistrarse);
+        tabs.getTabs().remove(tabGestionarAnuncio);
 
+    }
+    public void ocultarTabAnuncianter(){
+
+        tabs.getTabs().remove(tabRegistrarse);
+        tabs.getTabs().remove(tabPujar);
+
+    }
+    public void restablecerTabs(){
+        tabs.getTabs().add(tabAñadirProducto);
+        tabs.getTabs().add(tabRegistrarse);
+        tabs.getTabs().add(tabGestionarAnuncio);
+        tabs.getTabs().add(tabPujar);
+
+    }
 
 }
+
+

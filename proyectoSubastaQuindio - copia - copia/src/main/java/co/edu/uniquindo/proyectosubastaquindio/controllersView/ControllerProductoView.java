@@ -372,33 +372,6 @@ public class ControllerProductoView implements Initializable {
     //*****************************************************GESTION ANUNCIO**************************************************
 
 //++++++++++++++++++++++++++++++++++Inicio+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-@FXML
-private Button btnAnterior;
-
-    @FXML
-    private Button btnSeguiente;
-    @FXML
-    private TableColumn<?, ?> columnaNombreProductoPublicaciones;
-
-    @FXML
-    private TableColumn<?, ?> columnaTipoProductoPublicaciones;
-    @FXML
-    private TableColumn<?, ?> columnaDescripcionPublicaciones;
-    @FXML
-    private ImageView imgPublicaciones;
-
-    @FXML
-    private TableView<?> tablaPublicaciones;
-    @FXML
-    void publicacionAnterior(ActionEvent event) {
-
-    }
-
-    @FXML
-    void publicacionSiguiente(ActionEvent event) {
-
-    }
-
 
 
     //++++++++++++++++++++++++++++++++++DTOS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

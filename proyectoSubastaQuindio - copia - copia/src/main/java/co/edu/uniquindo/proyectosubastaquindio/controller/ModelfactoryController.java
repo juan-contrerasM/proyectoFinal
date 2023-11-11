@@ -43,10 +43,10 @@ public class ModelfactoryController implements IModelFactoryService {
         subastaQuindio.guardarNombre(nombre);
     }
 
-    public AnuncianteDto obetnerAnunciante(String usuario) throws IOException {
+    public AnuncianteDto obetnerAnunciante() throws IOException {
         return mapper.anuncianteToAnuncianteDto(subastaQuindio.getAnuncianteGlobal());
     }
-    public CompradorDto obetnerComprador(String usuario) throws IOException {
+    public CompradorDto obetnerComprador() throws IOException {
         return mapper.compradorToCompradorDto(subastaQuindio.getCompradorGlobal());
     }
 

@@ -29,10 +29,11 @@ public class ControllerHome {
 
 
     public AnuncianteDto obtenerAnunciante(String usuario) throws IOException {
-        return modelfactoryController.obetnerAnunciante(usuario);
+        return modelfactoryController.obetnerAnunciante(
+        );
     }
     public CompradorDto obtenerComprador(String usuario) throws IOException {
-        return modelfactoryController.obetnerComprador(usuario);
+        return modelfactoryController.obetnerComprador();
     }
 
     public void guardarAnuncianteGlobal(String usuario) throws IOException {
