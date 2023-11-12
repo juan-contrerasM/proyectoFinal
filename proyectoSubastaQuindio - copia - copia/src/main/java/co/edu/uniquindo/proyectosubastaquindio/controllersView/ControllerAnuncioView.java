@@ -65,12 +65,14 @@ public class ControllerAnuncioView implements Initializable {
 
     @FXML
     void publicarAnuncio(ActionEvent event) throws IOException {
-        if(validarCampos()){
-           if (controllerAnuncio.verificarAnuncios(anuncioDto)) {
-               controllerAnuncio.guardarAnuncio(anuncioDto);
-                mostrarMensaje("Anuncio" + anuncioDto.nombre(), "se publico", "Se publico anuncio" + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
-            } else {
-            mostrarMensaje("Anuncio"+anuncioDto.nombre(),"se publico","Se publico anuncio"+anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+        if(controllerAnuncio.obtenerAutenticacion()) {
+            if (validarCampos()) {
+                if (controllerAnuncio.verificarAnuncios(anuncioDto)) {
+                    controllerAnuncio.guardarAnuncio(anuncioDto);
+                    mostrarMensaje("Anuncio" + anuncioDto.nombre(), "se publico", "Se publico anuncio" + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+                } else {
+                    mostrarMensaje("Anuncio" + anuncioDto.nombre(), "se publico", "Se publico anuncio" + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+                }
             }
         }
 
@@ -94,68 +96,66 @@ public class ControllerAnuncioView implements Initializable {
     @FXML
     void mostrarEnTabla(ActionEvent event) throws IOException {
         //sirve para daber si seleccionaron algo en el combo
-        String selectedItem = comboSeleccionProducto.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            productoDto = controllerAnuncio.buscarProducto(selectedItem);
-            ObservableList<ProductoDto> productoSeleccionado = FXCollections.observableArrayList();
-            productoSeleccionado.add(productoDto);
+        if(controllerAnuncio.obtenerAutenticacion()) {
+            listaAnuncios.clear();
+            String selectedItem = comboSeleccionProducto.getSelectionModel().getSelectedItem();
+            if (selectedItem != null) {
+                productoDto = controllerAnuncio.buscarProducto(selectedItem);
+                ObservableList<ProductoDto> productoSeleccionado = FXCollections.observableArrayList();
+                productoSeleccionado.add(productoDto);
 
-            // solo falta que el prooducto dto que esta arriba comenzar a mostar los atribustos en la tabla
+                // solo falta que el prooducto dto que esta arriba comenzar a mostar los atribustos en la tabla
 
-            //String productoSeleccionado = selectedItem;
+                //String productoSeleccionado = selectedItem;
 
-            columna1AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
-            columna2AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
-            columna3AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().tipo_Articulo())));
+                columna1AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+                columna2AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
+                columna3AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().tipo_Articulo())));
 
-            //mostrar en  tabla anunciante
+                //mostrar en  tabla anunciante
 
-         anuncianteDto = controllerAnuncio.obtenerAnuncianteGlobal();
-            ObservableList<AnuncianteDto> anuncianteDtos = FXCollections.observableArrayList();
-            anuncianteDtos.add(anuncianteDto);
-            columna1AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
-            columna2AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().apellido()));
-            //CANTIDAD DE ANUNCION ACTIVOS O NUMERO PUBLICACIONES?
-            columna3AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().cantAnunciosActivos())));
+                anuncianteDto = controllerAnuncio.obtenerAnuncianteGlobal();
+                ObservableList<AnuncianteDto> anuncianteDtos = FXCollections.observableArrayList();
+                anuncianteDtos.add(anuncianteDto);
+                columna1AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
+                columna2AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().apellido()));
+                //CANTIDAD DE ANUNCION ACTIVOS O NUMERO PUBLICACIONES?
+                columna3AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().cantAnunciosActivos())));
 
-            tableAnuncio2.getItems().clear();
-            tableAnuncio2.setItems(anuncianteDtos);
+                tableAnuncio2.getItems().clear();
+                tableAnuncio2.setItems(anuncianteDtos);
 
-            // Supongamos que productoDto.urlFoto() devuelve la URL de la imagen como una cadena
-            String urlImagen = productoDto.urlFoto();
+                // Supongamos que productoDto.urlFoto() devuelve la URL de la imagen como una cadena
+                String urlImagen = productoDto.urlFoto();
 
 
-            // Carga la imagen en el ImageView
-            Image image = new Image(urlImagen);
-            imgFotoAnuncio.setImage(image);
-            //columna4AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().urlFoto()));
+                // Carga la imagen en el ImageView
+                Image image = new Image(urlImagen);
+                imgFotoAnuncio.setImage(image);
+                //columna4AnuncioTabla1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().urlFoto()));
 
-            tablaAnuncio1.getItems().clear();
-            tablaAnuncio1.setItems(productoSeleccionado);
+                tablaAnuncio1.getItems().clear();
+                tablaAnuncio1.setItems(productoSeleccionado);
 
-            //generar fechas
-          fechaInicio= LocalDate.now();
-          fechaFinalizacion= fechaInicio.plusDays(3);
 
-            //crear anunciodto
-            if(validarCampos()) {
-                anuncioDto = construirAnuncioDto();
-                listaAnuncios.add(anuncioDto);
-                //mostrar fechas
 
-                columna1AnuncioTabla3.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fechaInicio())));
-                columna2AnuncioTabla3.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fechaFinalizacion())));
-                columnaCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().codigo())));
-                tablaInfoFecha.getItems().clear();
-                tablaInfoFecha.setItems(listaAnuncios);
+                    fechaInicio = LocalDate.now();
+                    fechaFinalizacion = fechaInicio.plusDays(3);
+
+                    anuncioDto = construirAnuncioDto();
+                    listaAnuncios.add(anuncioDto);
+                    //mostrar fechas
+
+                    columna1AnuncioTabla3.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fechaInicio())));
+                    columna2AnuncioTabla3.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fechaFinalizacion())));
+                    columnaCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().codigo())));
+                    tablaInfoFecha.setItems(listaAnuncios);
+
+
+
+            } else {
+                System.out.println("Ningún elemento seleccionado.");
             }
-
-
-
-
-
-        } else {
-            System.out.println("Ningún elemento seleccionado.");
         }
 
     }//SEgunda parte
@@ -262,8 +262,6 @@ public AnuncioDto construirAnuncioDto(){
                 throw new FormatoInvalidoException("Error formato de campo numerico invalido", e);
             }
         }
-        if (comboSeleccionProducto.getValue() == null)
-            mensaje += "Debe escojer un tipo de usuario \n";
         if (mensaje.equals("")) {
             return true;
         } else {

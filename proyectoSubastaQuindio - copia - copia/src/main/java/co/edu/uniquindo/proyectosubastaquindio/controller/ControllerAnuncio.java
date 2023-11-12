@@ -48,4 +48,7 @@ public class ControllerAnuncio {
     public boolean verificarAnuncios(AnuncioDto anuncioDto) throws IOException {
         return modelfactoryController.verificarAnuncios(anuncioDto);
     }
+    public boolean obtenerAutenticacion() {
+        return modelfactoryController.obtenerAutenticacion();
+    }
 }

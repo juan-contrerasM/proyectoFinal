@@ -245,8 +245,9 @@ public class ModelfactoryController implements IModelFactoryService {
     //+++++++++++++++++++++++++++++++++++Anuncio ++++++++++++++++++++++++++++++++++++++++
     public void guardarAnuncios(AnuncioDto anuncioDto) throws IOException {
         subastaQuindio.setListaAnuncios(Persistencia.cargarAnuncios());
-        Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
+
       Anuncio anuncio= mapper.anuncioDtoToAnuncio(anuncioDto);
         subastaQuindio.guardarAnuncios(anuncio);
+        Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
     }
 }
