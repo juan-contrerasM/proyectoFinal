@@ -2,14 +2,13 @@ package co.edu.uniquindo.proyectosubastaquindio.controller;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.IModelFactoryService;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.ISubastaQuindioControllerService;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.mappers.SubastaQuindioMapper;
-import co.edu.uniquindo.proyectosubastaquindio.model.Anunciante;
-import co.edu.uniquindo.proyectosubastaquindio.model.Comprador;
-import co.edu.uniquindo.proyectosubastaquindio.model.Producto;
-import co.edu.uniquindo.proyectosubastaquindio.model.SubastaQuindio;
+import co.edu.uniquindo.proyectosubastaquindio.model.*;
 import co.edu.uniquindo.proyectosubastaquindio.utils.Persistencia;
+import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,6 +58,17 @@ public class ModelfactoryController implements IModelFactoryService {
         subastaQuindio.setListaCompradores(Persistencia.cargarCompradores());
         Persistencia.guardarCompradores(subastaQuindio.getListaCompradores());
         subastaQuindio.setCompradorGlobal(subastaQuindio.obtenerComprador(usuario));
+    }
+
+    public String generarFechaActual() {
+       return Persistencia.generarFechaActual();
+    }
+
+    public boolean verificarAnuncios(AnuncioDto anuncioDto) throws IOException {
+        Anuncio anuncio= mapper.anuncioDtoToAnuncio(anuncioDto);
+        subastaQuindio.setListaAnuncios(Persistencia.cargarAnuncios());
+        Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
+        return subastaQuindio.verificarAnuncioCreado(anuncio);
     }
 
 
@@ -231,5 +241,12 @@ public class ModelfactoryController implements IModelFactoryService {
 
     public void setSubastaQuindio(SubastaQuindio subastaQuindio) {
         this.subastaQuindio = subastaQuindio;
+    }
+    //+++++++++++++++++++++++++++++++++++Anuncio ++++++++++++++++++++++++++++++++++++++++
+    public void guardarAnuncios(AnuncioDto anuncioDto) throws IOException {
+        subastaQuindio.setListaAnuncios(Persistencia.cargarAnuncios());
+        Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
+      Anuncio anuncio= mapper.anuncioDtoToAnuncio(anuncioDto);
+        subastaQuindio.guardarAnuncios(anuncio);
     }
 }

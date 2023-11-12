@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,10 +16,12 @@
 
         <AnchorPane fx:id="d" layoutX="85.0" layoutY="68.0" prefHeight="604.0" prefWidth="866.0" AnchorPane.bottomAnchor="-47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <AnchorPane fx:id="paneHeadAnuncio" layoutX="380.0" layoutY="14.0" prefHeight="178.0" prefWidth="458.0" stylesheets="@../css/prodcutoCss.css">
+                <AnchorPane fx:id="paneHeadAnuncio" layoutX="373.0" layoutY="25.0" prefHeight="179.0" prefWidth="457.0" stylesheets="@../css/prodcutoCss.css">
                     <children>
-                        <ComboBox fx:id="comboSeleccionProducto" layoutX="105.0" layoutY="45.0" onMouseClicked="#cargarProductos" prefHeight="25.0" prefWidth="248.0" promptText="Selecciona el producto" stylesheets="@../css/prodcutoCss.css" />
-                        <Button fx:id="btnCargarProducto" layoutX="171.0" layoutY="111.0" mnemonicParsing="false" onAction="#mostrarEnTabla" prefHeight="30.0" prefWidth="92.0" text="Cargar" />
+                        <ComboBox fx:id="comboSeleccionProducto" layoutX="14.0" layoutY="24.0" onMouseClicked="#cargarProductos" prefHeight="25.0" prefWidth="248.0" promptText="Selecciona el producto" stylesheets="@../css/prodcutoCss.css" />
+                        <Button fx:id="btnCargarProducto" layoutX="298.0" layoutY="69.0" mnemonicParsing="false" onAction="#mostrarEnTabla" prefHeight="42.0" prefWidth="145.0" text="Cargar" />
+                  <TextField fx:id="txtNombreAnuncio" layoutX="14.0" layoutY="77.0" prefHeight="27.0" prefWidth="248.0" promptText="Nombre Anuncio" />
+                  <TextField fx:id="txtValorInicial" layoutX="14.0" layoutY="127.0" prefHeight="27.0" prefWidth="248.0" promptText="Valor Inicial" />
                     </children>
                 </AnchorPane>
                 <AnchorPane fx:id="paneBodyAnuncio" layoutX="27.0" layoutY="214.0" prefHeight="329.0" prefWidth="811.0" stylesheets="@../css/prodcutoCss.css">
@@ -31,7 +34,7 @@
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font></Label>
-                        <Button fx:id="btnPublicar" layoutX="556.0" layoutY="272.0" mnemonicParsing="false" onAction="#publicarAnuncio" prefHeight="42.0" prefWidth="145.0" text="Publicar anuncio" />
+                        <Button fx:id="btnPublicar" layoutX="653.0" layoutY="245.0" mnemonicParsing="false" onAction="#publicarAnuncio" prefHeight="42.0" prefWidth="145.0" text="Publicar anuncio" />
                         <TableView fx:id="tablaAnuncio1" layoutX="28.0" layoutY="20.0" prefHeight="83.0" prefWidth="586.0">
                             <columns>
                                 <TableColumn fx:id="columna1AnuncioTabla1" minWidth="20.0" prefWidth="164.0" text="Tipo Producto" />
@@ -46,10 +49,11 @@
                                 <TableColumn fx:id="columna3AnuncioTabla2" minWidth="0.0" prefWidth="212.0" text="Numero de publicaciones" />
                             </columns>
                         </TableView>
-                        <TableView fx:id="tablaInfoFecha" layoutX="28.0" layoutY="225.0" prefHeight="81.0" prefWidth="365.0">
+                        <TableView fx:id="tablaInfoFecha" layoutX="28.0" layoutY="225.0" prefHeight="81.0" prefWidth="586.0">
                             <columns>
                                 <TableColumn fx:id="columna1AnuncioTabla3" prefWidth="172.0" text="Fecha Publicacion" />
-                                <TableColumn fx:id="columna2AnuncioTabla3" prefWidth="192.0" text="Fecha Finalizacion" />
+                                <TableColumn fx:id="columna2AnuncioTabla3" prefWidth="211.0" text="Fecha Finalizacion" />
+                                <TableColumn fx:id="columnaCodigo" prefWidth="202.0" text="Codigo" />
                             </columns>
                         </TableView>
                     </children>

@@ -33,8 +33,10 @@ SubastaQuindioMapper INSTANCE = Mappers.getMapper(SubastaQuindioMapper.class);
     @IterableMapping(qualifiedByName = "compradorToCompradorDto")
     List<CompradorDto> getCompradorDto(List<Comprador> listaCompradores);
 
-
-
-
-
+//mapper
+@Named("anuncioToAnucioDto")
+AnuncioDto anuncioToAnucioDto(Anuncio anuncio);
+ Anuncio anuncioDtoToAnuncio(AnuncioDto anuncioDto);
+ @IterableMapping(qualifiedByName = "anuncioToAnucioDto")
+ List<AnuncioDto> getAnuncioDto(List<Anuncio> listaAnuncios);
 }

@@ -19,8 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="866.0"
-           xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerHomeView">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerHomeView">
     <children>
         <TabPane fx:id="tabs" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="708.0" prefWidth="866.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -92,7 +91,7 @@
                                                     </AnchorPane>
                                                 </children>
                                             </AnchorPane>
-                                            <Button fx:id="btnCerrarSesion" layoutX="747.0" layoutY="14.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesion" />
+                                            <Button fx:id="btnCerrarSesion" layoutX="747.0" layoutY="11.0" mnemonicParsing="false" onAction="#cerrarSesion" stylesheets="@../css/prodcutoCss.css" text="Cerrar sesion" />
                                         </children>
                                         <padding>
                                             <Insets right="10.0" />
@@ -104,17 +103,17 @@
                     </AnchorPane>
 
                 </Tab>
-                <Tab fx:id="tabAñadirProducto"  text="Añadir Producto">
-                    <fx:include source="productoView.fxml"/>
+                <Tab fx:id="tabAñadirProducto" text="Añadir Producto">
+                    <fx:include source="productoView.fxml" />
                 </Tab>
-                <Tab fx:id="tabRegistrarse"  text="Registrarse">
-                    <fx:include source="registroView.fxml"/>
+                <Tab fx:id="tabRegistrarse" text="Registrarse">
+                    <fx:include source="registroView.fxml" />
                 </Tab>
                 <Tab fx:id="tabGestionarAnuncio" text="Gestionar Anuncio">
-                    <fx:include source="anuncioView.fxml"/>
+                    <fx:include source="anuncioView.fxml" />
                 </Tab>
                 <Tab fx:id="tabPujar" text="Pujar">
-                    <fx:include source="inicioView.fxml"/>
+                    <fx:include source="inicioView.fxml" />
                 </Tab>
             </tabs>
         </TabPane>

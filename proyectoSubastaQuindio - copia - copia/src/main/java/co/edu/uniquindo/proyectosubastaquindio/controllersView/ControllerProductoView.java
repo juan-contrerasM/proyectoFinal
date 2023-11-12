@@ -2,6 +2,8 @@
 
 package co.edu.uniquindo.proyectosubastaquindio.controllersView;
 
+import co.edu.uniquindo.proyectosubastaquindio.excepciones.ImportarImagenException;
+import co.edu.uniquindo.proyectosubastaquindio.excepciones.PersistenciaArchivosTxtException;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
 import co.edu.uniquindo.proyectosubastaquindio.model.SubastaQuindio;
@@ -30,7 +32,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerProductoView implements Initializable {
-    SubastaQuindio subastaQuindio =new SubastaQuindio();
+    SubastaQuindio subastaQuindio = new SubastaQuindio();
 
 
     /**
@@ -58,7 +60,7 @@ public class ControllerProductoView implements Initializable {
     //listas
     private final ObservableList<ProductoDto> productos = FXCollections.observableArrayList();
 
-    private final ObservableList<AnuncianteDto> anunciante=FXCollections.observableArrayList();
+    private final ObservableList<AnuncianteDto> anunciante = FXCollections.observableArrayList();
 
 
     ControllerProducto ControllerProducto;
@@ -155,14 +157,14 @@ public class ControllerProductoView implements Initializable {
         comboTipoProducto.getItems().addAll(tipoArticulo.values());
 
 
-
-
         //intancia del controler
         ControllerProducto = new ControllerProducto();
         try {
-           productos.addAll( ControllerProducto.obtenerListaProductosTxt());
+            productos.addAll(ControllerProducto.obtenerListaProductosTxt());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            registrarAcciones("Se lanzo Exceptio Persistencia de archivos txt en controoller anuncio, metodo initializable", 2, "se lanzo exception");
+
+            throw new PersistenciaArchivosTxtException("error al obtener la lista e productos desde el archivo de texto", e);
         }
         //llamar metodo para poder traer la informaciond e producto seleccionado
         listenerSelection();
@@ -205,7 +207,7 @@ public class ControllerProductoView implements Initializable {
         } else {
 
             mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder actualizar el producto", Alert.AlertType.ERROR);
-           //estoy tratando de abrir otras ventanas para poder navegar
+            //estoy tratando de abrir otras ventanas para poder navegar
 
             registrarAcciones("Error al actualizar debe autenticarse", 1, "no hubo un registro");
 
@@ -222,7 +224,7 @@ public class ControllerProductoView implements Initializable {
                 ProductoDto productoDto = construirProductoDto();
                 if (verificarProducto(productoDto)) {
                     ControllerProducto.guardarProducto(productoDto);
-                    ControllerProducto.guardarNombreP( productoDto.nombreProducto());
+                    ControllerProducto.guardarNombreP(productoDto.nombreProducto());
                     productos.add(productoDto);
                     limpiarCamposProducto();
                     txtNombreProducto.setDisable(false);
@@ -272,7 +274,7 @@ public class ControllerProductoView implements Initializable {
     //----------------------------------------------IMPORTAR--
 
     @FXML
-    void importar(ActionEvent event) {
+    void importar(ActionEvent event) throws ImportarImagenException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccionar Imágenes");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imágenes", "*.jpg", "*.jpeg", "*.png", "*.gif"));
@@ -299,7 +301,7 @@ public class ControllerProductoView implements Initializable {
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "Error al importar imagen: " + e);
                     registrarAcciones("Error al importar imagen ", 1, "Error al importar imagen");
-
+                    throw new ImportarImagenException("Error al importar Imagen", e);
                     // Aquí puedes manejar errores si la copia falla
                 }
             }
@@ -319,13 +321,13 @@ public class ControllerProductoView implements Initializable {
     }
 
     //----------------mostrar informacion campos de texto_-------------------------------------------
-    private void mostrarInformacionProdcuto(ProductoDto empleadoSeleccionado) {
-        if (empleadoSeleccionado != null) {
-            txtNombreProducto.setText(empleadoSeleccionado.nombreProducto());
-            txtDescripcion.setText(empleadoSeleccionado.descripcion());
-            txtUrlFoto.setText(empleadoSeleccionado.urlFoto());
-            comboTipoProducto.setValue(empleadoSeleccionado.tipo_Articulo());
-            Image image = new Image(empleadoSeleccionado.urlFoto());
+    private void mostrarInformacionProdcuto(ProductoDto productoSelecionado) {
+        if (productoSelecionado != null) {
+            txtNombreProducto.setText(productoSelecionado.nombreProducto());
+            txtDescripcion.setText(productoSelecionado.descripcion());
+            txtUrlFoto.setText(productoSelecionado.urlFoto());
+            comboTipoProducto.setValue(productoSelecionado.tipo_Articulo());
+            Image image = new Image(productoSelecionado.urlFoto());
             imgFoto.setImage(image);
             registrarAcciones("se muestra Informacion del  Producto seleccionado", 1, "Se muestra la informacion del producto seleccionado");
 
@@ -389,7 +391,6 @@ public class ControllerProductoView implements Initializable {
     }
 
 
-
 //+++++++++++++++++++++++++++++++++++++++++MOSTRAR MENSAJE++++++++++++++++++++++++++++++++++++++++++
 
     //enviamos un mensaje
@@ -408,9 +409,6 @@ public class ControllerProductoView implements Initializable {
         ControllerProducto.registrarAcciones(mensaje, nivel, accion);
 
     }
-
-    //+++++++++++++++++++++++++++
-
 
 
 }

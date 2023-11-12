@@ -1,6 +1,7 @@
 package co.edu.uniquindo.proyectosubastaquindio.controllersView;
 
 import co.edu.uniquindo.proyectosubastaquindio.controller.ControllerRegistro;
+import co.edu.uniquindo.proyectosubastaquindio.excepciones.FormatoInvalidoException;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
@@ -19,7 +20,6 @@ public class ControllerRegistroView implements Initializable {
 
     @FXML
     private Button btnGuardarUsuario;
-
 
 
     @FXML
@@ -96,7 +96,8 @@ public class ControllerRegistroView implements Initializable {
             try {
                 Integer.parseInt(txtEdad.getText());
             } catch (NumberFormatException e) {
-                mensaje += "El campo de edad debe ser un número entero \n";
+                registrarAcciones("Se lanzo Exceptio formato invalido Exception, en controller registro ", 2, "se lanzo exception");
+                throw new FormatoInvalidoException("Error formato de campo numerico invalido", e);
             }
         }
         if (comboTipo.getValue() == null)
@@ -123,17 +124,17 @@ public class ControllerRegistroView implements Initializable {
     }
 
     /**
-     *  String nombre,
-     *         String apellido,
-     *         String cedula,
-     *         int edad,
-     *         String usuario,
-     *         String contrasenia,
-     *         int cantAnunciosActivos,
-     *         float cantTimpoLimitado
+     * String nombre,
+     * String apellido,
+     * String cedula,
+     * int edad,
+     * String usuario,
+     * String contrasenia,
+     * int cantAnunciosActivos,
+     * float cantTimpoLimitado
      */
 
-    static int posicion =0;
+    static int posicion = 0;
     /*public void iniciarTablaAnuncio(){
 
         ObservableList<AnuncianteDto> anuncianteActivo = FXCollections.observableArrayList();
@@ -173,6 +174,7 @@ public class ControllerRegistroView implements Initializable {
         );
 
     }
+
     private CompradorDto construirCompradorDto() {
         registrarAcciones("se creo un compradorDTO", 1, "se creo un compradorDTO");
 
@@ -208,7 +210,7 @@ public class ControllerRegistroView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        controllerRegistro=new ControllerRegistro();
+        controllerRegistro = new ControllerRegistro();
         comboTipo.getItems().addAll(TipoUsuario.values());
     }
 }

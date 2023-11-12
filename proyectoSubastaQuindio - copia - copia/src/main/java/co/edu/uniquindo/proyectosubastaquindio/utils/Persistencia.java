@@ -2,12 +2,9 @@ package co.edu.uniquindo.proyectosubastaquindio.utils;
 
 /*import co.edu.uniquindio.banco.bancouq.exceptions.UsuarioExcepcion;
 import co.edu.uniquindio.banco.bancouq.model.*;*/
-import co.edu.uniquindo.proyectosubastaquindio.model.Anunciante;
-import co.edu.uniquindo.proyectosubastaquindio.model.Comprador;
-import co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil;
+import co.edu.uniquindo.proyectosubastaquindio.model.*;
 
-import co.edu.uniquindo.proyectosubastaquindio.model.Producto;
-import co.edu.uniquindo.proyectosubastaquindio.model.SubastaQuindio;
+import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoEstado;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo;
 
 import java.io.FileNotFoundException;
@@ -28,7 +25,7 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
     public static final String RUTA_ARCHIVO_LOG ="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/log.txt";
     public static final  String RUTA_ARCHIVO_Anunciastes="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/anunciastes";
     public static final String RUTA_ARCHIVO_COMPRADORES="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/compradores.txt";
-
+    public static final String RUTA_ARCHIVO_ANUNCIOS="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/anuncios.txt";
 
     /**
      * Guarda en un archivo de texto todos la información de las personas almacenadas en el ArrayList
@@ -69,6 +66,17 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
                     +"--"+comprador.getUsuario()+"--"+comprador.getEdad()+"--"+comprador.getCedula()+"--"+comprador.getContrasenia()+"\n";
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_COMPRADORES, contenido, false);
+    }
+
+    public static void guardarAnuncios(ArrayList<Anuncio> listaAnuncios) throws IOException {
+        // TODO Auto-generated method stub
+        String contenido = "";
+        for(Anuncio anuncio:listaAnuncios)
+        {
+            contenido+= anuncio.getNombre()+"--"+anuncio.getCodigo()+"--"+anuncio.getEstado()
+                    +"--"+anuncio.getFechaInicio()+"--"+anuncio.getFechaFinalizacion()+"--"+anuncio.getValorInicial()+"--"+anuncio.getProducto()+"--"+anuncio.getNombreAnunciante()+"\n";
+        }
+        ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_ANUNCIOS, contenido, false);
     }
 
 
@@ -201,12 +209,30 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
     }
 
 
+    public static String generarFechaActual() {
+        return ArchivoUtil.fechaSistema;
+    }
 
-
-
-
-
-
-
-
+    public static ArrayList<Anuncio> cargarAnuncios() throws FileNotFoundException, IOException
+    {
+        ArrayList<Anuncio> listaAnuncios =new ArrayList<>();
+        ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_ANUNCIOS);
+        String linea="";
+        for (int i = 0; i < contenido.size(); i++)
+        {
+            linea = contenido.get(i);//juan,arias,125454,Armenia,uni1@,12454,125444
+            Anuncio anuncio = new Anuncio();
+            anuncio.setNombre(linea.split("--")[0]);
+            anuncio.setCodigo(linea.split("--")[1]);
+            anuncio.setEstado(TipoEstado.valueOf(linea.split("--")[2]));
+            anuncio.setFechaInicio(LocalDate.parse((linea.split("--")[3])));
+            anuncio.setFechaFinalizacion(LocalDate.parse((linea.split("--")[4])));
+            anuncio.setValorInicial(Float.parseFloat((linea.split("--")[5])));
+            anuncio.setProducto((linea.split("--")[6]));
+            anuncio.setNombreAnunciante((linea.split("--")[7]));
+            listaAnuncios.add(anuncio);
+        }
+        return listaAnuncios;
+    }
 }
+

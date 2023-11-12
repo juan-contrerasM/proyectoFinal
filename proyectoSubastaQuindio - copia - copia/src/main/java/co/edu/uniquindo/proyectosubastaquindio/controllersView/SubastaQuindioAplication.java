@@ -1,12 +1,10 @@
 package co.edu.uniquindo.proyectosubastaquindio.controllersView;
 
-import co.edu.uniquindo.proyectosubastaquindio.utils.Persistencia;
+import co.edu.uniquindo.proyectosubastaquindio.excepciones.PersistenciaArchivosTxtException;
 import javafx.application.Application;
-import javafx.css.Stylesheet;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.*;
 
@@ -51,12 +49,14 @@ public class SubastaQuindioAplication extends Application {
 
             System.out.println("Respaldo del archivo realizado con éxito.");
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace();  // Imprime la traza de la excepción original
             System.err.println("Error al respaldar el archivo.");
+            throw new PersistenciaArchivosTxtException("Error al obtener la lista de productos desde el archivo de texto", e);
         }
     }
-
 }
+
+
         
 
 

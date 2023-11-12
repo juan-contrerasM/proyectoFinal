@@ -1,23 +1,37 @@
 package co.edu.uniquindo.proyectosubastaquindio.model;
 
+import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoEstado;
+
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Anuncio implements Serializable {
     private static final long serialVersionUID = 1L;
 //agregar fehca publicacion, fecha finalizacion y valor inicial
     private String nombre;
 
-    private String codigo;
+    String codigo;
 
-    private boolean estado;
+    private   TipoEstado estado;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFinalizacion;
+    private float valorInicial;
+    private String nombreProdcuto;
+    private String nombreAnunciante;
 
     public Anuncio() {
     }
 
-    public Anuncio(String nombre, String codigo, boolean estado) {
+    public Anuncio(String nombre, String codigo, TipoEstado estado, LocalDate fechaInicio, LocalDate fechaFinalizacion, float valorInicial, String nombreProdcuto, String  nombreAnunciante) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.estado = estado;
+        this.fechaInicio=fechaInicio;
+        this.fechaFinalizacion= fechaFinalizacion;
+        this.valorInicial= valorInicial;
+        this.nombreProdcuto=nombreProdcuto;
+        this.nombreAnunciante =nombreAnunciante
+        ;
     }
 
     public String getNombre() {
@@ -36,11 +50,51 @@ public class Anuncio implements Serializable {
         this.codigo = codigo;
     }
 
-    public boolean isEstado() {
+    public TipoEstado getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(TipoEstado estado) {
         this.estado = estado;
+    }
+
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public LocalDate getFechaFinalizacion() {
+        return fechaFinalizacion;
+    }
+
+    public void setFechaFinalizacion(LocalDate fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
+    }
+
+    public float getValorInicial() {
+        return valorInicial;
+    }
+
+    public void setValorInicial(float valorInicial) {
+        this.valorInicial = valorInicial;
+    }
+
+    public String getProducto() {
+        return nombreProdcuto;
+    }
+
+    public void setProducto(String producto) {
+        this.nombreProdcuto = producto;
+    }
+
+    public String getNombreAnunciante() {
+        return nombreAnunciante;
+    }
+
+    public void setNombreAnunciante(String nombreAnunciante) {
+        this.nombreAnunciante = nombreAnunciante;
     }
 }

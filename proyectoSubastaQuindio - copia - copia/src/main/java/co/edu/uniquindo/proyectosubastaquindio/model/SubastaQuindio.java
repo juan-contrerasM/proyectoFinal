@@ -15,6 +15,7 @@ public class SubastaQuindio implements Serializable {
     private boolean autenticacion=false;
     private  Anunciante anuncianteGlobal;
     private Comprador compradorGlobal;
+    private ArrayList<Anuncio>listaAnuncios;
 
 
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -262,6 +263,19 @@ public class SubastaQuindio implements Serializable {
         }
         return  null;
     }
+//+++++++++++++++++++++++++++++++++++++++++seccio anuncio++++++++++++++++++++++++++++++++++++++++++++++
+
+    public void guardarAnuncios(Anuncio anuncio){
+        listaAnuncios.add(anuncio);
+    }
+
+    public ArrayList<Anuncio> getListaAnuncios() {
+        return listaAnuncios;
+    }
+
+    public void setListaAnuncios(ArrayList<Anuncio> listaAnuncios) {
+        this.listaAnuncios = listaAnuncios;
+    }
 
     public Anunciante getAnuncianteGlobal() {
         return anuncianteGlobal;
@@ -277,5 +291,16 @@ public class SubastaQuindio implements Serializable {
 
     public void setCompradorGlobal(Comprador compradorGlobal) {
         this.compradorGlobal = compradorGlobal;
+    }
+
+    public boolean verificarAnuncioCreado(Anuncio anuncio) {
+        boolean confirmacion=true;
+        for (Anuncio anuncio1:listaAnuncios) {
+            if(anuncio1.getNombre().equals(anuncio.getNombre())){
+                confirmacion=false;
+                break;
+            }
+        }
+        return  confirmacion;
     }
 }

@@ -25,6 +25,7 @@ public class ControllerInicioView {
 
     @FXML
     private TableView<?> tablaPublicaciones;
+
     @FXML
     void publicacionAnterior(ActionEvent event) {
 
