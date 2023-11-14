@@ -11,11 +11,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ControllerRegistroView implements Initializable {
+
     private ControllerRegistro controllerRegistro;
 
     @FXML
@@ -55,25 +57,27 @@ public class ControllerRegistroView implements Initializable {
 
     @FXML
     void guardarUsuario(ActionEvent event) throws IOException {
-        if (datosValidosRegistro()) {
-            if (comboTipo.getValue().equals(TipoUsuario.ANUNCIANTE)) {
-                AnuncianteDto anuncianteDto = construirAnuncianteDto();
-                if (controllerRegistro.verificarAnuncianteCreado(anuncianteDto)) {
-                    controllerRegistro.guardarAnunciante(anuncianteDto);
-                    limpiarCamposRegistro();
-                    registrarAcciones("guardar usuario", 1, "guardar usuario anunciante");
+
+            if (datosValidosRegistro()) {
+                if (comboTipo.getValue().equals(TipoUsuario.ANUNCIANTE)) {
+                    AnuncianteDto anuncianteDto = construirAnuncianteDto();
+                    if (controllerRegistro.verificarAnuncianteCreado(anuncianteDto)) {
+                        controllerRegistro.guardarAnunciante(anuncianteDto);
+                        limpiarCamposRegistro();
+                        registrarAcciones("guardar usuario", 1, "guardar usuario anunciante");
+
+                    }
+                } else if (comboTipo.getValue().equals(TipoUsuario.COMPRADOR)) {
+                    CompradorDto compradorDto = construirCompradorDto();
+                    if (controllerRegistro.verificarCompradorCreado(compradorDto)) {
+                        controllerRegistro.guardarComprador(compradorDto);
+                        limpiarCamposRegistro();
+                    }
+                    registrarAcciones("guardar usuario", 1, "guardar usuario comprador");
 
                 }
-            } else if (comboTipo.getValue().equals(TipoUsuario.COMPRADOR)) {
-                CompradorDto compradorDto = construirCompradorDto();
-                if (controllerRegistro.verificarCompradorCreado(compradorDto)) {
-                    controllerRegistro.guardarComprador(compradorDto);
-                    limpiarCamposRegistro();
-                }
-                registrarAcciones("guardar usuario", 1, "guardar usuario comprador");
-
             }
-        }
+
 
 
     }

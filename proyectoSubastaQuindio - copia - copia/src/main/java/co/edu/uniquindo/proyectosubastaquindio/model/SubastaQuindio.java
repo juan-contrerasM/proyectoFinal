@@ -1,6 +1,9 @@
 package co.edu.uniquindo.proyectosubastaquindio.model;
 
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PublicacionesDto;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -8,7 +11,14 @@ import java.util.ArrayList;
 
 public class SubastaQuindio implements Serializable {
 
- public  SubastaQuindio(){
+    //lista publicacionesDto
+    private final ObservableList<PublicacionesDto> listaPublicaciosDto = FXCollections.observableArrayList();
+
+    public ObservableList<PublicacionesDto> getListaPublicaciosDto() {
+        return listaPublicaciosDto;
+    }
+
+    public  SubastaQuindio(){
 
  }
     private static final long serialVersionUID = 1L;
@@ -22,6 +32,7 @@ public class SubastaQuindio implements Serializable {
  //+++++++++++++++++++++++++++++++++++++++++++++++++++SECCION PRODUCTO+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     //--------------------------listas productos--------
+
 
     ArrayList<Producto> listaProductos=new ArrayList<Producto>();
 
@@ -264,6 +275,11 @@ public class SubastaQuindio implements Serializable {
         return  null;
     }
 //+++++++++++++++++++++++++++++++++++++++++seccio anuncio++++++++++++++++++++++++++++++++++++++++++++++
+public void guardarPublicacionDto(PublicacionesDto publicacionesDto){
+
+    listaPublicaciosDto.add(publicacionesDto);
+}
+
 
     public void guardarAnuncios(Anuncio anuncio){
         listaAnuncios.add(anuncio);

@@ -52,7 +52,7 @@ public class ControllerHomeView implements Initializable {
 
 
         } else {
-            mostrarMensaje("Alerta accion incorrecta", "Debe ingresar para hacer uso de esta accion ", "Vuelva a intentarlo", Alert.AlertType.WARNING);
+            mostrarMensaje("Alerta accion incorrecta", "Debe ingresar para hacer uso de esta accion ", "", Alert.AlertType.WARNING);
 
         }
 

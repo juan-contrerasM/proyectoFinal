@@ -275,37 +275,45 @@ public class ControllerProductoView implements Initializable {
 
     @FXML
     void importar(ActionEvent event) throws ImportarImagenException {
-        FileChooser fileChooser = new FileChooser();
+
+        if (ControllerProducto.obtenerAutenticacion()) {
+
+            FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccionar Imágenes");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imágenes", "*.jpg", "*.jpeg", "*.png", "*.gif"));
 
         List<File> selectedFiles = fileChooser.showOpenMultipleDialog(new Stage());
 
-        if (selectedFiles != null) {
-            for (File file : selectedFiles) {
-                // Copia o mueve el archivo a la ubicación deseada en tu proyecto
-                try {
-                    File destino = new File("src/main/resources/co/edu/uniquindo/proyectosubastaquindio/imagenes/" + file.getName());
-                    Files.copy(file.toPath(), destino.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                    System.out.println("Ruta del archivo: " + destino.getAbsolutePath());
+            if (selectedFiles != null) {
+                for (File file : selectedFiles) {
+                    // Copia o mueve el archivo a la ubicación deseada en tu proyecto
+                    try {
+                        File destino = new File("src/main/resources/co/edu/uniquindo/proyectosubastaquindio/imagenes/" + file.getName());
+                        Files.copy(file.toPath(), destino.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                        System.out.println("Ruta del archivo: " + destino.getAbsolutePath());
 
-                    // Convierte la ruta del archivo a una URL válida
-                    String url = destino.toURI().toString();
+                        // Convierte la ruta del archivo a una URL válida
+                        String url = destino.toURI().toString();
 
-                    // Carga la imagen en el ImageView
-                    Image image = new Image(url);
-                    imgFoto.setImage(image);
-                    txtUrlFoto.setText(url);
-                    registrarAcciones("Imagen importada", 1, "Importación exitosa");
+                        // Carga la imagen en el ImageView
+                        Image image = new Image(url);
+                        imgFoto.setImage(image);
+                        txtUrlFoto.setText(url);
+                        registrarAcciones("Imagen importada", 1, "Importación exitosa");
 
-                } catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "Error al importar imagen: " + e);
-                    registrarAcciones("Error al importar imagen ", 1, "Error al importar imagen");
-                    throw new ImportarImagenException("Error al importar Imagen", e);
-                    // Aquí puedes manejar errores si la copia falla
+                    } catch (IOException e) {
+                        JOptionPane.showMessageDialog(null, "Error al importar imagen: " + e);
+                        registrarAcciones("Error al importar imagen ", 1, "Error al importar imagen");
+                        throw new ImportarImagenException("Error al importar Imagen", e);
+                        // Aquí puedes manejar errores si la copia falla
+                    }
                 }
             }
-        }
+        } else {
+        mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
+            registrarAcciones("Error al cargar producto en anuncio debe autenticarse", 1, "no hubo un registro");
+
+    }
     }
 
 

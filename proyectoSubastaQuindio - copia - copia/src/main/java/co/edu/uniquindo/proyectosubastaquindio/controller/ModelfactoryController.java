@@ -1,10 +1,7 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.IModelFactoryService;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.ISubastaQuindioControllerService;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.*;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.mappers.SubastaQuindioMapper;
 import co.edu.uniquindo.proyectosubastaquindio.model.*;
 import co.edu.uniquindo.proyectosubastaquindio.utils.Persistencia;
@@ -36,6 +33,9 @@ public class ModelfactoryController implements IModelFactoryService {
         subastaQuindio.setListaProductos(Persistencia.cargarProductos());
         Persistencia.guardarProdcutos(subastaQuindio.getListaProductos());
         return subastaQuindio.obtenerNombresProductos();
+    }
+    public ObservableList<PublicacionesDto> obtenerListaPublicaciones(){
+        return subastaQuindio.getListaPublicaciosDto();
     }
 
     public void guardarNombreP(String nombre) {
@@ -249,5 +249,9 @@ public class ModelfactoryController implements IModelFactoryService {
       Anuncio anuncio= mapper.anuncioDtoToAnuncio(anuncioDto);
         subastaQuindio.guardarAnuncios(anuncio);
         Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
+    }
+    public void almacenarPublicacione(PublicacionesDto publicacionesDto) {
+        subastaQuindio.guardarPublicacionDto(publicacionesDto);
+
     }
 }

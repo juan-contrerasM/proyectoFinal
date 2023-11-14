@@ -1,104 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                <children>
-                    <Accordion layoutX="109.0" layoutY="170.0" />
-                    <BorderPane layoutX="53.0" layoutY="58.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                        <left>
-                            <VBox fx:id="vboxIzquierda" prefHeight="557.0" prefWidth="242.0" stylesheets="@../css/prodcutoCss.css" BorderPane.alignment="CENTER">
-                                <children>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="128.0">
-                                        <children>
-                                            <Label alignment="CENTER" prefHeight="35.0" prefWidth="205.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="Subasta Quindio" textFill="#1b1b1b">
-                                                <font>
-                                                    <Font name="System Bold" size="24.0" />
-                                                </font>
-                                            </Label>
-                                        </children>
-                                    </HBox>
-                                    <VBox prefHeight="456.0" prefWidth="242.0">
-                                        <children>
-                                            <ImageView fitHeight="150.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
-                                                <VBox.margin>
-                                                    <Insets left="75.0" />
-                                                </VBox.margin>
-                                                <image>
-                                                    <Image url="@../imagenes/logoFinal%20-%20copia.jpg" />
-                                                </image>
-                                            </ImageView>
-                                        </children>
-                                    </VBox>
-                                </children>
-                            </VBox>
-                        </left>
-                        <center>
-                            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                                <children>
-                                    <AnchorPane layoutX="44.0" layoutY="90.0" prefHeight="557.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                        <children>
-                                            <VBox layoutX="38.0" layoutY="11.0" prefHeight="546.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="11.0">
-                                                <children>
-                                                    <HBox prefHeight="59.0" prefWidth="669.0">
-                                                        <children>
-                                                            <AnchorPane fx:id="paneHeadpublicaciones" prefHeight="45.0" prefWidth="557.0" stylesheets="@../css/prodcutoCss.css">
-                                                                <children>
-                                                                    <Label layoutX="31.0" layoutY="21.0" text="Publicaciones">
-                                                                        <font>
-                                                                            <Font name="System Bold" size="17.0" />
-                                                                        </font>
-                                                                    </Label>
-                                                                </children></AnchorPane>
-                                                        </children>
-                                                    </HBox>
-                                                    <Button fx:id="btnAnterior" mnemonicParsing="false" onAction="#publicacionAnterior" stylesheets="@../css/prodcutoCss.css" text="Anterior">
-                                                        <VBox.margin>
-                                                            <Insets bottom="20.0" left="30.0" top="35.0" />
-                                                        </VBox.margin>
-                                                    </Button>
-                                                    <AnchorPane fx:id="paneBodyPublicaciones" prefHeight="338.0" prefWidth="590.0" stylesheets="@../css/prodcutoCss.css">
-                                                        <children>
-                                                            <ImageView fx:id="imgPublicaciones" fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
-                                                            <TableView fx:id="tablaPublicaciones" layoutX="32.0" layoutY="227.0" prefHeight="83.0" prefWidth="509.0">
-                                                                <columns>
-                                                                    <TableColumn fx:id="columnaTipoProductoPublicaciones" prefWidth="156.0" text="Tipo Producto" />
-                                                                    <TableColumn fx:id="columnaNombreProductoPublicaciones" prefWidth="193.0" text="Nombre del producto" />
-                                                                    <TableColumn fx:id="columnaDescripcionPublicaciones" prefWidth="198.0" text="Descripcion" />
-                                                                </columns>
-                                                            </TableView>
-                                                        </children>
-                                                    </AnchorPane>
-                                                    <Button fx:id="btnSeguiente" mnemonicParsing="false" onAction="#publicacionSiguiente" stylesheets="@../css/prodcutoCss.css" text="Siguiente">
-                                                        <VBox.margin>
-                                                            <Insets left="30.0" top="20.0" />
-                                                        </VBox.margin>
-                                                    </Button>
-                                                </children>
-                                            </VBox>
-                                        </children>
-                                    </AnchorPane>
-                                </children>
-                            </AnchorPane>
-                        </center>
-                    </BorderPane>
-                </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView">
+   <children>
+      <VBox layoutX="208.0" layoutY="103.0" prefHeight="590.0" prefWidth="744.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="190.0" prefWidth="744.0">
+               <children>
+                  <VBox prefHeight="202.0" prefWidth="197.0">
+                     <children>
+                        <ImageView fx:id="imagenLogo" fitHeight="114.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/logo_subasta_quindio%20-%20copia.jpg" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="40.0" top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="190.0" text="Subasta Quindio">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="paneBotones" prefHeight="399.0" prefWidth="738.0" style="-fx-border-color: blue;">
+               <children>
+                  <Button fx:id="btnAnteriorAnuncio" layoutX="21.0" layoutY="21.0" mnemonicParsing="false" onAction="#anteriorAnuncio" text="Anterior" />
+                  <Button fx:id="btnSiguienteAnuncio" layoutX="657.0" layoutY="21.0" mnemonicParsing="false" onAction="#siguienteAnuncio" text="Siguiente" />
+                  <AnchorPane fx:id="paneAnuncio" layoutX="23.0" layoutY="72.0" prefHeight="303.0" prefWidth="700.0" style="-fx-border-color: blue;">
+                     <children>
+                        <Button fx:id="btnHacerPuja" layoutX="573.0" layoutY="239.0" mnemonicParsing="false" onAction="#hacerPuja" text="Hacer puja" />
+                        <TextArea fx:id="textArea" layoutX="35.0" layoutY="23.0" prefHeight="260.0" prefWidth="466.0" />
+                        <ImageView fx:id="imgAnuncio" fitHeight="150.0" fitWidth="146.0" layoutX="530.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+               </children>
             </AnchorPane>
-
-
-
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

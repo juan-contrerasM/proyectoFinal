@@ -23,7 +23,7 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
     public static final String RUTA_ARCHIVO_MODELO_PRODCUTOS_XML="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/model.xml";
     public static final  String RUTA_ARCHIVO_MODELO_BANCO_BINARIO="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/model.dat";
     public static final String RUTA_ARCHIVO_LOG ="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/log.txt";
-    public static final  String RUTA_ARCHIVO_Anunciastes="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/anunciastes";
+    public static final  String RUTA_ARCHIVO_Anunciastes="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/anunciantes.txt";
     public static final String RUTA_ARCHIVO_COMPRADORES="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/compradores.txt";
     public static final String RUTA_ARCHIVO_ANUNCIOS="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/anuncios.txt";
 

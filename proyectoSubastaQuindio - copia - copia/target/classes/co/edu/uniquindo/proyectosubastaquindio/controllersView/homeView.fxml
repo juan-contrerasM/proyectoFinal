@@ -31,7 +31,7 @@
                                 <children>
                                     <AnchorPane layoutX="209.0" layoutY="66.0" prefHeight="557.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                         <children>
-                                            <AnchorPane fx:id="paneHome" layoutX="18.0" layoutY="44.0" prefHeight="459.0" prefWidth="828.0" stylesheets="@../css/prodcutoCss.css">
+                                            <AnchorPane fx:id="paneHome" layoutX="19.0" layoutY="82.0" prefHeight="464.0" prefWidth="828.0" stylesheets="@../css/prodcutoCss.css">
                                                 <children>
                                                     <ImageView fx:id="imgLogo" fitHeight="466.0" fitWidth="464.0" focusTraversable="true" layoutX="-3.0" layoutY="-1.0" opacity="0.91" pickOnBounds="true" preserveRatio="true">
                                                         <image>
@@ -91,7 +91,7 @@
                                                     </AnchorPane>
                                                 </children>
                                             </AnchorPane>
-                                            <Button fx:id="btnCerrarSesion" layoutX="747.0" layoutY="11.0" mnemonicParsing="false" onAction="#cerrarSesion" stylesheets="@../css/prodcutoCss.css" text="Cerrar sesion" />
+                                            <Button fx:id="btnCerrarSesion" layoutX="749.0" layoutY="25.0" mnemonicParsing="false" onAction="#cerrarSesion" stylesheets="@../css/prodcutoCss.css" text="Cerrar sesion" />
                                         </children>
                                         <padding>
                                             <Insets right="10.0" />

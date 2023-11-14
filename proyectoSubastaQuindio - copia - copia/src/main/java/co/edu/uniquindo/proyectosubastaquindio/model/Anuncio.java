@@ -10,7 +10,7 @@ public class Anuncio implements Serializable {
 //agregar fehca publicacion, fecha finalizacion y valor inicial
     private String nombre;
 
-    String codigo;
+     private String codigo;
 
     private   TipoEstado estado;
     private LocalDate fechaInicio;

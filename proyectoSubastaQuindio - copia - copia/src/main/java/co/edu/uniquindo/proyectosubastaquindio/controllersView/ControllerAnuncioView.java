@@ -1,13 +1,11 @@
 package co.edu.uniquindo.proyectosubastaquindio.controllersView;
 
 import co.edu.uniquindo.proyectosubastaquindio.controller.ControllerAnuncio;
-import co.edu.uniquindo.proyectosubastaquindio.excepciones.FormatoInvalidoException;
 import co.edu.uniquindo.proyectosubastaquindio.excepciones.PersistenciaArchivosTxtException;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
-import co.edu.uniquindo.proyectosubastaquindio.model.Anunciante;
-import co.edu.uniquindo.proyectosubastaquindio.model.Anuncio;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PublicacionesDto;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoEstado;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -16,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +24,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class ControllerAnuncioView implements Initializable {
+
     private ControllerAnuncio controllerAnuncio;
     private final ObservableList<ProductoDto> productos = FXCollections.observableArrayList();
     @FXML
@@ -38,7 +36,8 @@ public class ControllerAnuncioView implements Initializable {
     LocalDate fechaInicio;
     LocalDate fechaFinalizacion;
     private AnuncianteDto anuncianteDto;
-    private   ObservableList<AnuncioDto>listaAnuncios=FXCollections.observableArrayList();
+    private ObservableList<AnuncioDto> listaAnuncios = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         controllerAnuncio = new ControllerAnuncio();
@@ -55,6 +54,7 @@ public class ControllerAnuncioView implements Initializable {
 
     }
 
+
     @FXML
     private Button btnPublicar;
 
@@ -62,18 +62,28 @@ public class ControllerAnuncioView implements Initializable {
     private ImageView imgFotoAnuncio;
     //FLATAN ATRIBUTOS FXL POR DEFINIR
 
-
+ControllerInicioView controllerInicioView;
     @FXML
-    void publicarAnuncio(ActionEvent event) throws IOException {
-        if(controllerAnuncio.obtenerAutenticacion()) {
+    void publicarAnuncio(ActionEvent event) throws IOException, InterruptedException {
+        if (controllerAnuncio.obtenerAutenticacion()) {
             if (validarCampos()) {
                 if (controllerAnuncio.verificarAnuncios(anuncioDto)) {
                     controllerAnuncio.guardarAnuncio(anuncioDto);
-                    mostrarMensaje("Anuncio" + anuncioDto.nombre(), "se publico", "Se publico anuncio" + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+                    controllerAnuncio.almacenarPublicacion(construirPublicacionDto(anuncianteDto, anuncioDto, productoDto));
+                    Thread.sleep(5000);
+                    controllerInicioView.lista();
+                    mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
                 } else {
-                    mostrarMensaje("Anuncio" + anuncioDto.nombre(), "se publico", "Se publico anuncio" + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+                    controllerAnuncio.almacenarPublicacion(construirPublicacionDto(anuncianteDto, anuncioDto, productoDto));
+                   // controllerInicioView.lista();
+
+                    mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
                 }
             }
+        } else {
+            mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
+            registrarAcciones("Error al publicar anuncio debe autenticarse", 1, "no hubo un registro");
+
         }
 
     }
@@ -85,18 +95,18 @@ public class ControllerAnuncioView implements Initializable {
     }
 
     @FXML
-    private TableColumn <AnuncioDto,String> columna1AnuncioTabla3;
+    private TableColumn<AnuncioDto, String> columna1AnuncioTabla3;
     @FXML
-    private TableColumn <AnuncioDto,String> columna2AnuncioTabla3;
+    private TableColumn<AnuncioDto, String> columna2AnuncioTabla3;
     @FXML
-    private TableColumn<AnuncioDto,String> columnaCodigo;
+    private TableColumn<AnuncioDto, String> columnaCodigo;
     @FXML
     private TableView<AnuncioDto> tablaInfoFecha;
 
     @FXML
     void mostrarEnTabla(ActionEvent event) throws IOException {
         //sirve para daber si seleccionaron algo en el combo
-        if(controllerAnuncio.obtenerAutenticacion()) {
+        if (controllerAnuncio.obtenerAutenticacion()) {
             listaAnuncios.clear();
             String selectedItem = comboSeleccionProducto.getSelectionModel().getSelectedItem();
             if (selectedItem != null) {
@@ -138,24 +148,26 @@ public class ControllerAnuncioView implements Initializable {
                 tablaAnuncio1.setItems(productoSeleccionado);
 
 
+                fechaInicio = LocalDate.now();
+                fechaFinalizacion = fechaInicio.plusDays(3);
 
-                    fechaInicio = LocalDate.now();
-                    fechaFinalizacion = fechaInicio.plusDays(3);
+                anuncioDto = construirAnuncioDto();
+                listaAnuncios.add(anuncioDto);
 
-                    anuncioDto = construirAnuncioDto();
-                    listaAnuncios.add(anuncioDto);
-                    //mostrar fechas
+                //mostrar fechas
 
-                    columna1AnuncioTabla3.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fechaInicio())));
-                    columna2AnuncioTabla3.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fechaFinalizacion())));
-                    columnaCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().codigo())));
-                    tablaInfoFecha.setItems(listaAnuncios);
-
+                columna1AnuncioTabla3.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fechaInicio())));
+                columna2AnuncioTabla3.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().fechaFinalizacion())));
+                columnaCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().codigo())));
+                tablaInfoFecha.setItems(listaAnuncios);
 
 
             } else {
                 System.out.println("Ningún elemento seleccionado.");
             }
+        } else {
+            mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
+            registrarAcciones("Error al publicar anuncio debe autenticarse", 1, "no hubo un registro");
         }
 
     }//SEgunda parte
@@ -184,29 +196,30 @@ public class ControllerAnuncioView implements Initializable {
     private TableView<AnuncianteDto> tableAnuncio2;
 
 
-
-
     private void registrarAcciones(String mensaje, int nivel, String accion) {
         controllerAnuncio.registrarAcciones(mensaje, nivel, accion);
 
     }
+
     //----------------------------AnuncioDtp--------------------------------------------
-public AnuncioDto construirAnuncioDto(){
-        return  new AnuncioDto(
+    public AnuncioDto construirAnuncioDto() {
+
+
+        return new AnuncioDto(
                 txtNombreAnuncio.getText(),
                 generarCodigo(),
                 TipoEstado.ACTIVO,
                 fechaInicio,
                 fechaFinalizacion,
-               Float.parseFloat( txtValorInicial.getText()),
+                Float.parseFloat(txtValorInicial.getText()),
                 productoDto.nombreProducto(),
-                anuncianteDto.nombre()
-        );
-
+                anuncianteDto.nombre());
 
 
     }
+
     private Set<String> codigosGenerados = new HashSet<>();
+
     private String generarCodigo() {
         Random random = new Random();
         StringBuilder codigo = new StringBuilder();
@@ -242,11 +255,13 @@ public AnuncioDto construirAnuncioDto(){
 
         return codigo.toString();
     }
+
     @FXML
     private TextField txtNombreAnuncio;
 
     @FXML
     private TextField txtValorInicial;
+
     public boolean validarCampos() {
         String mensaje = "";
         if (txtNombreAnuncio.getText() == null || txtNombreAnuncio.getText().equals(""))
@@ -255,13 +270,11 @@ public AnuncioDto construirAnuncioDto(){
         if (txtValorInicial.getText() == null || txtValorInicial.getText().equals("")) {
             mensaje += "El campo de edad debe rellenarlo \n";
         } else {
-            try {
-                Integer.parseInt(txtValorInicial.getText());
-            } catch (NumberFormatException e) {
-                registrarAcciones("Se lanzo Exceptio formato invalido Exception, en controller anuncio ", 2, "se lanzo exception");
-                throw new FormatoInvalidoException("Error formato de campo numerico invalido", e);
-            }
+
+            Integer.parseInt(txtValorInicial.getText());
+            registrarAcciones("Se lanzo Exceptio formato invalido Exception, en controller anuncio ", 2, "se lanzo exception");
         }
+
         if (mensaje.equals("")) {
             return true;
         } else {
@@ -270,6 +283,7 @@ public AnuncioDto construirAnuncioDto(){
             return false;
         }
     }
+
     private void mostrarMensaje(String titulo, String header, String contenido, Alert.AlertType alertType) {
         Alert aler = new Alert(alertType);
         aler.setTitle(titulo);
@@ -278,6 +292,14 @@ public AnuncioDto construirAnuncioDto(){
         aler.showAndWait();
         registrarAcciones("se mostro mensaje", 1, "mostrar mensaje");
     }
+
+    //metodo que une los dto del anuncio en un solo dto llamado publicacionesDto
+    public PublicacionesDto construirPublicacionDto(AnuncianteDto anuncianteDto, AnuncioDto anuncioDto, ProductoDto productoDto) {
+
+        return new PublicacionesDto(anuncianteDto, anuncioDto, productoDto);
+    }
+
+
 
 
 }
