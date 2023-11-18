@@ -13,6 +13,8 @@ public record AnuncioDto (
         LocalDate fechaFinalizacion,
         float valorInicial,
         String nombreProdcuto,
-        String nombreAnunciante
+        String nombreAnunciante,
+        String url
+
 ){
 }

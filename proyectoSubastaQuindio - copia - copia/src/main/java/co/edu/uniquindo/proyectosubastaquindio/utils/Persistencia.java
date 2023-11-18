@@ -74,7 +74,7 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
         for(Anuncio anuncio:listaAnuncios)
         {
             contenido+= anuncio.getNombre()+"--"+anuncio.getCodigo()+"--"+anuncio.getEstado()
-                    +"--"+anuncio.getFechaInicio()+"--"+anuncio.getFechaFinalizacion()+"--"+anuncio.getValorInicial()+"--"+anuncio.getProducto()+"--"+anuncio.getNombreAnunciante()+"\n";
+                    +"--"+anuncio.getFechaInicio()+"--"+anuncio.getFechaFinalizacion()+"--"+anuncio.getValorInicial()+"--"+anuncio.getProducto()+"--"+anuncio.getNombreAnunciante()+"--"+anuncio.getUrl()+"\n";
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_ANUNCIOS, contenido, false);
     }
@@ -230,6 +230,7 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
             anuncio.setValorInicial(Float.parseFloat((linea.split("--")[5])));
             anuncio.setProducto((linea.split("--")[6]));
             anuncio.setNombreAnunciante((linea.split("--")[7]));
+            anuncio.setUrl(linea.split("--")[8]);
             listaAnuncios.add(anuncio);
         }
         return listaAnuncios;

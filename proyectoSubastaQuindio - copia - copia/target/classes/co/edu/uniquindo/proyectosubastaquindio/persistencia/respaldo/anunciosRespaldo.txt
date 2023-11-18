@@ -1,7 +1,1 @@
-mejor carro--4M73AA--ACTIVO--2023-11-12--2023-11-15--2000.0--null--juan
-gfds--I79RG1--ACTIVO--2023-11-13--2023-11-16--432.0--null--juan
-panela--8680W1--ACTIVO--2023-11-14--2023-11-17--500.0--null--juan
-njfgmk--50055H--ACTIVO--2023-11-14--2023-11-17--654.0--null--juan
-wsedrfg--7G5O1Z--ACTIVO--2023-11-14--2023-11-17--543.0--null--juan
-gbh--EFW5I5--ACTIVO--2023-11-14--2023-11-17--678.0--null--juan
-phnjdkm--530WN1--ACTIVO--2023-11-14--2023-11-17--678.0--null--juan
+njxk--2MG368--ACTIVO--2023-11-18--2023-11-21--1000.0--njxk--juan--file:/C:/Users/juanj/OneDrive/Documentos/proyectoFinal/proyectoSubastaQuindio%20-%20copia%20-%20copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/imagenes/Captura%20de%20pantalla%202023-10-24%20102608.png

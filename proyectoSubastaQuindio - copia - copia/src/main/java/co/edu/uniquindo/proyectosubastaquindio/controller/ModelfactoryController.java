@@ -1,6 +1,7 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.IModelFactoryService;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.ISubastaQuindioControllerService;
+import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.*;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.mappers.SubastaQuindioMapper;
 import co.edu.uniquindo.proyectosubastaquindio.model.*;
@@ -69,6 +70,12 @@ public class ModelfactoryController implements IModelFactoryService {
         subastaQuindio.setListaAnuncios(Persistencia.cargarAnuncios());
         Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
         return subastaQuindio.verificarAnuncioCreado(anuncio);
+    }
+
+
+    public List<AnuncioDto> cargarAnuncios() throws IOException {
+
+      return   mapper.getAnuncioDto(Persistencia.cargarAnuncios());
     }
 
 

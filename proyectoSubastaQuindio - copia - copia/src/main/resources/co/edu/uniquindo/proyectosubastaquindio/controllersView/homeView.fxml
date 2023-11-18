@@ -113,8 +113,15 @@
                     <fx:include source="anuncioView.fxml" />
                 </Tab>
                 <Tab fx:id="tabPujar" text="Pujar">
-                    <fx:include source="inicioView.fxml" />
+                    <fx:include source="pujarView.fxml" />
                 </Tab>
+                <Tab fx:id="tabPujasAnuncio" text="Historial Anuncios">
+                    <fx:include source="historialAnuncioView.fxml" />
+                </Tab>
+                <Tab fx:id="historialPujas" text="Histroial Pujas">
+                    <fx:include source="HistorialPujas.fxml" />
+                </Tab>
+
             </tabs>
         </TabPane>
     </children>

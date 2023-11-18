@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="591.0" prefWidth="893.0" stylesheets="@../css/prodcutoCss.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControlerPujasAnuncioView">
+   <children>
+      <TableView fx:id="tablePujas" layoutX="524.0" layoutY="77.0" prefHeight="400.0" prefWidth="302.0">
+        <columns>
+          <TableColumn id="columCodigo" prefWidth="75.0" text="Codigo" />
+          <TableColumn id="ColumOfertaIni" prefWidth="88.0" text="Oferta Inicial" />
+            <TableColumn id="ColumOferta" prefWidth="62.0" text="Oferta" />
+            <TableColumn id="columPujador" prefWidth="75.0" text="Pujador" />
+        </columns>
+      </TableView>
+      <Label fx:id="lblTabla" alignment="CENTER" contentDisplay="CENTER" layoutX="550.0" layoutY="23.0" prefHeight="35.0" prefWidth="251.0" text="Tabla de pujas" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Label>
+      <Pane layoutX="-9.0" prefHeight="571.0" prefWidth="467.0" style="-fx-background-color: gray; -fx-border-radius: 10; -fx-background-radius: 15; -fx-border-color: black;" styleClass="paneCampos" stylesheets="@../css/prodcutoCss.css">
+         <children>
+            <ImageView fx:id="imgAnuncios" fitHeight="228.0" fitWidth="230.0" layoutX="112.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/logo_subasta_quindio%20-%20copia.jpg" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="textdESCRIPCION" editable="false" layoutX="51.0" layoutY="408.0" prefHeight="80.0" prefWidth="350.0" promptText="Descripcion Del Anuncio" styleClass="paneCampos" stylesheets="@../css/prodcutoCss.css" />
+            <ImageView fx:id="imgSiguiente" fitHeight="60.0" fitWidth="86.0" layoutX="364.0" layoutY="235.0" onMouseClicked="#SiguienteAnuncio" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/derecha.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgAnteriorss" fitHeight="72.0" fitWidth="103.0" layoutX="25.0" layoutY="241.0" onMouseClicked="#AnteriorAnuncio" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/flechaIzquierda.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblAnunciosPublicados" alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="26.0" prefHeight="47.0" prefWidth="302.0" text="Anuncios Publicados" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnEliminar" layoutX="170.0" layoutY="510.0" mnemonicParsing="false" onAction="#elminar" prefHeight="35.0" prefWidth="102.0" text="Eliminar" />
+         </children>
+      </Pane>
+      <Button fx:id="btnVender" layoutX="625.0" layoutY="506.0" mnemonicParsing="false" onAction="#vender" prefHeight="35.0" prefWidth="102.0" text="Vender" />
+   </children>
+</AnchorPane>

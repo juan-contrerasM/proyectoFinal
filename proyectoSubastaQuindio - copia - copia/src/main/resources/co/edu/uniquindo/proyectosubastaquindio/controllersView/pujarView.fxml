@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView">
+   <children>
+      <VBox layoutX="208.0" layoutY="103.0" prefHeight="600.0" prefWidth="965.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="190.0" prefWidth="887.0" stylesheets="@../css/prodcutoCss.css">
+               <children>
+                  <VBox prefHeight="202.0" prefWidth="197.0">
+                     <children>
+                        <ImageView fx:id="imagenLogo" fitHeight="114.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/logo_subasta_quindio%20-%20copia.jpg" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="40.0" top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="190.0" text="Subasta Quindio">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="paneBotones" prefHeight="410.0" prefWidth="815.0" style="-fx-border-color: blue;">
+               <children>
+                  <AnchorPane fx:id="paneAnuncio" layoutX="121.0" layoutY="29.0" prefHeight="326.0" prefWidth="420.0" style="-fx-border-color: blue;">
+                     <children>
+                        <TextArea fx:id="textArea" layoutX="26.0" layoutY="208.0" prefHeight="102.0" prefWidth="362.0" />
+                        <ImageView fx:id="imgAnuncio" fitHeight="186.0" fitWidth="226.0" layoutX="116.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/logoFinal.jpg" />
+                           </image></ImageView>
+                        <ImageView fx:id="imagenAnterior" fitHeight="64.0" fitWidth="91.0" layoutX="27.0" layoutY="75.0" onMouseClicked="#anteriorAnuncio" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/flechaIzquierda.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="imagenSiguiente" fitHeight="55.0" fitWidth="80.0" layoutX="320.0" layoutY="79.0" onMouseClicked="#siguienteAnuncio" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imagenes/derecha.png" />
+                           </image>
+                           <effect>
+                              <Bloom />
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="btnHacerPuja" layoutX="614.0" layoutY="190.0" mnemonicParsing="false" onAction="#hacerPuja" prefHeight="45.0" prefWidth="160.0" stylesheets="@../css/prodcutoCss.css" text="Hacer puja" />
+                  <TextField fx:id="txtValorPuja" layoutX="600.0" layoutY="150.0" prefHeight="20.0" prefWidth="187.0" promptText="Valor" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

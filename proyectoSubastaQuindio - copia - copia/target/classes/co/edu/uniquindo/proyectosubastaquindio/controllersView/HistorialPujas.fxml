@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="512.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerHistorialPujasView">
+   <children>
+      <Label layoutX="350.0" layoutY="31.0" prefHeight="47.0" prefWidth="279.0" text="Historial De pujas">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableHistorial" layoutX="38.0" layoutY="101.0" prefHeight="376.0" prefWidth="451.0">
+         <columns>
+            <TableColumn fx:id="columCodigo" prefWidth="64.0" text="Codigo" />
+            <TableColumn fx:id="columOferta" prefWidth="77.0" text="Ofertar" />
+            <TableColumn fx:id="columAnunciante" prefWidth="86.0" text="Anunciante" />
+            <TableColumn fx:id="columTipoArticulo" prefWidth="98.0" text="TipoArticulo" />
+            <TableColumn fx:id="columNombreProducto" prefWidth="125.0" text="nombre Producto" />
+         </columns>
+      </TableView>
+      <Pane layoutX="538.0" layoutY="101.0" prefHeight="376.0" prefWidth="356.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
+         <children>
+            <ImageView fx:id="imgProducto" fitHeight="251.0" fitWidth="276.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/logo_subasta_quindio%20-%20copia.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtEstado" editable="false" layoutX="14.0" layoutY="310.0" promptText="Estado" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

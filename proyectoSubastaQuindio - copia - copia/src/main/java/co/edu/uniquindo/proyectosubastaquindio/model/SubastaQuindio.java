@@ -1,9 +1,12 @@
 package co.edu.uniquindo.proyectosubastaquindio.model;
 
+import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerAnuncioView;
+import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PublicacionesDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Tab;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -319,4 +322,8 @@ public void guardarPublicacionDto(PublicacionesDto publicacionesDto){
         }
         return  confirmacion;
     }
+    //tab anuncio
+    private ControllerInicioView controllerInicioView;
+
+
 }

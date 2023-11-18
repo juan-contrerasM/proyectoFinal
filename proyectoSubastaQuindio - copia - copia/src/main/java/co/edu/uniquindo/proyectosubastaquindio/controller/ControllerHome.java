@@ -1,7 +1,9 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 
+import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
+import javafx.scene.control.Tab;
 
 import java.io.IOException;
 
@@ -43,4 +45,7 @@ public class ControllerHome {
     public void guardarCompradorGlobal(String usuario) throws IOException {
         modelfactoryController.guardarCompradorGlobal(usuario);
     }
+
+
+
 }

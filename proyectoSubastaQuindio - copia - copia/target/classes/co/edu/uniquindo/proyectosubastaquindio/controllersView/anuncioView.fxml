@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="693.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerAnuncioView">
+<AnchorPane prefHeight="606.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerAnuncioView">
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="635.0" prefWidth="866.0">
 
-        <AnchorPane fx:id="d" layoutX="85.0" layoutY="-3.0" prefHeight="685.0" prefWidth="866.0" AnchorPane.bottomAnchor="-47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0">
+        <AnchorPane fx:id="d" layoutX="85.0" layoutY="-3.0" prefHeight="635.0" prefWidth="866.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0">
             <children>
                 <AnchorPane fx:id="paneHeadAnuncio" layoutX="373.0" layoutY="25.0" prefHeight="195.0" prefWidth="462.0" stylesheets="@../css/prodcutoCss.css">
                     <children>

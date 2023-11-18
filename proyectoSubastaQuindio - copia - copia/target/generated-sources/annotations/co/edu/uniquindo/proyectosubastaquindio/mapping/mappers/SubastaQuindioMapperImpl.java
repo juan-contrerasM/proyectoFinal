@@ -17,7 +17,7 @@ import java.util.List;
 /*
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-11-12T18:11:56-0500",
+    date = "2023-11-18T11:20:39-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 */
@@ -209,7 +209,9 @@ public class SubastaQuindioMapperImpl implements SubastaQuindioMapper {
         LocalDate fechaInicio = null;
         LocalDate fechaFinalizacion = null;
         float valorInicial = 0.0f;
+        String nombreProdcuto = null;
         String nombreAnunciante = null;
+        String url = null;
 
         nombre = anuncio.getNombre();
         codigo = anuncio.getCodigo();
@@ -217,11 +219,11 @@ public class SubastaQuindioMapperImpl implements SubastaQuindioMapper {
         fechaInicio = anuncio.getFechaInicio();
         fechaFinalizacion = anuncio.getFechaFinalizacion();
         valorInicial = anuncio.getValorInicial();
+        nombreProdcuto = anuncio.getNombreProdcuto();
         nombreAnunciante = anuncio.getNombreAnunciante();
+        url = anuncio.getUrl();
 
-        String nombreProdcuto = null;
-
-        AnuncioDto anuncioDto = new AnuncioDto( nombre, codigo, estado, fechaInicio, fechaFinalizacion, valorInicial, nombreProdcuto, nombreAnunciante );
+        AnuncioDto anuncioDto = new AnuncioDto( nombre, codigo, estado, fechaInicio, fechaFinalizacion, valorInicial, nombreProdcuto, nombreAnunciante, url );
 
         return anuncioDto;
     }
@@ -241,6 +243,8 @@ public class SubastaQuindioMapperImpl implements SubastaQuindioMapper {
         anuncio.setFechaFinalizacion( anuncioDto.fechaFinalizacion() );
         anuncio.setValorInicial( anuncioDto.valorInicial() );
         anuncio.setNombreAnunciante( anuncioDto.nombreAnunciante() );
+        anuncio.setNombreProdcuto( anuncioDto.nombreProdcuto() );
+        anuncio.setUrl( anuncioDto.url() );
 
         return anuncio;
     }

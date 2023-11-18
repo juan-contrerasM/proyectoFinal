@@ -18,11 +18,12 @@ public class Anuncio implements Serializable {
     private float valorInicial;
     private String nombreProdcuto;
     private String nombreAnunciante;
+    private String url;
 
     public Anuncio() {
     }
 
-    public Anuncio(String nombre, String codigo, TipoEstado estado, LocalDate fechaInicio, LocalDate fechaFinalizacion, float valorInicial, String nombreProdcuto, String  nombreAnunciante) {
+    public Anuncio(String nombre, String codigo, TipoEstado estado, LocalDate fechaInicio, LocalDate fechaFinalizacion, float valorInicial, String nombreProdcuto, String  nombreAnunciante, String url) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.estado = estado;
@@ -30,8 +31,8 @@ public class Anuncio implements Serializable {
         this.fechaFinalizacion= fechaFinalizacion;
         this.valorInicial= valorInicial;
         this.nombreProdcuto=nombreProdcuto;
-        this.nombreAnunciante =nombreAnunciante
-        ;
+        this.nombreAnunciante =nombreAnunciante;
+        this.url=url;
     }
 
     public String getNombre() {
@@ -96,5 +97,21 @@ public class Anuncio implements Serializable {
 
     public void setNombreAnunciante(String nombreAnunciante) {
         this.nombreAnunciante = nombreAnunciante;
+    }
+
+    public String getNombreProdcuto() {
+        return nombreProdcuto;
+    }
+
+    public void setNombreProdcuto(String nombreProdcuto) {
+        this.nombreProdcuto = nombreProdcuto;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -1,5 +1,7 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 
+import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerAnuncioView;
+import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
@@ -57,4 +59,8 @@ public class ControllerAnuncio {
         modelfactoryController.almacenarPublicacione(publicacionesDto);
 
     }
+
+
+
+
 }

@@ -7,16 +7,21 @@ import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoUsuario;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.ResourceBundle;
 
-public class ControllerHomeView implements Initializable {
+public class ControllerHomeView  implements Initializable {
     public Tab tabRegistrarse;
     public Tab tabGestionarAnuncio;
     public Tab tabAñadirProducto;
@@ -27,11 +32,14 @@ public class ControllerHomeView implements Initializable {
     private boolean autenticacion;
     private ControllerHome controllerHome;
     private TipoUsuario tipoUsuario;
+   // private  ControllerInicioView controllerInicioView;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         controllerHome = new ControllerHome();
         comboTipoUsuario.getItems().addAll(TipoUsuario.values());
+
 
     }
     //++++++++++++++++++++++++++++++++++++++++++++++++++++HOME+++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -173,12 +181,13 @@ public class ControllerHomeView implements Initializable {
         tabs.getTabs().remove(tabRegistrarse);
         tabs.getTabs().remove(tabGestionarAnuncio);
 
+
     }
 
     public void ocultarTabAnuncianter() {
 
         tabs.getTabs().remove(tabRegistrarse);
-        tabs.getTabs().remove(tabPujar);
+     //   tabs.getTabs().remove(tabPujar);
 
     }
 
@@ -188,12 +197,14 @@ public class ControllerHomeView implements Initializable {
             tabs.getTabs().add(tabRegistrarse);
             tabs.getTabs().add(tabAñadirProducto);
         }else {
-            tabs.getTabs().add(tabPujar);
+          //  tabs.getTabs().add(tabPujar);
             tabs.getTabs().add(tabRegistrarse);
         }
 
 
     }
+
+
 
 }
 
