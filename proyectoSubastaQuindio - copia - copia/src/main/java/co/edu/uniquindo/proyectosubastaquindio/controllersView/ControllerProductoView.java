@@ -33,122 +33,50 @@ import java.util.ResourceBundle;
 
 public class ControllerProductoView implements Initializable {
     SubastaQuindio subastaQuindio = new SubastaQuindio();
-
-
-    /**
-     * tabs
-     */
-    @FXML
-    private Tab tabAnuncio;
-
-    @FXML
-    private Tab tabHome;
-
-    @FXML
-    private Tab tabInicio;
-
-    @FXML
-    private Tab tabProducto;
-
-    @FXML
-    private Tab tabRegistro;
-
-
 //++++++++++++++++++++++++++++++Seccion producto+++++++++++++++++++++++++++++++++++++++++++++++++
     //-----------------------------atributo globales
-
     //listas
     private final ObservableList<ProductoDto> productos = FXCollections.observableArrayList();
 
     private final ObservableList<AnuncianteDto> anunciante = FXCollections.observableArrayList();
-
-
     ControllerProducto ControllerProducto;
-    private boolean autenticacion = false;
-
-
     //---------------------------------atributos fxml
-
-    @FXML
-    private DatePicker dateFechaFinal;
-
-    @FXML
-    private DatePicker dateFechaInical;
-
     @FXML
     private Button btnActualizar;
-
     @FXML
     private Button btnAgregar;
-
     @FXML
     private Button btnEliminar;
-
     @FXML
     private Button btnImportar;
-
     @FXML
     private ComboBox<tipoArticulo> comboTipoProducto;
-
     @FXML
     private ImageView imgFoto;
-
-    @FXML
-    private Label lblDescripcion;
-
-
-    @FXML
-    private Label lblNombreProducto;
-
-    @FXML
-    private Label lblTipoProducto;
-
-    @FXML
-    private Label lblUrlFoto;
-
-
     @FXML
     private Pane paneBotones;
-
     @FXML
     private Pane paneCampos;
-
     @FXML
     private Pane panePrincipal;
-
     @FXML
     private Pane paneTable;
-
     @FXML
     private TableView<ProductoDto> tableDatos;
-
     @FXML
     private TableColumn<ProductoDto, String> columnaUno;
-
     @FXML
     private TableColumn<ProductoDto, String> columnaDos;
-
     @FXML
     private TableColumn<ProductoDto, String> columnaTres;
-
     @FXML
     private TableColumn<ProductoDto, String> columnaCuatro;
-
-
     @FXML
     private TextField txtDescripcion;
-
-    @FXML
-    private TextField txtNombreAnunciante;
-
     @FXML
     private TextField txtNombreProducto;
-
     @FXML
     private TextField txtUrlFoto;
-
-    @FXML
-    private TextField txtValor;
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++INITIALIZABLE+++++++++++++++++++++++++++++++++++++++++++++
 
     @Override

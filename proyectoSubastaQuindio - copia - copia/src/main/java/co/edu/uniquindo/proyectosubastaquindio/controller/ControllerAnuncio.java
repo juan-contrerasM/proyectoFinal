@@ -52,8 +52,7 @@ public class ControllerAnuncio {
     }
 
 
-
-
-
-
+    public void contabilizarAnuncios(int i) {
+        modelfactoryController.contabilizarAnuncios(i);
+    }
 }

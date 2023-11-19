@@ -59,4 +59,6 @@ public class Producto implements Serializable {
     public void setTipo_Articulo(tipoArticulo tipoArticulo) {
         this.tipo_Articulo = tipoArticulo;
     }
+
 }
+

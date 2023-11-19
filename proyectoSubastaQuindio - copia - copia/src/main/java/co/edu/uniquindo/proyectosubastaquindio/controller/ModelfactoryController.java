@@ -1,7 +1,6 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 import co.edu.uniquindo.proyectosubastaquindio.controller.service.IModelFactoryService;
-import co.edu.uniquindo.proyectosubastaquindio.controller.service.ISubastaQuindioControllerService;
-import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
+
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.*;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.mappers.SubastaQuindioMapper;
 import co.edu.uniquindo.proyectosubastaquindio.model.*;
@@ -84,7 +83,7 @@ public class ModelfactoryController implements IModelFactoryService {
 
     }
 
-    public List<Puja> cargarPujas() throws IOException {
+    public ArrayList<Puja> cargarPujas() throws IOException {
         subastaQuindio.setListaPujas(Persistencia.cargarPujas());
         return subastaQuindio.getListaPujas();
     }
@@ -95,10 +94,27 @@ public class ModelfactoryController implements IModelFactoryService {
         Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
     }
 
+    public void guardarListaPujas(ArrayList<Puja> listaPujasDto) throws IOException {
+        subastaQuindio.setListaPujas(listaPujasDto);
+        Persistencia.guardarPujas(subastaQuindio.getListaPujas());
+    }
+
+    public void contabilizarAnuncios(int i) {
+        subastaQuindio.contabilizarAnuncios(i);
+    }
+
+    public ArrayList<Anuncio> obtenerAnuncios() throws IOException {
+       return Persistencia.cargarAnuncios();
+    }
+
+    public void guardarAnuncios2(ArrayList<Anuncio> anun) throws IOException {
+        Persistencia.guardarAnuncios(anun);
+    }
+
 
 //------------------------------singlentton clase secreta------------------------------------
 
-    private static class SingletonHolder implements ISubastaQuindioControllerService {
+    private static class SingletonHolder {
         private final static ModelfactoryController eINSTANCE = new ModelfactoryController();
     }
     public static  ModelfactoryController getInstance(){

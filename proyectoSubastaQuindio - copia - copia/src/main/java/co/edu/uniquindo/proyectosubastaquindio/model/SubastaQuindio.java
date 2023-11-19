@@ -337,4 +337,8 @@ public class SubastaQuindio implements Serializable {
 
         }
     }
+
+    public void contabilizarAnuncios(int i) {
+        anuncianteGlobal.setCantAnunciosActivos(anuncianteGlobal.getCantAnunciosActivos()+i);
+    }
 }

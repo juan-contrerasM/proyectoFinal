@@ -10,15 +10,15 @@ public  abstract class Persona implements Serializable {
     protected String cedula;
     protected int edad;
 
-    public Persona(){
+    public Persona() {
 
     }
 
-    public Persona(String nombre,String apellido,String cedula,int edad){
-        this.nombre=nombre;
-        this.apellido=apellido;
-        this.cedula=cedula;
-        this.edad=edad;
+    public Persona(String nombre, String apellido, String cedula, int edad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.edad = edad;
 
     }
 
@@ -53,4 +53,5 @@ public  abstract class Persona implements Serializable {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
 }

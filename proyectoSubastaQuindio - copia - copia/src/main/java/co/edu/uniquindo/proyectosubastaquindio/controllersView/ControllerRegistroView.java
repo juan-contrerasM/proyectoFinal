@@ -59,22 +59,26 @@ public class ControllerRegistroView implements Initializable {
     void guardarUsuario(ActionEvent event) throws IOException {
 
             if (datosValidosRegistro()) {
-                if (comboTipo.getValue().equals(TipoUsuario.ANUNCIANTE)) {
-                    AnuncianteDto anuncianteDto = construirAnuncianteDto();
-                    if (controllerRegistro.verificarAnuncianteCreado(anuncianteDto)) {
-                        controllerRegistro.guardarAnunciante(anuncianteDto);
-                        limpiarCamposRegistro();
-                        registrarAcciones("guardar usuario", 1, "guardar usuario anunciante");
+                if(Float.parseFloat(txtEdad.getText())>=18) {
+                    if (comboTipo.getValue().equals(TipoUsuario.ANUNCIANTE)) {
+                        AnuncianteDto anuncianteDto = construirAnuncianteDto();
+                        if (controllerRegistro.verificarAnuncianteCreado(anuncianteDto)) {
+                            controllerRegistro.guardarAnunciante(anuncianteDto);
+                            limpiarCamposRegistro();
+                            registrarAcciones("guardar usuario", 1, "guardar usuario anunciante");
+
+                        }
+                    } else if (comboTipo.getValue().equals(TipoUsuario.COMPRADOR)) {
+                        CompradorDto compradorDto = construirCompradorDto();
+                        if (controllerRegistro.verificarCompradorCreado(compradorDto)) {
+                            controllerRegistro.guardarComprador(compradorDto);
+                            limpiarCamposRegistro();
+                        }
+                        registrarAcciones("guardar usuario", 1, "guardar usuario comprador");
 
                     }
-                } else if (comboTipo.getValue().equals(TipoUsuario.COMPRADOR)) {
-                    CompradorDto compradorDto = construirCompradorDto();
-                    if (controllerRegistro.verificarCompradorCreado(compradorDto)) {
-                        controllerRegistro.guardarComprador(compradorDto);
-                        limpiarCamposRegistro();
-                    }
-                    registrarAcciones("guardar usuario", 1, "guardar usuario comprador");
-
+                }else {
+                    mostrarMensaje("Debe ser mayo de edad","Registro invalido","Registro invalido debe ser mayor de edad", Alert.AlertType.INFORMATION);
                 }
             }
 
@@ -127,36 +131,6 @@ public class ControllerRegistroView implements Initializable {
         comboTipo.setPromptText("Tipo usuario");
     }
 
-    /**
-     * String nombre,
-     * String apellido,
-     * String cedula,
-     * int edad,
-     * String usuario,
-     * String contrasenia,
-     * int cantAnunciosActivos,
-     * float cantTimpoLimitado
-     */
-
-    static int posicion = 0;
-    /*public void iniciarTablaAnuncio(){
-
-        ObservableList<AnuncianteDto> anuncianteActivo = FXCollections.observableArrayList();
-        anuncianteActivo.add(anunciante);
-        // solo falta que el prooducto dto que esta arriba comenzar a mostar los atribustos en la tabla
-
-        //String productoSeleccionado = selectedItem;
-
-        columna1AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
-        columna2AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().apellido()));
-        columna3AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().edad())));
-        columna4AnuncioTabla2.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().cedula()));
-
-        tableAnuncio2.getItems().clear();
-        tableAnuncio2.setItems(anuncianteActivo);
-    };*/
-
-    //+++++++++++++++++++++++++++++++++++dto+++++++++++++++++++++++++++++++++++++++++++
 
 
     //ANUNCIANTE

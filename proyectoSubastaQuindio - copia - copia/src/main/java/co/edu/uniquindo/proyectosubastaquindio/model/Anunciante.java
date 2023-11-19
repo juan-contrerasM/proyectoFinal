@@ -40,7 +40,5 @@ public class Anunciante extends  Usuario  implements Serializable {
         this.cantTimpoLimitado = cantTimpoLimitado;
     }
 
-    // Otros métodos de la clase
-    // ...
 }
 

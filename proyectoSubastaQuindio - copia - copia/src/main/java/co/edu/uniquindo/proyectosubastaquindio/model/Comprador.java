@@ -29,4 +29,5 @@ public class Comprador extends Usuario implements Serializable {
     public void setCantMaxPujasAnuncio(int cantMaxPujasAnuncio) {
         this.cantMaxPujasAnuncio = cantMaxPujasAnuncio;
     }
+
 }

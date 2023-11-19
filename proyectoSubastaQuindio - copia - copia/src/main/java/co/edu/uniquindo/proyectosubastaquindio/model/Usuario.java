@@ -45,4 +45,5 @@ public class Usuario extends Persona implements Serializable {
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
+
 }

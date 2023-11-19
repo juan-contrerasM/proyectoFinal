@@ -1,6 +1,7 @@
 package co.edu.uniquindo.proyectosubastaquindio.controllersView;
 
 import co.edu.uniquindo.proyectosubastaquindio.controller.ControllerAnuncio;
+import co.edu.uniquindo.proyectosubastaquindio.excepciones.AutenticacionExecption;
 import co.edu.uniquindo.proyectosubastaquindio.excepciones.PersistenciaArchivosTxtException;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
@@ -35,7 +36,47 @@ public class ControllerAnuncioView implements Initializable {
     LocalDate fechaInicio;
     LocalDate fechaFinalizacion;
     private AnuncianteDto anuncianteDto;
-    private ObservableList<AnuncioDto> listaAnuncios = FXCollections.observableArrayList();
+    private ObservableList<AnuncioDto> listaAnuncios = FXCollections.observableArrayList();    @FXML
+    private Button btnPublicar;
+
+    @FXML
+    private ImageView imgFotoAnuncio;
+    @FXML
+    private TableColumn<AnuncioDto, String> columna1AnuncioTabla3;
+    @FXML
+    private TableColumn<AnuncioDto, String> columna2AnuncioTabla3;
+    @FXML
+    private TableColumn<AnuncioDto, String> columnaCodigo;
+    @FXML
+    private TableView<AnuncioDto> tablaInfoFecha;
+
+    @FXML
+    private Button btnCargarProducto;
+
+    @FXML
+    private TableColumn<ProductoDto, String> columna1AnuncioTabla1;
+    @FXML
+    private TableColumn<ProductoDto, String> columna2AnuncioTabla1;
+    @FXML
+    private TableColumn<ProductoDto, String> columna3AnuncioTabla1;
+    @FXML
+    private TableView<ProductoDto> tablaAnuncio1;
+
+
+    @FXML
+    private TableColumn<AnuncianteDto, String> columna1AnuncioTabla2;
+    @FXML
+    private TableColumn<AnuncianteDto, String> columna2AnuncioTabla2;
+    @FXML
+    private TableColumn<AnuncianteDto, String> columna3AnuncioTabla2;
+    @FXML
+    private TableView<AnuncianteDto> tableAnuncio2;
+    @FXML
+    private TextField txtNombreAnuncio;
+
+    @FXML
+    private TextField txtValorInicial;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -54,30 +95,28 @@ public class ControllerAnuncioView implements Initializable {
     }
 
 
-    @FXML
-    private Button btnPublicar;
-
-    @FXML
-    private ImageView imgFotoAnuncio;
-    //FLATAN ATRIBUTOS FXL POR DEFINIR
 
 
     @FXML
     void publicarAnuncio(ActionEvent event) throws IOException, InterruptedException {
         if (controllerAnuncio.obtenerAutenticacion()) {
             if (validarCampos()) {
+                if(anuncianteDto.cantAnunciosActivos()<10){
                 if (controllerAnuncio.verificarAnuncios(anuncioDto)) {
                     controllerAnuncio.guardarAnuncio(anuncioDto);
-                    Thread.sleep(5000);
+                    controllerAnuncio.contabilizarAnuncios(1);
                     mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+
                 } else {
 
                     mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+                    registrarAcciones("Se publico anuncio",1,"se publico anuncio");
                 }
-            }
+            }}
         } else {
             mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
             registrarAcciones("Error al publicar anuncio debe autenticarse", 1, "no hubo un registro");
+            registrarAcciones("erro al publicar anuncio",1,"error al publicar anuncio");
 
         }
 
@@ -89,17 +128,9 @@ public class ControllerAnuncioView implements Initializable {
 
     }
 
-    @FXML
-    private TableColumn<AnuncioDto, String> columna1AnuncioTabla3;
-    @FXML
-    private TableColumn<AnuncioDto, String> columna2AnuncioTabla3;
-    @FXML
-    private TableColumn<AnuncioDto, String> columnaCodigo;
-    @FXML
-    private TableView<AnuncioDto> tablaInfoFecha;
 
     @FXML
-    void mostrarEnTabla(ActionEvent event) throws IOException {
+    void mostrarEnTabla(ActionEvent event) throws IOException, AutenticacionExecption {
         //sirve para daber si seleccionaron algo en el combo
         if (controllerAnuncio.obtenerAutenticacion()) {
             if (validarCampos()) {
@@ -164,33 +195,12 @@ public class ControllerAnuncioView implements Initializable {
             }
         }else {
             mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
-            registrarAcciones("Error al publicar anuncio debe autenticarse", 1, "no hubo un registro");
+            registrarAcciones("Error al publicar anuncio debe autenticarse , execption lanzada", 1, "no hubo un registro");
+            throw new AutenticacionExecption("Autenticacion invalida");
         }
 
     }//SEgunda parte
 
-
-    @FXML
-    private Button btnCargarProducto;
-
-    @FXML
-    private TableColumn<ProductoDto, String> columna1AnuncioTabla1;
-    @FXML
-    private TableColumn<ProductoDto, String> columna2AnuncioTabla1;
-    @FXML
-    private TableColumn<ProductoDto, String> columna3AnuncioTabla1;
-    @FXML
-    private TableView<ProductoDto> tablaAnuncio1;
-
-
-    @FXML
-    private TableColumn<AnuncianteDto, String> columna1AnuncioTabla2;
-    @FXML
-    private TableColumn<AnuncianteDto, String> columna2AnuncioTabla2;
-    @FXML
-    private TableColumn<AnuncianteDto, String> columna3AnuncioTabla2;
-    @FXML
-    private TableView<AnuncianteDto> tableAnuncio2;
 
 
     private void registrarAcciones(String mensaje, int nivel, String accion) {
@@ -201,7 +211,7 @@ public class ControllerAnuncioView implements Initializable {
     //----------------------------AnuncioDtp--------------------------------------------
     public AnuncioDto construirAnuncioDto() {
         return new AnuncioDto(
-                comboSeleccionProducto.getValue(),
+                txtNombreAnuncio.getText(),
                 generarCodigo(),
                 TipoEstado.ACTIVO,
                 fechaInicio,
@@ -251,11 +261,6 @@ public class ControllerAnuncioView implements Initializable {
         return codigo.toString();
     }
 
-    @FXML
-    private TextField txtNombreAnuncio;
-
-    @FXML
-    private TextField txtValorInicial;
 
     public boolean validarCampos() {
         String mensaje = "";

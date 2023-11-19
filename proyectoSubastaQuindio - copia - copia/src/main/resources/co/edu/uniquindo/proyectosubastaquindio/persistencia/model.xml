@@ -42,7 +42,7 @@
       <string>jnk</string>
      </void>
      <void property="tipo_Articulo">
-      <object class="java.lang.Enum" id="tipoArticulo0" method="valueOf">
+      <object class="java.lang.Enum" method="valueOf">
        <class>co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo</class>
        <string>HOGAR</string>
       </object>
@@ -61,17 +61,42 @@
       <string>njxk</string>
      </void>
      <void property="tipo_Articulo">
-      <object idref="tipoArticulo0"/>
+      <object class="java.lang.Enum" id="tipoArticulo0" method="valueOf">
+       <class>co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo</class>
+       <string>DEPORTE</string>
+      </object>
      </void>
      <void property="urlFoto">
       <string>file:/C:/Users/juanj/OneDrive/Documentos/proyectoFinal/proyectoSubastaQuindio%20-%20copia%20-%20copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/imagenes/Captura%20de%20pantalla%202023-10-24%20102608.png</string>
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="co.edu.uniquindo.proyectosubastaquindio.model.Producto">
+     <void property="descripcion">
+      <string>mejor jugador</string>
+     </void>
+     <void property="nombreProducto">
+      <string>messi</string>
+     </void>
+     <void property="tipo_Articulo">
+      <object idref="tipoArticulo0"/>
+     </void>
+     <void property="urlFoto">
+      <string>file:/C:/Users/juanj/OneDrive/Documentos/proyectoFinal/proyectoSubastaQuindio%20-%20copia%20-%20copia/src/main/resources/co/edu/uniquindo/proyectosubastaquindio/imagenes/Captura%20de%20pantalla%202023-11-13%20220837.png</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="listaPujas">
+   <object class="java.util.ArrayList"/>
   </void>
   <void property="nombresProducto">
    <void method="add">
     <string>jnk</string>
+   </void>
+   <void method="add">
+    <string>njxk</string>
    </void>
   </void>
  </object>
@@ -99,6 +124,32 @@
  </void>
  <void property="apellido">
   <string>hk</string>
+ </void>
+</void>
+<void class="co.edu.uniquindo.proyectosubastaquindio.model.Anunciante" id="Anunciante2">
+ <void property="cantAnunciosActivos">
+  <int>10</int>
+ </void>
+ <void property="cantTimpoLimitado">
+  <float>11.0</float>
+ </void>
+ <void property="cedula">
+  <string>12345</string>
+ </void>
+ <void property="contrasenia">
+  <string>12345</string>
+ </void>
+ <void property="edad">
+  <int>45</int>
+ </void>
+ <void property="nombre">
+  <string>steven</string>
+ </void>
+ <void property="usuario">
+  <string>steven</string>
+ </void>
+ <void property="apellido">
+  <string>contreras</string>
  </void>
 </void>
 <void class="co.edu.uniquindo.proyectosubastaquindio.model.SubastaQuindio" id="Field0" method="getField">
@@ -134,32 +185,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="co.edu.uniquindo.proyectosubastaquindio.model.Anunciante">
-    <void property="apellido">
-     <string>contreras</string>
-    </void>
-    <void property="cantAnunciosActivos">
-     <int>10</int>
-    </void>
-    <void property="cantTimpoLimitado">
-     <float>11.0</float>
-    </void>
-    <void property="cedula">
-     <string>12345</string>
-    </void>
-    <void property="contrasenia">
-     <string>12345</string>
-    </void>
-    <void property="edad">
-     <int>45</int>
-    </void>
-    <void property="nombre">
-     <string>steven</string>
-    </void>
-    <void property="usuario">
-     <string>steven</string>
-    </void>
-   </object>
+   <object idref="Anunciante2"/>
   </void>
   <void method="add">
    <object idref="Anunciante1"/>

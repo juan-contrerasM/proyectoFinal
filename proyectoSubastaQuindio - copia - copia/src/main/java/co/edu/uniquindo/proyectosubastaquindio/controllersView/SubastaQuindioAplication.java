@@ -202,8 +202,35 @@ public class SubastaQuindioAplication extends Application {
             System.err.println("Error al respaldar el archivo anunciantes.");
             throw new PersistenciaArchivosTxtException("Error al obtener la lista de anunciantes desde el archivo de texto", e);
         }
+        String archivoOrigenPujas= "src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/pujas.txt"; // Nombre del archivo original
+        String archivoRespaldoPujas = "src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/respaldo/pujasRespaldo"; // Nombre del archivo de respaldo
+        try {
+            // Abrir el archivo de origen para lectura
+            BufferedReader lector = new BufferedReader(new FileReader(archivoOrigenAnunciantes));
+
+            // Abrir el archivo de respaldo para escritura
+            BufferedWriter escritor = new BufferedWriter(new FileWriter(archivoRespaldoAnunciantes));
+
+            // Leer el contenido del archivo de origen y escribirlo en el archivo de respaldo
+            String linea;
+            while ((linea = lector.readLine()) != null) {
+                escritor.write(linea);
+                escritor.newLine(); // Agregar una nueva línea después de cada línea del archivo
+            }
+
+            // Cerrar los archivos
+            lector.close();
+            escritor.close();
+
+            System.out.println("Respaldo del archivo  anunciantes realizado con éxito.");
+        } catch (IOException e) {
+            e.printStackTrace();  // Imprime la traza de la excepción original
+            System.err.println("Error al respaldar el archivo anunciantes.");
+            throw new PersistenciaArchivosTxtException("Error al obtener la lista de anunciantes desde el archivo de texto", e);
+        }
 
     }
+
 
 
 

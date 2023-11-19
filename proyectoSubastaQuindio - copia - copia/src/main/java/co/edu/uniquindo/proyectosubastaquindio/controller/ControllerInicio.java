@@ -37,4 +37,7 @@ public class ControllerInicio {
     }
 
 
+    public boolean obtenerAutenticacion() {
+        return modelfactoryController.obtenerAutenticacion();
+    }
 }

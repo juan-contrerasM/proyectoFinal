@@ -5,6 +5,7 @@ import co.edu.uniquindio.banco.bancouq.model.*;*/
 import co.edu.uniquindo.proyectosubastaquindio.model.*;
 
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoEstado;
+import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoEstadoPuja;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo;
 
 import java.io.FileNotFoundException;
@@ -85,7 +86,7 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
         for(Puja puja:listaPujas)
         {
             contenido+= puja.getCodigo()+"--"+puja.getOfertaInicial()+"--"+puja.getOferta()
-                    +"--"+puja.getNombreComprador()+"--"+puja.getNombreAnunciante()+"\n";
+                    +"--"+puja.getNombreComprador()+"--"+puja.getNombreAnunciante()+"--"+puja.getNombreAnuncio()+"--"+puja.getUrl()+"--"+puja.getTipoEstadoPuja()+"\n";
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_PUJAS, contenido, false);
     }
@@ -260,6 +261,9 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
             puja.setOferta(Float.parseFloat((linea.split("--")[2])));
             puja.setNombreComprador(((linea.split("--")[3])));
             puja.setNombreAnunciante(linea.split("--")[4]);
+            puja.setNombreAnuncio(linea.split("--")[5]);
+            puja.setUrl(linea.split("--")[6]);
+            puja.setTipoEstadoPuja(TipoEstadoPuja.valueOf(linea.split("--")[7]));
             listaPujas.add(puja);
         }
         return listaPujas;

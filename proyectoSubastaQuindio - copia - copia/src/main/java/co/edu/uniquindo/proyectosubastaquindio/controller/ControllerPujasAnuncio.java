@@ -1,10 +1,12 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PujaDto;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
+import co.edu.uniquindo.proyectosubastaquindio.model.Anuncio;
 import co.edu.uniquindo.proyectosubastaquindio.model.Puja;
+import javafx.collections.ObservableList;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +24,32 @@ public class ControllerPujasAnuncio {
       return   modelfactoryController.cargarAnuncios();
     }
 
-    public List<Puja> cargarPujas() throws IOException {
+    public ArrayList<Puja> cargarPujas() throws IOException {
         return modelfactoryController.cargarPujas();
     }
 
     public void eliminarAnuncio(AnuncioDto anuncioDto) throws IOException {
         modelfactoryController.eliminarAnuncio(anuncioDto);
+    }
+
+    public void guardarPujas(ArrayList<Puja> listaPujasDto) throws IOException {
+        modelfactoryController.guardarListaPujas(listaPujasDto);
+
+    }
+
+    public boolean obtenerAutenicacion() {
+        return modelfactoryController.obtenerAutenticacion();
+    }
+
+    public AnuncianteDto obtenerAnunciante() throws IOException {
+        return modelfactoryController.obetnerAnunciante();
+    }
+
+    public ArrayList<Anuncio>cargarAnuncios() throws IOException {
+        return  modelfactoryController.obtenerAnuncios();
+    }
+
+    public void guardarAnuncios(ArrayList<Anuncio> anun) throws IOException {
+         modelfactoryController.guardarAnuncios2(anun);
     }
 }
