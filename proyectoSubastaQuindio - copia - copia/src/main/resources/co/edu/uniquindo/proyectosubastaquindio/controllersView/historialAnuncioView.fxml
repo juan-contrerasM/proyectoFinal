@@ -15,10 +15,10 @@
    <children>
       <TableView fx:id="tablePujas" layoutX="524.0" layoutY="77.0" prefHeight="400.0" prefWidth="302.0">
         <columns>
-          <TableColumn id="columCodigo" prefWidth="75.0" text="Codigo" />
-          <TableColumn id="ColumOfertaIni" prefWidth="88.0" text="Oferta Inicial" />
-            <TableColumn id="ColumOferta" prefWidth="62.0" text="Oferta" />
-            <TableColumn id="columPujador" prefWidth="75.0" text="Pujador" />
+          <TableColumn id="columCodigo" fx:id="columCodigo" prefWidth="75.0" text="Codigo" />
+          <TableColumn id="ColumOfertaIni" fx:id="columOfertaIni" prefWidth="88.0" text="Oferta Inicial" />
+            <TableColumn id="ColumOferta" fx:id="columOferta" prefWidth="62.0" text="Oferta" />
+            <TableColumn id="columPujador" fx:id="columPujador" prefWidth="75.0" text="Pujador" />
         </columns>
       </TableView>
       <Label fx:id="lblTabla" alignment="CENTER" contentDisplay="CENTER" layoutX="550.0" layoutY="23.0" prefHeight="35.0" prefWidth="251.0" text="Tabla de pujas" textAlignment="CENTER">

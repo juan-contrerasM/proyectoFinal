@@ -1,12 +1,8 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 
-import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerAnuncioView;
-import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PublicacionesDto;
-import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,10 +51,7 @@ public class ControllerAnuncio {
         return modelfactoryController.obtenerAutenticacion();
     }
 
-    public void almacenarPublicacion(PublicacionesDto publicacionesDto)throws IOException {
-        modelfactoryController.almacenarPublicacione(publicacionesDto);
 
-    }
 
 
 

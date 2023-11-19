@@ -1,12 +1,9 @@
 package co.edu.uniquindo.proyectosubastaquindio.model;
 
-import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerAnuncioView;
 import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PublicacionesDto;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Tab;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -15,11 +12,7 @@ import java.util.ArrayList;
 public class SubastaQuindio implements Serializable {
 
     //lista publicacionesDto
-    private final ObservableList<PublicacionesDto> listaPublicaciosDto = FXCollections.observableArrayList();
 
-    public ObservableList<PublicacionesDto> getListaPublicaciosDto() {
-        return listaPublicaciosDto;
-    }
 
     public  SubastaQuindio(){
 
@@ -278,10 +271,7 @@ public class SubastaQuindio implements Serializable {
         return  null;
     }
 //+++++++++++++++++++++++++++++++++++++++++seccio anuncio++++++++++++++++++++++++++++++++++++++++++++++
-public void guardarPublicacionDto(PublicacionesDto publicacionesDto){
 
-    listaPublicaciosDto.add(publicacionesDto);
-}
 
 
     public void guardarAnuncios(Anuncio anuncio){
@@ -325,5 +315,26 @@ public void guardarPublicacionDto(PublicacionesDto publicacionesDto){
     //tab anuncio
     private ControllerInicioView controllerInicioView;
 
+//--------------------------inicio---------------------------------
+    private ArrayList<Puja>listaPujas;
+    public void guardarPujas(Puja puja) {
+        listaPujas.add(puja);
+    }
 
+    public ArrayList<Puja> getListaPujas() {
+        return listaPujas;
+    }
+
+    public void setListaPujas(ArrayList<Puja> listaPujas) {
+        this.listaPujas = listaPujas;
+    }
+
+    public void eliminarAnuncio(AnuncioDto anuncioDto) {
+        for (int i = 0; i <listaAnuncios.size() ; i++) {
+            if (listaAnuncios.get(i).getNombre().equals(anuncioDto.nombre())){
+                listaAnuncios.remove(i);
+            }
+
+        }
+    }
 }

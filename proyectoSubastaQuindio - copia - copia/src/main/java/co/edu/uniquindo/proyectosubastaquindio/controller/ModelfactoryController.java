@@ -35,9 +35,7 @@ public class ModelfactoryController implements IModelFactoryService {
         Persistencia.guardarProdcutos(subastaQuindio.getListaProductos());
         return subastaQuindio.obtenerNombresProductos();
     }
-    public ObservableList<PublicacionesDto> obtenerListaPublicaciones(){
-        return subastaQuindio.getListaPublicaciosDto();
-    }
+
 
     public void guardarNombreP(String nombre) {
         subastaQuindio.guardarNombre(nombre);
@@ -76,6 +74,25 @@ public class ModelfactoryController implements IModelFactoryService {
     public List<AnuncioDto> cargarAnuncios() throws IOException {
 
       return   mapper.getAnuncioDto(Persistencia.cargarAnuncios());
+    }
+//--------------------------------inicio---------------------------------------
+    public void guarPujarDto(Puja puja) throws IOException {
+        subastaQuindio.setListaPujas(Persistencia.cargarPujas());
+        subastaQuindio.guardarPujas(puja);
+        Persistencia.guardarPujas(subastaQuindio.getListaPujas());
+
+
+    }
+
+    public List<Puja> cargarPujas() throws IOException {
+        subastaQuindio.setListaPujas(Persistencia.cargarPujas());
+        return subastaQuindio.getListaPujas();
+    }
+
+    public void eliminarAnuncio(AnuncioDto anuncioDto) throws IOException {
+        subastaQuindio.setListaAnuncios(Persistencia.cargarAnuncios());
+        subastaQuindio.eliminarAnuncio(anuncioDto);
+        Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
     }
 
 
@@ -257,8 +274,5 @@ public class ModelfactoryController implements IModelFactoryService {
         subastaQuindio.guardarAnuncios(anuncio);
         Persistencia.guardarAnuncios(subastaQuindio.getListaAnuncios());
     }
-    public void almacenarPublicacione(PublicacionesDto publicacionesDto) {
-        subastaQuindio.guardarPublicacionDto(publicacionesDto);
 
-    }
 }

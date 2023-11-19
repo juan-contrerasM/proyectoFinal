@@ -5,8 +5,10 @@ public record PujaDto(
         // se declaran las variables
 
         String codigo,
-        int ofertaInicial,
-        String oferta
+        float ofertaInicial,
+       float oferta,
+        String NombreComprador,
+        String NombreAnunciante
 
 
 

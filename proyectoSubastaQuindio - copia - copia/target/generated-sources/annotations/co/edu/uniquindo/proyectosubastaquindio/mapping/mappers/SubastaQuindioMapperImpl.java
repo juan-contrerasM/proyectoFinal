@@ -4,10 +4,12 @@ import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PujaDto;
 import co.edu.uniquindo.proyectosubastaquindio.model.Anunciante;
 import co.edu.uniquindo.proyectosubastaquindio.model.Anuncio;
 import co.edu.uniquindo.proyectosubastaquindio.model.Comprador;
 import co.edu.uniquindo.proyectosubastaquindio.model.Producto;
+import co.edu.uniquindo.proyectosubastaquindio.model.Puja;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoEstado;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.tipoArticulo;
 import java.time.LocalDate;
@@ -17,7 +19,7 @@ import java.util.List;
 /*
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-11-18T11:20:39-0500",
+    date = "2023-11-18T19:42:00-0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 21.0.1 (Oracle Corporation)"
 )
 */
@@ -258,6 +260,57 @@ public class SubastaQuindioMapperImpl implements SubastaQuindioMapper {
         List<AnuncioDto> list = new ArrayList<AnuncioDto>( listaAnuncios.size() );
         for ( Anuncio anuncio : listaAnuncios ) {
             list.add( anuncioToAnucioDto( anuncio ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public PujaDto pujaToPujaDto(Puja puja) {
+        if ( puja == null ) {
+            return null;
+        }
+
+        String codigo = null;
+        float ofertaInicial = 0.0f;
+        float oferta = 0.0f;
+
+        codigo = puja.getCodigo();
+        ofertaInicial = puja.getOfertaInicial();
+        oferta = puja.getOferta();
+
+        String nombreComprador = null;
+        String nombreAnunciante = null;
+
+        PujaDto pujaDto = new PujaDto( codigo, ofertaInicial, oferta, nombreComprador, nombreAnunciante );
+
+        return pujaDto;
+    }
+
+    @Override
+    public Puja pujaDtoToPuja(PujaDto pujaDto) {
+        if ( pujaDto == null ) {
+            return null;
+        }
+
+        Puja puja = new Puja();
+
+        puja.setCodigo( pujaDto.codigo() );
+        puja.setOfertaInicial( pujaDto.ofertaInicial() );
+        puja.setOferta( pujaDto.oferta() );
+
+        return puja;
+    }
+
+    @Override
+    public List<PujaDto> getPujaDto(List<Puja> listaPuja) {
+        if ( listaPuja == null ) {
+            return null;
+        }
+
+        List<PujaDto> list = new ArrayList<PujaDto>( listaPuja.size() );
+        for ( Puja puja : listaPuja ) {
+            list.add( pujaToPujaDto( puja ) );
         }
 
         return list;

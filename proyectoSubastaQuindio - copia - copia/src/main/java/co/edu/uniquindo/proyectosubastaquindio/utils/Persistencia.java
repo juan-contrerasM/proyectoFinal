@@ -26,6 +26,7 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
     public static final  String RUTA_ARCHIVO_Anunciastes="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/anunciantes.txt";
     public static final String RUTA_ARCHIVO_COMPRADORES="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/compradores.txt";
     public static final String RUTA_ARCHIVO_ANUNCIOS="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/anuncios.txt";
+    public static final String RUTA_ARCHIVO_PUJAS="src/main/resources/co/edu/uniquindo/proyectosubastaquindio/persistencia/archivos/pujas.txt";
 
     /**
      * Guarda en un archivo de texto todos la información de las personas almacenadas en el ArrayList
@@ -77,6 +78,16 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
                     +"--"+anuncio.getFechaInicio()+"--"+anuncio.getFechaFinalizacion()+"--"+anuncio.getValorInicial()+"--"+anuncio.getProducto()+"--"+anuncio.getNombreAnunciante()+"--"+anuncio.getUrl()+"\n";
         }
         ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_ANUNCIOS, contenido, false);
+    }
+    public static void guardarPujas(ArrayList<Puja> listaPujas) throws IOException {
+        // TODO Auto-generated method stub
+        String contenido = "";
+        for(Puja puja:listaPujas)
+        {
+            contenido+= puja.getCodigo()+"--"+puja.getOfertaInicial()+"--"+puja.getOferta()
+                    +"--"+puja.getNombreComprador()+"--"+puja.getNombreAnunciante()+"\n";
+        }
+        ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_PUJAS, contenido, false);
     }
 
 
@@ -234,6 +245,24 @@ public static final String QUEUE_NUEVA_PUBLICACION = "nueva_publicacion";
             listaAnuncios.add(anuncio);
         }
         return listaAnuncios;
+    }
+    public static ArrayList<Puja> cargarPujas() throws FileNotFoundException, IOException
+    {
+        ArrayList<Puja> listaPujas =new ArrayList<>();
+        ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_PUJAS);
+        String linea="";
+        for (int i = 0; i < contenido.size(); i++)
+        {
+            linea = contenido.get(i);//juan,arias,125454,Armenia,uni1@,12454,125444
+            Puja puja = new Puja();
+            puja.setCodigo(linea.split("--")[0]);
+            puja.setOfertaInicial(Float.parseFloat((linea.split("--")[1])));
+            puja.setOferta(Float.parseFloat((linea.split("--")[2])));
+            puja.setNombreComprador(((linea.split("--")[3])));
+            puja.setNombreAnunciante(linea.split("--")[4]);
+            listaPujas.add(puja);
+        }
+        return listaPujas;
     }
 }
 

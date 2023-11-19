@@ -2,9 +2,9 @@ package co.edu.uniquindo.proyectosubastaquindio.controllersView;
 
 import co.edu.uniquindo.proyectosubastaquindio.controller.ControllerInicio;
 import co.edu.uniquindo.proyectosubastaquindio.excepciones.ArraylistVacioException;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PublicacionesDto;
-import javafx.application.Platform;
+import co.edu.uniquindo.proyectosubastaquindio.excepciones.CamposInvalidosException;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.*;
+import co.edu.uniquindo.proyectosubastaquindio.model.Puja;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,19 +13,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class ControllerInicioView implements  Initializable {
-        private final ObservableList<PublicacionesDto> listaPublicaciones = FXCollections.observableArrayList();
 
         private ObservableList<AnuncioDto>listaAnuncion;
 
@@ -63,36 +62,33 @@ private  ControllerInicio controllerInicio;
 
         @FXML
         private TextArea textArea;
+        private AnuncioDto anuncioDto;
+        private Puja puja;
+        private  CompradorDto compradorDto;
 
-
-/*
-        @FXML
-        void anteriorAnuncio(MouseEvent event) throws IOException {
-                listaAnuncion.addAll(controllerInicio.cargarAnuncion());
-                contador--;
-                if(contador<0){
-                        contador=listaAnuncion.size()-1;
-
-                }
-                textArea.setText(listaAnuncion.get(contador).toString());
-        }
-*/
         @FXML
         void hacerPuja(ActionEvent event) {
+                try {
+                        if (txtValorPuja.getText() == null || txtValorPuja.getText().isEmpty()) {
+                                throw new CamposInvalidosException("El valor de la puja es nulo o vacío");
+                        }else {
+                                float valorPuja=Float.parseFloat(txtValorPuja.getText());
+                                anuncioDto=listaAnuncion.get(contador);
+                                compradorDto=controllerInicio.obtenerComprador();
+                                Puja puja=new Puja(generarCodigo(),anuncioDto.valorInicial(),valorPuja,compradorDto.nombre(),anuncioDto.nombreAnunciante());
 
-        }
-/*
-        @FXML
-        void siguienteAnuncio(MouseEvent event) throws IOException {
-                listaAnuncion.addAll(controllerInicio.cargarAnuncion());
-                contador++;
-                if(contador==listaAnuncion.size()){
-                        contador=0;
+                                 controllerInicio.guardarPujar(puja);
 
+
+
+                        }
+                } catch (CamposInvalidosException e) {
+                        registrarAcciones("exception lanzada,campos invalidos en controllerInicioView, metodo hacer puja",2,"hacerPuja");
+                        mostrarMensaje("campo vacio","los campos deben llenarse","campos vacios", Alert.AlertType.INFORMATION);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
-                textArea.setText(listaAnuncion.get(contador).toString());
         }
-*/
 
 
 
@@ -197,6 +193,45 @@ private  ControllerInicio controllerInicio;
                 controllerInicio.registrarAcciones(mensaje, nivel, accion);
 
         }
+        private Set<String> codigosGenerados = new HashSet<>();
+
+        private String generarCodigo() {
+                Random random = new Random();
+                StringBuilder codigo = new StringBuilder();
+
+                // Generar 6 caracteres (letras y números) para el código
+                while (codigo.length() < 6) {
+                        char caracter = (char) (random.nextInt(26) + 'A');
+                        if (random.nextBoolean()) {
+                                // Agregar una letra mayúscula
+                                codigo.append(caracter);
+                        } else {
+                                // Agregar un número
+                                codigo.append(random.nextInt(10));
+                        }
+                }
+
+                // Verificar si el código ya ha sido generado
+                while (codigosGenerados.contains(codigo.toString())) {
+                        codigo = new StringBuilder();
+                        // Volver a generar el código si ya existe
+                        while (codigo.length() < 6) {
+                                char caracter = (char) (random.nextInt(26) + 'A');
+                                if (random.nextBoolean()) {
+                                        codigo.append(caracter);
+                                } else {
+                                        codigo.append(random.nextInt(10));
+                                }
+                        }
+                }
+
+                // Agregar el código a la lista de códigos generados
+                codigosGenerados.add(codigo.toString());
+
+                return codigo.toString();
+        }
+
+
 }
 
 

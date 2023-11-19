@@ -1,13 +1,11 @@
 package co.edu.uniquindo.proyectosubastaquindio.controller;
 
 import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PublicacionesDto;
-import javafx.collections.ObservableList;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.CompradorDto;
+import co.edu.uniquindo.proyectosubastaquindio.model.Puja;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerInicio {
@@ -17,12 +15,7 @@ public class ControllerInicio {
     public  ControllerInicio(){
         modelfactoryController=ModelfactoryController.getInstance();
     }
-    public ObservableList<PublicacionesDto> listaPublicaciones(){
 
-        return modelfactoryController.obtenerListaPublicaciones();
-
-
-    }
 
 
 
@@ -34,4 +27,14 @@ public class ControllerInicio {
     public void registrarAcciones(String mensaje, int nivel, String accion) {
         modelfactoryController.registrarAccionesSistema(mensaje, nivel, accion);
     }
+
+    public CompradorDto obtenerComprador() throws IOException {
+        return modelfactoryController.obetnerComprador();
+    }
+
+    public void guardarPujar(Puja puja) throws IOException {
+        modelfactoryController.guarPujarDto(puja);
+    }
+
+
 }

@@ -5,7 +5,6 @@ import co.edu.uniquindo.proyectosubastaquindio.excepciones.PersistenciaArchivosT
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.ProductoDto;
-import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.PublicacionesDto;
 import co.edu.uniquindo.proyectosubastaquindio.model.enums.TipoEstado;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -69,12 +68,9 @@ public class ControllerAnuncioView implements Initializable {
             if (validarCampos()) {
                 if (controllerAnuncio.verificarAnuncios(anuncioDto)) {
                     controllerAnuncio.guardarAnuncio(anuncioDto);
-                    controllerAnuncio.almacenarPublicacion(construirPublicacionDto(anuncianteDto, anuncioDto, productoDto));
                     Thread.sleep(5000);
                     mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
                 } else {
-                    controllerAnuncio.almacenarPublicacion(construirPublicacionDto(anuncianteDto, anuncioDto, productoDto));
-                   // controllerInicioView.lista();
 
                     mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
                 }
@@ -288,10 +284,7 @@ public class ControllerAnuncioView implements Initializable {
     }
 
     //metodo que une los dto del anuncio en un solo dto llamado publicacionesDto
-    public PublicacionesDto construirPublicacionDto(AnuncianteDto anuncianteDto, AnuncioDto anuncioDto, ProductoDto productoDto) {
 
-        return new PublicacionesDto(anuncianteDto, anuncioDto, productoDto);
-    }
 
 
 

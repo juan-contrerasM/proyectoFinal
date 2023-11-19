@@ -39,4 +39,11 @@ AnuncioDto anuncioToAnucioDto(Anuncio anuncio);
  Anuncio anuncioDtoToAnuncio(AnuncioDto anuncioDto);
  @IterableMapping(qualifiedByName = "anuncioToAnucioDto")
  List<AnuncioDto> getAnuncioDto(List<Anuncio> listaAnuncios);
+
+ //pujas
+ @Named("pujaToPujaDto")
+ PujaDto pujaToPujaDto(Puja puja);
+ Puja pujaDtoToPuja(PujaDto pujaDto);
+ @IterableMapping(qualifiedByName = "pujaToPujaDto")
+ List<PujaDto> getPujaDto(List<Puja> listaPuja);
 }
