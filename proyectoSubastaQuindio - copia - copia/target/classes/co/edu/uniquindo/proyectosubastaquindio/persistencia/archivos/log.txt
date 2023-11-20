@@ -902,3 +902,59 @@ nov 19, 2023 4:32:13 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.Archi
 INFO: mostrar mensaje,se mostro mensaje,2023-11-19
 nov 19, 2023 4:32:13 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
 INFO: tipo comprador,inicio sesion,2023-11-19
+nov 19, 2023 4:34:27 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-19
+nov 19, 2023 4:34:28 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: inicializacion,controller PujasAnunciosView inicalizasdo,2023-11-19
+nov 19, 2023 4:34:28 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo tab hitorial pujas,inicio historial pujas,2023-11-19
+nov 19, 2023 4:34:46 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-19
+nov 19, 2023 4:34:46 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo comprador,inicio sesion,2023-11-19
+nov 19, 2023 4:34:49 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tabla actualizada,SE ACUATLIZO TABLA HISTORIAL PUJAS,2023-11-19
+nov 19, 2023 4:35:03 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-19
+nov 19, 2023 4:35:03 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: cerro sesion,cerro sesion,2023-11-19
+nov 19, 2023 4:58:41 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-19
+nov 19, 2023 4:58:44 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: inicializacion,controller PujasAnunciosView inicalizasdo,2023-11-19
+nov 19, 2023 4:58:44 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo tab hitorial pujas,inicio historial pujas,2023-11-19
+nov 19, 2023 5:03:54 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-19
+nov 19, 2023 5:03:55 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: inicializacion,controller PujasAnunciosView inicalizasdo,2023-11-19
+nov 19, 2023 5:03:55 P. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo tab hitorial pujas,inicio historial pujas,2023-11-19
+nov 20, 2023 9:09:47 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-20
+nov 20, 2023 9:09:49 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: inicializacion,controller PujasAnunciosView inicalizasdo,2023-11-20
+nov 20, 2023 9:09:49 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo tab hitorial pujas,inicio historial pujas,2023-11-20
+nov 20, 2023 9:10:11 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-20
+nov 20, 2023 9:10:11 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo comprador,inicio sesion,2023-11-20
+nov 20, 2023 9:12:04 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo aplicacion,inicio aplicion,2023-11-20
+nov 20, 2023 9:12:05 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: inicializacion,controller PujasAnunciosView inicalizasdo,2023-11-20
+nov 20, 2023 9:12:05 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: Se inicializo tab hitorial pujas,inicio historial pujas,2023-11-20
+nov 20, 2023 9:12:19 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-20
+nov 20, 2023 9:12:19 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: no hubo un registro,Error al selecionar debe autenticarse,2023-11-20
+nov 20, 2023 9:12:30 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-20
+nov 20, 2023 9:12:30 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: tipo comprador,inicio sesion,2023-11-20
+nov 20, 2023 9:12:36 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-20
+nov 20, 2023 9:12:47 A. M. co.edu.uniquindo.proyectosubastaquindio.utils.ArchivoUtil guardarRegistroLog
+INFO: mostrar mensaje,se mostro mensaje,2023-11-20

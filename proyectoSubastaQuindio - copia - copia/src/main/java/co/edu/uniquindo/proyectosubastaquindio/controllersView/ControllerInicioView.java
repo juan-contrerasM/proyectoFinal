@@ -60,11 +60,12 @@ public class ControllerInicioView implements Initializable {
                 if (txtValorPuja.getText() == null || txtValorPuja.getText().isEmpty()) {
                     throw new CamposInvalidosException("El valor de la puja es nulo o vacío");
                 }
-                if (Float.parseFloat(txtValorPuja.getText()) > anuncioDto.valorInicial()) {
+                anuncioDto = listaAnuncion.get(contador);
+                if (Float.parseFloat(txtValorPuja.getText()) < anuncioDto.valorInicial()) {
                     mostrarMensaje("Puja invalida", "puja invalida", "puja invalida debe ser mayor\n del valorinicla ques es: " + anuncioDto.valorInicial(), Alert.AlertType.INFORMATION);
                 } else {
                     float valorPuja = Float.parseFloat(txtValorPuja.getText());
-                    anuncioDto = listaAnuncion.get(contador);
+
                     compradorDto = controllerInicio.obtenerComprador();
                     Puja puja = new Puja(generarCodigo(), anuncioDto.valorInicial(), valorPuja, compradorDto.nombre(), anuncioDto.nombreAnunciante(), anuncioDto.nombre(), anuncioDto.url());
                     puja.setTipoEstadoPuja(TipoEstadoPuja.PERDIDA);
