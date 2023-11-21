@@ -36,7 +36,8 @@ public class ControllerAnuncioView implements Initializable {
     LocalDate fechaInicio;
     LocalDate fechaFinalizacion;
     private AnuncianteDto anuncianteDto;
-    private ObservableList<AnuncioDto> listaAnuncios = FXCollections.observableArrayList();    @FXML
+    private ObservableList<AnuncioDto> listaAnuncios = FXCollections.observableArrayList();
+    @FXML
     private Button btnPublicar;
 
     @FXML
@@ -95,28 +96,31 @@ public class ControllerAnuncioView implements Initializable {
     }
 
 
-
-
     @FXML
     void publicarAnuncio(ActionEvent event) throws IOException, InterruptedException {
         if (controllerAnuncio.obtenerAutenticacion()) {
             if (validarCampos()) {
-                if(anuncianteDto.cantAnunciosActivos()<10){
-                if (controllerAnuncio.verificarAnuncios(anuncioDto)) {
-                    controllerAnuncio.guardarAnuncio(anuncioDto);
-                    controllerAnuncio.contabilizarAnuncios(1);
-                    mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+                if (anuncianteDto.cantAnunciosActivos() < 10) {
+                    if (controllerAnuncio.verificarAnuncios(anuncioDto)) {
+                        controllerAnuncio.guardarAnuncio(anuncioDto);
 
-                } else {
+                        controllerAnuncio.contabilizarAnuncios(1);
+                        controllerAnuncio.guardarAnunciante(anuncianteDto);
+                        mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
 
-                    mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
-                    registrarAcciones("Se publico anuncio",1,"se publico anuncio");
+                    } else {
+
+                        mostrarMensaje("Anuncio " + anuncioDto.nombre(), " no se publico ", "no se publico anuncio ya existe " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
+                        registrarAcciones("Se publico anuncio", 1, "se publico anuncio");
+                    }
+                }else {
+                    mostrarMensaje("Total de anuncios activos","total de anuncios activos","total de anuncios activos", Alert.AlertType.INFORMATION);
                 }
-            }}
+            }
         } else {
             mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
             registrarAcciones("Error al publicar anuncio debe autenticarse", 1, "no hubo un registro");
-            registrarAcciones("erro al publicar anuncio",1,"error al publicar anuncio");
+            registrarAcciones("erro al publicar anuncio", 1, "error al publicar anuncio");
 
         }
 
@@ -193,14 +197,13 @@ public class ControllerAnuncioView implements Initializable {
                     System.out.println("Ningún elemento seleccionado.");
                 }
             }
-        }else {
+        } else {
             mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder eliminar el producto", Alert.AlertType.ERROR);
             registrarAcciones("Error al publicar anuncio debe autenticarse , execption lanzada", 1, "no hubo un registro");
             throw new AutenticacionExecption("Autenticacion invalida");
         }
 
     }//SEgunda parte
-
 
 
     private void registrarAcciones(String mensaje, int nivel, String accion) {
@@ -289,9 +292,6 @@ public class ControllerAnuncioView implements Initializable {
     }
 
     //metodo que une los dto del anuncio en un solo dto llamado publicacionesDto
-
-
-
 
 
 }

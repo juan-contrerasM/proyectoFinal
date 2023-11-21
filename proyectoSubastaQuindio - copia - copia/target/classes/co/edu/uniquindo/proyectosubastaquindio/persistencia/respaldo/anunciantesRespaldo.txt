@@ -1,5 +1,2 @@
-juan--contreras--10--juan--18--123--123--11.0
-juan--jnk--10--2--2--nkml--2--11.0
-steven--contreras--10--steven--45--12345--12345--11.0
-juan--hk--10--jsks--77--nk--bjnk--11.0
-sara--ccc--10--sara--18--234--123--11.0
+juan--contreras--0--juan--18--123--123--11.0
+sara--xxx--1--sara--19--87289--123--11.0

@@ -70,7 +70,7 @@
                                                 </HBox>
                                             </children>
                                         </Pane>
-                                        <AnchorPane layoutX="25.0" layoutY="23.0" prefHeight="200.0" prefWidth="240.0">
+                                        <AnchorPane layoutX="25.0" layoutY="23.0" prefHeight="163.0" prefWidth="288.0">
                                             <children>
                                                 <ImageView fitHeight="112.0" fitWidth="166.0" layoutX="101.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
@@ -84,6 +84,7 @@
                                                 </Label>
                                             </children>
                                         </AnchorPane>
+               <Button fx:id="btnRefrescar" layoutX="41.0" layoutY="209.0" mnemonicParsing="false" onAction="#refrescar" prefHeight="42.0" prefWidth="105.0" text="Refrescar" />
                                     </children>
                                 </Pane>
                             </children>

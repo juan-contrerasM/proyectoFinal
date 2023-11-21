@@ -71,8 +71,10 @@ public class ModelfactoryController implements IModelFactoryService {
 
 
     public List<AnuncioDto> cargarAnuncios() throws IOException {
+        subastaQuindio.setListaAnuncios(Persistencia.cargarAnuncios());
 
-      return   mapper.getAnuncioDto(Persistencia.cargarAnuncios());
+
+      return   mapper.getAnuncioDto(subastaQuindio.getListaAnuncios());
     }
 //--------------------------------inicio---------------------------------------
     public void guarPujarDto(Puja puja) throws IOException {
@@ -99,8 +101,9 @@ public class ModelfactoryController implements IModelFactoryService {
         Persistencia.guardarPujas(subastaQuindio.getListaPujas());
     }
 
-    public void contabilizarAnuncios(int i) {
+    public void contabilizarAnuncios(int i) throws IOException {
         subastaQuindio.contabilizarAnuncios(i);
+       Persistencia.guardarAnunciastes( subastaQuindio.guardarAnuncianteAnuncios(Persistencia.cargarAnunciantes()));
     }
 
     public ArrayList<Anuncio> obtenerAnuncios() throws IOException {
@@ -109,6 +112,11 @@ public class ModelfactoryController implements IModelFactoryService {
 
     public void guardarAnuncios2(ArrayList<Anuncio> anun) throws IOException {
         Persistencia.guardarAnuncios(anun);
+    }
+
+    public void guardarAnuncianteCantAnuncios(AnuncianteDto anuncianteDto) throws IOException {
+        subastaQuindio.modificarAnubiante( mapper.anuncianteDtoToAnunciante(anuncianteDto));
+        Persistencia.guardarAnunciastes(subastaQuindio.getListaAnunciantes());
     }
 
 

@@ -1,6 +1,7 @@
 package co.edu.uniquindo.proyectosubastaquindio.model;
 
 import co.edu.uniquindo.proyectosubastaquindio.controllersView.ControllerInicioView;
+import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncianteDto;
 import co.edu.uniquindo.proyectosubastaquindio.mapping.dto.AnuncioDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -332,6 +333,7 @@ public class SubastaQuindio implements Serializable {
     public void eliminarAnuncio(AnuncioDto anuncioDto) {
         for (int i = 0; i <listaAnuncios.size() ; i++) {
             if (listaAnuncios.get(i).getNombre().equals(anuncioDto.nombre())){
+                System.out.println("ELIMINADO");
                 listaAnuncios.remove(i);
             }
 
@@ -339,6 +341,26 @@ public class SubastaQuindio implements Serializable {
     }
 
     public void contabilizarAnuncios(int i) {
-        anuncianteGlobal.setCantAnunciosActivos(anuncianteGlobal.getCantAnunciosActivos()+i);
+        anuncianteGlobal.setCantAnunciosActivos((anuncianteGlobal.getCantAnunciosActivos()+i));
+
+    }
+
+    public void modificarAnubiante(Anunciante anuncianteDto) {
+        for (int i = 0; i <listaAnunciantes.size() ; i++) {
+            if(listaAnunciantes.get(i).getUsuario().equals(anuncianteDto.getUsuario())){
+                listaAnunciantes.remove(i);
+                listaAnunciantes.add(anuncianteDto);
+            }
+
+        }
+    }
+
+    public ArrayList<Anunciante> guardarAnuncianteAnuncios(ArrayList<Anunciante> anunciantes) {
+        for (int i = 0; i <anunciantes.size() ; i++) {
+            if(anunciantes.get(i).getNombre().equals(anuncianteGlobal.getNombre())){
+                anunciantes.remove(i);
+            }
+        }
+        return anunciantes;
     }
 }

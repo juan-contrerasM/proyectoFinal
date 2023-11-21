@@ -145,7 +145,7 @@ public class ControllerRegistroView implements Initializable {
                 Integer.parseInt(txtEdad.getText()),
                 txtUsuario.getText(),
                 txtClave.getText(),
-                10,
+                0,
                 11
 
 
@@ -162,7 +162,7 @@ public class ControllerRegistroView implements Initializable {
                 Integer.parseInt(txtEdad.getText()),
                 txtUsuario.getText(),
                 txtClave.getText(),
-                10
+                0
         );
 
     }

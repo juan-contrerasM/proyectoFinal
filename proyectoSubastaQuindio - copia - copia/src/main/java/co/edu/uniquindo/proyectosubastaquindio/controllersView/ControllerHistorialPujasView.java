@@ -96,7 +96,7 @@ public class ControllerHistorialPujasView implements Initializable {
 
     private void listenerSelection() {
 
-            if (controllerHistorialPujas.obtenerAutenticaion()) {
+
                 tableHistorial.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
                     puja = newSelection;
                     registrarAcciones("puja seleccionado", 1, "puja seleccionado");
@@ -105,7 +105,7 @@ public class ControllerHistorialPujasView implements Initializable {
                     Image image = new Image(puja.getUrl());
                     imgProducto.setImage(image);
                 });
-            }
+
     }
 
 

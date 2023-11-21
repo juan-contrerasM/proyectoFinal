@@ -52,7 +52,11 @@ public class ControllerAnuncio {
     }
 
 
-    public void contabilizarAnuncios(int i) {
+    public void contabilizarAnuncios(int i) throws IOException {
         modelfactoryController.contabilizarAnuncios(i);
+    }
+
+    public void guardarAnunciante(AnuncianteDto anuncianteDto) throws IOException {
+        modelfactoryController.guardarAnuncianteCantAnuncios(anuncianteDto);
     }
 }

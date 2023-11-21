@@ -81,6 +81,7 @@ public class ControlerPujasAnuncioView implements Initializable {
     void AnteriorAnuncio(MouseEvent event) throws IOException {
         if(controllerPujasAnuncio.obtenerAutenicacion()) {
             listaAnuncion.clear();
+            listAnunciosAux.clear();
             listAnunciosAux.addAll(controllerPujasAnuncio.cargarAnuncion());
             listaAnuncion.addAll(filtrarAnuncios());
             try {
@@ -140,6 +141,7 @@ public class ControlerPujasAnuncioView implements Initializable {
     void SiguienteAnuncio(MouseEvent event) throws IOException {
         if(controllerPujasAnuncio.obtenerAutenicacion()) {
             listaAnuncion.clear();
+            listAnunciosAux.clear();
             listAnunciosAux.addAll(controllerPujasAnuncio.cargarAnuncion());
             listaAnuncion.addAll(filtrarAnuncios());
 
@@ -250,10 +252,9 @@ public class ControlerPujasAnuncioView implements Initializable {
                 listaPujasDto.clear();
                 tablePujas.setItems(listaPujasDto);
             }
-        }else {
-
+        }else{
+            mostrarMensaje("debe autenticarse","debe autenticarse","debe autenticarse", Alert.AlertType.INFORMATION);
         }
-
     }
 
     @FXML

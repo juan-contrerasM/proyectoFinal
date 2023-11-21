@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -77,6 +78,31 @@ public class ControllerProductoView implements Initializable {
     private TextField txtNombreProducto;
     @FXML
     private TextField txtUrlFoto;
+    @FXML
+    private Button btnRefrescar;
+    private ObservableList<ProductoDto>Auxiliar=FXCollections.observableArrayList();
+    @FXML
+    void refrescar(ActionEvent event) {
+        if(ControllerProducto.obtenerAutenticacion()) {
+            try {
+                Auxiliar.addAll(ControllerProducto.obtenerListaProductosTxt());
+            } catch (IOException e) {
+                registrarAcciones("Se lanzo Exceptio Persistencia de archivos txt en controoller anuncio, metodo initializable", 2, "se lanzo exception");
+
+                throw new PersistenciaArchivosTxtException("error al obtener la lista e productos desde el archivo de texto", e);
+            }
+            tableDatos.getItems().clear();
+            tableDatos.setItems(productos);
+        }
+        else {
+            mostrarMensaje("Autenticarse", "Usuario no autnticado", "Debe registrarse para ser atutenticado\npara poder actualizar el producto", Alert.AlertType.ERROR);
+
+        }
+    }
+
+
+
+
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++INITIALIZABLE+++++++++++++++++++++++++++++++++++++++++++++
 
     @Override
@@ -87,26 +113,30 @@ public class ControllerProductoView implements Initializable {
 
         //intancia del controler
         ControllerProducto = new ControllerProducto();
-        try {
-            productos.addAll(ControllerProducto.obtenerListaProductosTxt());
-        } catch (IOException e) {
-            registrarAcciones("Se lanzo Exceptio Persistencia de archivos txt en controoller anuncio, metodo initializable", 2, "se lanzo exception");
 
-            throw new PersistenciaArchivosTxtException("error al obtener la lista e productos desde el archivo de texto", e);
-        }
-        //llamar metodo para poder traer la informaciond e producto seleccionado
-        listenerSelection();
-        //para que no puedan moodificar la url de forma manual
-        txtUrlFoto.setDisable(true);
+          /*  try {
+                productos.addAll(ControllerProducto.obtenerListaProductosTxt());
+            } catch (IOException e) {
+                registrarAcciones("Se lanzo Exceptio Persistencia de archivos txt en controoller anuncio, metodo initializable", 2, "se lanzo exception");
+
+                throw new PersistenciaArchivosTxtException("error al obtener la lista e productos desde el archivo de texto", e);
+            }
+            */
+
+            //llamar metodo para poder traer la informaciond e producto seleccionado
+            listenerSelection();
+            //para que no puedan moodificar la url de forma manual
+            txtUrlFoto.setDisable(true);
 
 
-        columnaUno.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
-        columnaDos.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
-        columnaTres.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().tipo_Articulo())));
-        columnaCuatro.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().urlFoto()));
+            columnaUno.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombreProducto()));
+            columnaDos.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
+            columnaTres.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().tipo_Articulo())));
+            columnaCuatro.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().urlFoto()));
 
-        tableDatos.getItems().clear();
-        tableDatos.setItems(productos);
+            tableDatos.getItems().clear();
+            //tableDatos.setItems(productos);
+
         registrarAcciones("inicio aplicion", 1, "Se inicializo aplicacion");
 
 
