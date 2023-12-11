@@ -357,8 +357,9 @@ public class SubastaQuindio implements Serializable {
 
     public ArrayList<Anunciante> guardarAnuncianteAnuncios(ArrayList<Anunciante> anunciantes) {
         for (int i = 0; i <anunciantes.size() ; i++) {
-            if(anunciantes.get(i).getNombre().equals(anuncianteGlobal.getNombre())){
+            if(anunciantes.get(i).getNombre().equals(anuncianteGlobal.getNombre())) {
                 anunciantes.remove(i);
+                anunciantes.add(i,anuncianteGlobal);
             }
         }
         return anunciantes;

@@ -100,12 +100,12 @@ public class ControllerAnuncioView implements Initializable {
     void publicarAnuncio(ActionEvent event) throws IOException, InterruptedException {
         if (controllerAnuncio.obtenerAutenticacion()) {
             if (validarCampos()) {
-                if (anuncianteDto.cantAnunciosActivos() < 10) {
+                if (anuncianteDto.cantAnunciosActivos() < 2) {
                     if (controllerAnuncio.verificarAnuncios(anuncioDto)) {
                         controllerAnuncio.guardarAnuncio(anuncioDto);
 
                         controllerAnuncio.contabilizarAnuncios(1);
-                        controllerAnuncio.guardarAnunciante(anuncianteDto);
+                      //  controllerAnuncio.guardarAnunciante(anuncianteDto);
                         mostrarMensaje("Anuncio " + anuncioDto.nombre(), "se publico ", "Se publico anuncio " + anuncioDto.nombre(), Alert.AlertType.INFORMATION);
 
                     } else {

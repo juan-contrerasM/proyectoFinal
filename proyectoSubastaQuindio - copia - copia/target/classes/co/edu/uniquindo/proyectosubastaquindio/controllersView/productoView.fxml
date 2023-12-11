@@ -18,7 +18,7 @@
 
                         <AnchorPane prefHeight="569.0" prefWidth="866.0">
                             <children>
-                                <Pane fx:id="panePrincipal" layoutX="5.0" layoutY="7.0" prefHeight="563.0" prefWidth="858.0" styleClass="label" stylesheets="@../css/prodcutoCss.css">
+                                <Pane fx:id="panePrincipal" layoutX="23.0" layoutY="31.0" prefHeight="563.0" prefWidth="858.0" styleClass="label" stylesheets="@../css/prodcutoCss.css">
                                     <children>
                                         <Pane fx:id="paneTable" layoutX="25.0" layoutY="251.0" prefHeight="216.0" prefWidth="819.0" styleClass="button" stylesheets="@../css/prodcutoCss.css">
                                             <children>
@@ -84,7 +84,7 @@
                                                 </Label>
                                             </children>
                                         </AnchorPane>
-               <Button fx:id="btnRefrescar" layoutX="41.0" layoutY="209.0" mnemonicParsing="false" onAction="#refrescar" prefHeight="42.0" prefWidth="105.0" text="Refrescar" />
+               <Button fx:id="btnRefrescar" layoutX="34.0" layoutY="210.0" mnemonicParsing="false" onAction="#refrescar" prefHeight="31.0" prefWidth="105.0" text="Refrescar" />
                                     </children>
                                 </Pane>
                             </children>
